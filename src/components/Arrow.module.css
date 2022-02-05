@@ -1,0 +1,36 @@
+.arrow_up {
+  position: absolute;
+  top: 50%;
+  left: 46.5%;
+  width: 7vw;
+  height: 7vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}.arrow_left {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  width: 7vw;
+  height: 7vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}.arrow_right {
+  position: absolute;
+  top: 80%;
+  right: 10%;
+  width: 7vw;
+  height: 7vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.arrow_up:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s;
+}
+.arrow_left:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s;
+}.arrow_right:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s;
+}

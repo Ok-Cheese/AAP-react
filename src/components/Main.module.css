@@ -1,0 +1,29 @@
+* {
+  animation: fadeIn 1s;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.contianer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.stair {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

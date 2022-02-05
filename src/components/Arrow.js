@@ -1,0 +1,45 @@
+import { Link } from 'react-router-dom';
+import arrow_left from '../imgs/arrow_left.png';
+import arrow_right from '../imgs/arrow_right.png';
+import arrow_up from '../imgs/arrow_up.png';
+import styles from './Arrow.module.css';
+
+
+
+function ArrowUp() {
+  return (
+    <Link
+      className={styles.arrow_up}
+      style={{
+        backgroundImage: `url(${arrow_up})`,
+      }}
+      to=""
+    />
+  )
+}
+
+function ArrowLeft() {
+  return (
+    <Link
+      className={styles.arrow_left}
+      style={{
+        backgroundImage: `url(${arrow_left})`,
+      }}
+      to=""
+    />
+  )
+}
+
+function ArrowRight() {
+  return (
+    <Link
+      className={styles.arrow_right}
+      style={{
+        backgroundImage: `url(${arrow_right})`,
+      }}
+      to=""
+    />
+  )
+}
+
+export {ArrowUp, ArrowLeft, ArrowRight};

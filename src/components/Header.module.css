@@ -1,0 +1,58 @@
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 110px;
+  padding: 15px;
+  z-index: 1;
+}
+
+.logo {
+  height: 100px;
+  margin-left: 15px;
+}
+
+.container_menu {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 800px;
+  transition: 1s;
+}
+.container_menu_closed {
+  position: absolute;
+  top: -100%;
+  left: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 800px;
+  transition: 1s;
+}
+
+span {
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+}
+span:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.btn_menu {
+  height: 80px;
+  margin-right: 50px;
+}
+.btn_menu:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s;
+  cursor: pointer;
+}
