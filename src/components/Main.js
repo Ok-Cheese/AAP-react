@@ -10,7 +10,6 @@ function Main() {
   useEffect(() => {
     setTimeout(() => {
       setStart(false);
-      console.log("work");
     }, 3000)
   }, []);
 
