@@ -5,7 +5,7 @@ import main1 from '../imgs/main1.jpg';
 import main2 from '../imgs/main2.jpg';
 import main3 from '../imgs/main3.jpg';
 import arrow from '../imgs/arrow_no_tail.png';
-import styles from './Main2.module.css';
+import styles from './style/Main2.module.css';
 
 function Main2() {
   const [start, setStart] = useState(true);
@@ -17,7 +17,8 @@ function Main2() {
 
   const [scroll, setScroll] = useState(0);
   function handleScroll(e) {
-    if (e.target.className !== "Main2_img_main__pttby") {
+    console.log(e.target.className);
+    if (e.target.className !== "Main2_img_main__qHCFX") {
       return;
     }
     let value;

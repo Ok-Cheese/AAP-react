@@ -1,5 +1,5 @@
 import logo from '../imgs/logo_bold_letter.png';
-import styles from './Start.module.css';
+import styles from './style/Start.module.css';
 
 function Start() {
   return (

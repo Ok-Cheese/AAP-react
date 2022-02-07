@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Start from './Start.js';
 import Header from './Header.js';
 import { ArrowUp, ArrowLeft, ArrowRight} from './Arrow.js';
-import styles from './Main.module.css';
+import styles from './style/Main.module.css';
 import img_stair from '../imgs/main.jpg';
 
 function Main() {
