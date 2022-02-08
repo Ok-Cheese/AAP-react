@@ -22,7 +22,7 @@ function Logos() {
     <div id={styles.outer}>
       <Header></Header>
       <section className={styles.contianer}>
-        <Link to={'/arcive/0A'}
+        <Link to={'/archive/0A'}
           className={styles.contianer_logo}
           style={{ top: "50%", left: "50%" }}
         >
@@ -35,7 +35,7 @@ function Logos() {
             style={{ fontSize: "4rem"}}
           >경성</span>
         </Link>
-        <Link to={'/arcive/0B'}
+        <Link to={'/archive/0B'}
           className={styles.contianer_logo}
           style={{ top: "0", left: "50%" }}
         >
@@ -47,7 +47,7 @@ function Logos() {
             className={styles.cityName}
           >인천</span>
         </Link>
-        <Link to={'/arcive/0C'} hidden
+        <Link to={'/archive/0C'} hidden
           className={styles.contianer_logo}
           style={{ top: "6.75%", left: "75%" }}
         >
@@ -59,7 +59,7 @@ function Logos() {
             className={styles.cityName}
           >대전</span>
         </Link>
-        <Link to={'/arcive/0D'} hidden
+        <Link to={'/archive/0D'} hidden
           className={styles.contianer_logo}
           style={{ top: "25%", left: "93.25%" }}
         >
@@ -71,7 +71,7 @@ function Logos() {
             className={styles.cityName}
           >대구</span>
         </Link>
-        <Link to={'/arcive/0E'} hidden
+        <Link to={'/archive/0E'} hidden
           className={styles.contianer_logo}
           style={{ top: "50%", left: "100%" }}
         >
@@ -83,7 +83,7 @@ function Logos() {
             className={styles.cityName}
           >부산</span>
         </Link>
-        <Link to={'/arcive/0F'} hidden
+        <Link to={'/archive/0F'} hidden
           className={styles.contianer_logo}
           style={{ top: "75%", left: "93.25%" }}
         >
@@ -95,7 +95,7 @@ function Logos() {
             className={styles.cityName}
           >군산</span>
         </Link>
-        <Link to={'/arcive/AA'} hidden
+        <Link to={'/archive/AA'} hidden
           className={styles.contianer_logo}
           style={{ top: "93.25%", left: "75%" }}
         >
@@ -107,7 +107,7 @@ function Logos() {
             className={styles.cityName}
           >목포</span>
         </Link>
-        <Link to={'/arcive/AB'} hidden
+        <Link to={'/archive/AB'} hidden
           className={styles.contianer_logo}
           style={{ top: "100%", left: "50%" }}
         >
@@ -119,7 +119,7 @@ function Logos() {
             className={styles.cityName}
           >광주</span>
         </Link>
-        <Link to={'/arcive/AC'} hidden
+        <Link to={'/archive/AC'} hidden
           className={styles.contianer_logo}
           style={{ top: "93.25%", left: "25%" }}
         >
@@ -131,7 +131,7 @@ function Logos() {
             className={styles.cityName}
           >평양</span>
         </Link>
-        <Link to={'/arcive/AD'} hidden
+        <Link to={'/archive/AD'} hidden
           className={styles.contianer_logo}
           style={{ top: "75%", left: "6.75%" }}
         >
@@ -143,7 +143,7 @@ function Logos() {
             className={styles.cityName}
           >청진</span>
         </Link>
-        <Link to={'/arcive/AE'} hidden
+        <Link to={'/archive/AE'} hidden
           className={styles.contianer_logo}
           style={{ top: "50%", left: "0%" }}
         >
@@ -155,7 +155,7 @@ function Logos() {
             className={styles.cityName}
           >신의주</span>
         </Link>
-        <Link to={'/arcive/AF'} hidden
+        <Link to={'/archive/AF'} hidden
           className={styles.contianer_logo}
           style={{ top: "25%", left: "6.75%" }}
         >
@@ -167,7 +167,7 @@ function Logos() {
             className={styles.cityName}
           >함흥</span>
         </Link>
-        <Link to={'/arcive/BA'} hidden
+        <Link to={'/archive/BA'} hidden
           className={styles.contianer_logo}
           style={{ top: "6.75%", left: "25%" }}
         >

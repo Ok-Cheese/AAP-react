@@ -3,6 +3,7 @@ import Main from './components/Main.js';
 import Main2 from './components/Main2.js';
 import About from './components/About.js';
 import Logos from './components/Logos.js';
+import Archive from './components/Archive.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
         } />
         <Route path="/logos" element={
           <Logos></Logos>
+        } />
+        <Route path="/archive/:id" element={
+          <Archive></Archive>
         } />
       </Routes>
     </Router>
