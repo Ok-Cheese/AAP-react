@@ -54,5 +54,5 @@
   transition: 0.2s;
 }
 .contianer_logo:hover .logo + .cityName {
-  display: block;
+  display: inline;
 }
