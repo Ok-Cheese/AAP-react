@@ -4,7 +4,7 @@ import styles from './style/Start.module.css';
 function Start() {
   return (
     <div className={styles.container_start}>
-      <img src={logo}/>
+      <img className={styles.start_logo} src={logo}/>
     </div>
   )
 }

@@ -16,13 +16,13 @@ function Main2() {
   }, []);
 
   const [scroll, setScroll] = useState(0);
+  let flag = true;
   function handleScroll(e) {
-    console.log(e.target.className);
-    if (e.target.className !== "Main2_img_main__qHCFX") {
+    if (!flag || e.target.parentNode.id !== "container_img") {
       return;
     }
     let value;
-    console.log(scroll);
+    flag = false;
     const container = e.target.parentNode;
     if (e.deltaY > 0 && scroll < 2) {
       value = scroll + 1;
@@ -34,7 +34,10 @@ function Main2() {
     container.style.marginTop = `${value * -100}vh`;
 
     // Main2.module.css의 .container_main transition과 시간 맞출 것.
-    setTimeout(() => setScroll(value), 1000);
+    setTimeout(() => {
+      setScroll(value);
+      flag = true;
+    }, 1000);
   }
   return (
     <main>
@@ -43,11 +46,12 @@ function Main2() {
         start ? <Start></Start> :
           <section className={styles.container}>
             <Header></Header>
-            <div className={styles.container_main}>
+            <div id="container_img" className={styles.container_main}>
               <div 
+                id='img_main'
                 className={styles.img_main} 
                 style={{ backgroundImage: `url(${main1})` }}>
-                <p>
+                <p className={styles.intro}>
                  AAP는<br></br>
                   근대건축물을 기억하고 소개합니다.
                 </p>
@@ -55,7 +59,7 @@ function Main2() {
               <div 
                 className={styles.img_main}
                 style={{ backgroundImage: `url(${main2})` }}>
-                <p>
+                <p className={styles.intro}>
                   일제강점기,<br></br>
                   아픈 역사를 담은 건물도<br></br>
                   우리 역사의 흔적이기에
@@ -64,7 +68,7 @@ function Main2() {
               <div 
                 className={styles.img_main}
                 style={{ backgroundImage: `url(${main3})` }}>
-                <p>
+                <p className={styles.intro}>
                   우리는 세월 속에<br></br>
                   그 가치를 잃은 근대건축물의<br></br>
                   보존과 활용에 대해 고민합니다.

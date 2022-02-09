@@ -1,0 +1,37 @@
+.about {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.container_outer {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 0vh;
+  transition: 1s;
+}
+
+.container_inner {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 100vh;
+}
+
+.img_tmp {
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.introAbout {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+}

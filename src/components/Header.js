@@ -18,10 +18,14 @@ function Header() {
     }
   }, [])
   return (
-    <header>
+    <header className={styles.header}>
       {opened ? 
-        <img className={styles.logo} src={logo_rev}></img>
-        : <img className={styles.logo} src={logo}></img>
+        <Link to={'/'}>
+          <img className={styles.logo} src={logo_rev}></img>
+        </Link> :
+        <Link to={'/'}>
+          <img className={styles.logo} src={logo}></img>
+        </Link>
       }
       {
         opened ? 

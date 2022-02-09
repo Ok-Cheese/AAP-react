@@ -27,7 +27,7 @@ body {
   background-repeat: no-repeat;
 }
 
-p {
+.intro {
   position: absolute;
   width: 1000px;
   font-family: "nanumgothic", sans-serif;
