@@ -28,43 +28,43 @@ function LogoHeader() {
       <header className={opened ? styles.opened : styles.closed}>
         <div className={styles.container_logo}>   
           <img className={styles.logo} src={logo}></img>
-          <Link className={styles.link} to='/archive/0A'>
+          <Link className={styles.link} to='/archive/01'>
             <img className={styles.mark} src={logo1}></img>
           </Link>
-          <Link className={styles.link} to='/archive/0B'>
+          <Link className={styles.link} to='/archive/02'>
             <img className={styles.mark} src={logo2}></img>
           </Link>
-          <Link className={styles.link} to='/archive/0C'>
+          <Link className={styles.link} to='/archive/03'>
             <img className={styles.mark} src={logo3}></img>
           </Link>
-          <Link className={styles.link} to='/archive/0D'>
+          <Link className={styles.link} to='/archive/04'>
             <img className={styles.mark} src={logo4}></img>
           </Link>
-          <Link className={styles.link} to='/archive/0E'>
+          <Link className={styles.link} to='/archive/05'>
             <img className={styles.mark} src={logo5}></img>
           </Link>
-          <Link className={styles.link} to='/archive/0F'>
+          <Link className={styles.link} to='/archive/06'>
             <img className={styles.mark} src={logo6}></img>
           </Link>
-          <Link className={styles.link} to='/archive/AA'>
+          <Link className={styles.link} to='/archive/07'>
             <img className={styles.mark} src={logo7}></img>
           </Link>
-          <Link className={styles.link} to='/archive/AB'>
+          <Link className={styles.link} to='/archive/08'>
             <img className={styles.mark} src={logo8}></img>
           </Link>
-          <Link className={styles.link} to='/archive/AC'>
+          <Link className={styles.link} to='/archive/09'>
             <img className={styles.mark} src={logo9}></img>
           </Link>
-          <Link className={styles.link} to='/archive/AD'>
+          <Link className={styles.link} to='/archive/10'>
             <img className={styles.mark} src={logo10}></img>
           </Link>
-          <Link className={styles.link} to='/archive/AE'>
+          <Link className={styles.link} to='/archive/11'>
             <img className={styles.mark} src={logo11}></img>
           </Link>
-          <Link className={styles.link} to='/archive/AF'>
+          <Link className={styles.link} to='/archive/12'>
             <img className={styles.mark} src={logo12}></img>
           </Link>
-          <Link className={styles.link} to='/archive/BA'>
+          <Link className={styles.link} to='/archive/13'>
             <img className={styles.mark} src={logo13}></img>
           </Link>
         </div>

@@ -29,9 +29,9 @@ function Logos() {
     <div id={styles.outer}>
       <Header></Header>
       <section className={styles.contianer}>
-        <Link to={'/archive/0A'}
+        <Link to={'/archive/01'}
           className={styles.contianer_logo}
-          style={{ top: "50%", left: "50%" }}
+          style={{ top: "50%", left: "50%", width: "10vw", height: "10vw"}}
         >
           <img
             className={`${styles.logo} ${styles.logo_center}`} src={logo1} hidden
@@ -39,12 +39,12 @@ function Logos() {
           ></img>
           {
             loaded ? 
-              <span className={styles.cityName} style={{ fontSize: "4rem"}}>
+              <span className={styles.cityName} style={{ fontSize: "5vmin"}}>
                 경성
               </span> : ""
           }
         </Link>
-        <Link to={'/archive/0B'}
+        <Link to={'/archive/02'}
           className={styles.contianer_logo}
           style={{ top: "0", left: "50%" }}
         >
@@ -56,7 +56,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>인천</span> : ""
           }
         </Link>
-        <Link to={'/archive/0C'} hidden
+        <Link to={'/archive/03'} hidden
           className={styles.contianer_logo}
           style={{ top: "6.75%", left: "75%" }}
         >
@@ -68,7 +68,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>대전</span> : ""
           }
         </Link>
-        <Link to={'/archive/0D'} hidden
+        <Link to={'/archive/04'} hidden
           className={styles.contianer_logo}
           style={{ top: "25%", left: "93.25%" }}
         >
@@ -80,7 +80,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>대구</span> : ""
           }
         </Link>
-        <Link to={'/archive/0E'} hidden
+        <Link to={'/archive/05'} hidden
           className={styles.contianer_logo}
           style={{ top: "50%", left: "100%" }}
         >
@@ -92,7 +92,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>부산</span> : ""
           }
         </Link>
-        <Link to={'/archive/0F'} hidden
+        <Link to={'/archive/06'} hidden
           className={styles.contianer_logo}
           style={{ top: "75%", left: "93.25%" }}
         >
@@ -104,7 +104,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>군산</span> : ""
           }
         </Link>
-        <Link to={'/archive/AA'} hidden
+        <Link to={'/archive/07'} hidden
           className={styles.contianer_logo}
           style={{ top: "93.25%", left: "75%" }}
         >
@@ -116,7 +116,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>목포</span> : ""
           }
         </Link>
-        <Link to={'/archive/AB'} hidden
+        <Link to={'/archive/08'} hidden
           className={styles.contianer_logo}
           style={{ top: "100%", left: "50%" }}
         >
@@ -128,7 +128,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>광주</span> : ""
           }
         </Link>
-        <Link to={'/archive/AC'} hidden
+        <Link to={'/archive/09'} hidden
           className={styles.contianer_logo}
           style={{ top: "93.25%", left: "25%" }}
         >
@@ -140,7 +140,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>평양</span> : ""
           }
         </Link>
-        <Link to={'/archive/AD'} hidden
+        <Link to={'/archive/10'} hidden
           className={styles.contianer_logo}
           style={{ top: "75%", left: "6.75%" }}
         >
@@ -152,7 +152,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>청진</span> : ""
           }
         </Link>
-        <Link to={'/archive/AE'} hidden
+        <Link to={'/archive/11'} hidden
           className={styles.contianer_logo}
           style={{ top: "50%", left: "0%" }}
         >
@@ -164,7 +164,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>신의주</span> : ""
           }
         </Link>
-        <Link to={'/archive/AF'} hidden
+        <Link to={'/archive/12'} hidden
           className={styles.contianer_logo}
           style={{ top: "25%", left: "6.75%" }}
         >
@@ -176,7 +176,7 @@ function Logos() {
             loaded ? <span className={styles.cityName}>함흥</span> : ""
           }
         </Link>
-        <Link to={'/archive/BA'} hidden
+        <Link to={'/archive/13'} hidden
           className={styles.contianer_logo}
           style={{ top: "6.75%", left: "25%" }}
         >

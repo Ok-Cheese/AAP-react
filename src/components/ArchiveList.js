@@ -18,9 +18,11 @@ function ArchiveList() {
           onClick={handleFilter}
         >비문화재</button>
       </div>
-      {
-        heritage  ? <li>문화재</li> : <li>비문화재</li>
-      }
+      <li>
+        <img></img>
+        <span className={styles.cityName}></span>
+        <span className={styles.subName}></span>
+      </li>
     </ul>
   )
 }

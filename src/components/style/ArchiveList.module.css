@@ -1,6 +1,7 @@
 .lists {
   width: 30%;
   height: 100%;
+  border-right: 3px solid gray;
 }
 .list_filter {
   display: flex;
