@@ -1,0 +1,58 @@
+.item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+  padding: 2vh;
+  cursor: pointer;
+}
+
+.item .img_item {
+  width: 150px;
+  height: 16vh;
+  border-radius: 100px;
+  border: 1px solid black;
+  object-fit: cover;
+}
+
+.item .textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.item .textbox .namebox {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3vh;
+  margin-bottom: 1vh;
+}
+.item .textbox .namebox p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.item .textbox .namebox span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.item .textbox .tagbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 3vh;
+}
+.item .textbox .tagbox .tag{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(235, 135, 135);
+  border: none;
+  border-radius: 10px;
+  padding: 1vh;
+  margin-right: 0.5vh;
+}

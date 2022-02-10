@@ -1,14 +1,19 @@
 .lists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 30%;
   height: 100%;
   border-right: 3px solid gray;
+  overflow-y: scroll;
 }
 .list_filter {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 8vh;
+  height: 10vh;
+  border-bottom: 1px solid black;
 }
 .filter_btn {
   width: 30%;

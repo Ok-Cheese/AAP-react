@@ -1,0 +1,57 @@
+.container_inform {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  width: 70%;
+  height: 100%;
+  z-index: 1;
+  transition: 0.5s;
+}
+.inform_handle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 50px;
+  height: 100px;
+  border: 1px solid gray;
+  border-right: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-color: white;
+  transform: translate(-100%, -50%);
+  cursor: pointer;
+}
+.information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 5vh;
+}
+.information img {
+  width: 60%;
+  height: 55%;
+  border: 1px solid black;
+  margin-right: 3vw;
+}
+.information .textbox {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  padding: 1%;
+}
+.information .textbox .title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.information .textbox .subtitle {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 3vh;
+}
+.information .textbox .content {
+  font-size: 1.2rem;
+}
