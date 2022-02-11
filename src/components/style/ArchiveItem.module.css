@@ -6,12 +6,21 @@
   padding: 2vh;
   cursor: pointer;
 }
+.item:hover .img_item {
+  transform: scale(1.2, 1.2);
+  transition: 0.5s;
+}
 
-.item .img_item {
+.item .img_container {
   width: 150px;
   height: 16vh;
-  border-radius: 100px;
   border: 1px solid black;
+  border-radius: 100px;
+  overflow: hidden;
+}
+.item .img_item {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 

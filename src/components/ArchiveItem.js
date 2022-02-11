@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import emptyImg from '../imgs/logo_empty.png';
 import styles from './style/ArchiveItem.module.css';
 
 function ArchiveItem({ cityData, propFunc, filterData }) {
@@ -25,7 +26,9 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
         || (trueArr.includes("현존") && item.existence === 1)
         || (trueArr.includes("소실") && item.heritage === 0)
       ) {
-        const link = `https://drive.google.com/uc?export=download&id=${item.imageId.split('/')[5]}`;
+        const link = item.imageId ?
+        `https://drive.google.com/uc?export=download&id=${item.imageId.split('/')[5]}`
+        : emptyImg;
         result.push(
           <li 
             id={item.id}
@@ -33,10 +36,13 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
             className={styles.item} 
             key={i}
           >
-            <img 
-              className={styles.img_item}
-              src={link}
-            ></img>
+            <div className={styles.img_container}>
+              <img
+                className={styles.img_item}
+                //style={{ backgroundImage: `URL(${link})` }}
+                src={link}
+              ></img>
+            </div>
             <div className={styles.textbox}>
               <div className={styles.namebox}>
                 <p>{item.name}</p>
