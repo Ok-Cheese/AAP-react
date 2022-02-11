@@ -11,11 +11,6 @@ import ArchiveList from './ArchiveList.js';
 
 function Archive() {
   const [load, setLoad] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoad(true);
-    }, 2000)
-  }, []);
 
   const id = useParams().id;
 
@@ -35,33 +30,42 @@ function Archive() {
     "13": [39.15260516930561, 127.44150024696026],
   }
 
-  const [coords, setCoords] = useState([latLon[id][0], latLon[id][1]])
-  // 카카오 맵
-  useEffect(() => {
-    if (load) {
-      const container = document.getElementById('map');
-      const options = {
-        center: new kakao.maps.LatLng(coords[0], coords[1]),
-        level: 3
-      };
-      const map = new kakao.maps.Map(container, options);
-
-      for (let i = 0; i < cityData.length; i++) {
-        const lat = +cityData[i]["latitude"];
-        const lon = +cityData[i]["longitude"];
-        if (cityData.length) {
-          const position = new kakao.maps.LatLng(lat, lon);
-          const marker = new kakao.maps.Marker({
-            position: position
-          })
-          marker.setMap(map);
-        }
-      }
-    }
-  }, [load, coords]);  
-  
-  
   const cityData = itemData[+id - 1]["items"];
+  const [coord, setCoord] = useState([latLon[id][0], latLon[id][1]]);
+
+  // 카카오 맵
+  const kakaoMap = useRef();
+  const options = {
+    center: new kakao.maps.LatLng(coord[0], coord[1]),
+    level: 3
+  };
+
+  useEffect(() => {
+    setLoad(false);
+    setTimeout(() => {
+      setLoad(true);
+    }, 2000);
+
+
+    setCoord([latLon[id][0], latLon[id][1]]);
+    options["center"] = new kakao.maps.LatLng(coord[0], coord[1]);
+  }, [id]);
+
+  function renderMap() {
+    const map = new kakao.maps.Map(kakaoMap.current, options);
+    for (let i = 0; i < cityData.length; i++) {
+      const lat = +cityData[i]["latitude"];
+      const lon = +cityData[i]["longitude"];
+      const position = new kakao.maps.LatLng(lat, lon);
+      const marker = new kakao.maps.Marker({
+        map: map,
+        position: position
+      })
+      marker.setMap(map);
+    }
+  }
+  
+  
   const [sideClosed, setSideClosed] = useState(true);
 
   const [selectedItemData, setSeletecItemData] = useState({
@@ -72,7 +76,6 @@ function Archive() {
     "img2": cityData[0].informImage2,
     "img3": cityData[0].informImage3
   });
-
 
   function handleItemClick(selectedId) {
     let selectedItem;
@@ -91,13 +94,14 @@ function Archive() {
       "img3": selectedItem.informImage3
     });
 
-    const newPosition 
-      = new kakao.maps.LatLng(+selectedItem.latitude, +selectedItem.longitude);
-    //map.panTo(newPosition);
-
     setSideClosed(false);
-  }
 
+    const lat = +selectedItem.latitude;
+    const lon = +selectedItem.longitude;
+    /* options["level"] = 1;
+    options["center"] = new kakao.maps.LatLng(lat, lon);
+    renderMap(); */
+  }
   
   return (
     <main>
@@ -105,9 +109,12 @@ function Archive() {
         load ? 
           <div className={styles.outer}>
             <LogoHeader></LogoHeader>
-            <section className={styles.container_map}>
+            <section className={styles.container_map} onLoad={renderMap}>
               <ArchiveList propFunc={handleItemClick} id={id}></ArchiveList>
-              <div id="map" className={styles.map}></div>
+              <div id="map" 
+                ref={kakaoMap}
+                className={styles.map}
+              ></div>
               <img className={styles.logo} src={logo}></img>
               <Information
                 title={selectedItemData.title}
@@ -120,10 +127,7 @@ function Archive() {
                 propFunc={setSideClosed}
               ></Information>
             </section>
-          </div>
-          : <Loading 
-              cityData={cityData}
-            />
+          </div> : <Loading cityData={cityData} />
       }
     </main>
   );

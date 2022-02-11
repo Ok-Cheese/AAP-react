@@ -1,4 +1,5 @@
 .lists {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,8 +8,52 @@
   border-right: 3px solid gray;
   overflow-y: scroll;
 }
-.list_filter {
+.lists button {
+  position: absolute;
+  top: 2%;
+  left: 97%;
+  width: 1.5vw;
+  height: 1.5vw;
+  font-size: 1.5vmin;
+  transform: translate(-100%, 0%);
+  z-index: 1;
+}
+.filter_closed{
+  position: absolute;
+  top: 1%;
+  left: 99%;
+
+  width: 5vh;
+  height: 5vh;
+  border-radius: 10px;
+  transform: translate(-100%, 0%);
+  transition: 0.3s;
+}
+.filter_opened {
+  position: absolute;
+  top: 1%;
+  left: 99%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+  width: 97%;
+  height: 10vh;
+  border-radius: 10px;
+  padding: 1vh;
+  padding-right: 2vw;
+  background-color: rgba(0, 0, 0, 0.65);
+  transform: translate(-100%, 0%);
+  transition: 0.3s;
+}
+.filter_opened input {
+  width: 1vw;
+  height: 1vw;
+  margin-left: 1vw;
+}
+.filter_opened span {
+  font-size: 2vmin;
+  font-weight: bold;
+  color: white;
+  margin-left: 1vh;
 }
