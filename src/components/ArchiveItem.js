@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import emptyImg from '../imgs/logo_empty.png';
 import styles from './style/ArchiveItem.module.css';
 
@@ -8,7 +8,6 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
   }
 
   useEffect(() => {
-    console.log(1);
   }, [filterData]);
   const renderList = (filterData) => {
     const result = [];
@@ -20,12 +19,15 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
     }
     for (let i = 0; i < cityData.length; i++) {
       const item = cityData[i];
-      if (trueArr.includes(item.role)
-        || (trueArr.includes("문화재") && item.heritage === 1)
-        || (trueArr.includes("비문화재") && item.heritage === 0)
-        || (trueArr.includes("현존") && item.existence === 1)
-        || (trueArr.includes("소실") && item.heritage === 0)
+      if (!trueArr.includes(item.role)
+        || (!trueArr.includes("문화재") && item.heritage === "1")
+        || (!trueArr.includes("비문화재") && item.heritage === "0")
+        || (!trueArr.includes("현존") && item.existence === "1")
+        || (!trueArr.includes("소실") && item.heritage === "0")
       ) {
+        continue;
+      } else {
+        console.log(trueArr, item.heritage);
         const link = item.imageId ?
         `https://drive.google.com/uc?export=download&id=${item.imageId.split('/')[5]}`
         : emptyImg;
@@ -85,7 +87,10 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
         )
       }
     }
-     return result;
+    if (result.length < 1) {
+      return (<span className={styles.empty_list}>조건에 맞는 건물이 없습니다.</span>)
+    }
+    return result;
   }
 
   return (renderList(filterData))

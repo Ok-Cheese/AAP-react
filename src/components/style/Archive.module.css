@@ -2,6 +2,12 @@ ul, li {
   display: inline;
   list-style: none;
 }
+.outer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
 .container_map {
   position: relative;
@@ -18,9 +24,23 @@ ul, li {
 .logo {
   position: absolute;
   top: 85%;
-  left: 88%;
+  left: 90%;
   width: 10%;
   height: auto;
   object-fit: contain;
   z-index: 1;
+}
+
+.preload_imgs {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  width: auto;
+  height: auto;
+  background-color: aqua;
+}
+.preload_img {
+  width: 1px;
+  height: 1px;
+  object-fit: cover;
 }

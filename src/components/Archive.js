@@ -6,6 +6,7 @@ import Information from './Information.js';
 import Loading from './Loading.js';
 import itemData from '../data/item.js';
 import logo from '../imgs/logo_letter_border.png';
+import emptyImg from '../imgs/logo_empty.png';
 import styles from './style/Archive.module.css';
 import ArchiveList from './ArchiveList.js';
 
@@ -37,7 +38,7 @@ function Archive() {
   const kakaoMap = useRef();
   const options = {
     center: new kakao.maps.LatLng(coord[0], coord[1]),
-    level: 3
+    level: 5,
   };
 
   useEffect(() => {
@@ -103,12 +104,32 @@ function Archive() {
     renderMap(); */
   }
   
+  function preloading() {
+    const result = [];
+    for (let i = 0; i < cityData.length; i++) {
+      const link = cityData[i].imageId ?
+        `https://drive.google.com/uc?export=download&id=${cityData[i].imageId.split('/')[5]}`
+        : emptyImg;
+      result.push(
+      <img
+        key={i}
+        className={styles.preload_img}
+        src={link}
+      />
+      )
+    }
+    return result;
+  }
+
   return (
     <main>
       {
         load ? 
           <div className={styles.outer}>
             <LogoHeader></LogoHeader>
+            <div className={styles.preload_imgs}>
+              {preloading()}
+            </div>
             <section className={styles.container_map} onLoad={renderMap}>
               <ArchiveList propFunc={handleItemClick} id={id}></ArchiveList>
               <div id="map" 
@@ -127,7 +148,7 @@ function Archive() {
                 propFunc={setSideClosed}
               ></Information>
             </section>
-          </div> : <Loading cityData={cityData} />
+          </div> : <Loading cityData={cityData} propFunc={preloading} />
       }
     </main>
   );
