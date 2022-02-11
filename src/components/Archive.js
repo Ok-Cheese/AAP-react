@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import LogoHeader from './LogoHeader.js';
 import Information from './Information.js';
+import Loading from './Loading.js';
 import itemData from '../data/item.js';
 import logo from '../imgs/logo_letter_border.png';
 import styles from './style/Archive.module.css';
@@ -57,7 +58,7 @@ function Archive() {
         }
       }
     }
-  }, [id, load, coords]);  
+  }, [load, coords]);  
   
   
   const cityData = itemData[+id - 1]["items"];
@@ -120,7 +121,9 @@ function Archive() {
               ></Information>
             </section>
           </div>
-          : <div></div>
+          : <Loading 
+              cityData={cityData}
+            />
       }
     </main>
   );

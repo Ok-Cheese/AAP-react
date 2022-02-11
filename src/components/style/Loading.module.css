@@ -1,0 +1,25 @@
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+}
+
+.loading {
+  font-size: 8rem;
+  font-weight: bolder;
+}
+
+.preload_imgs {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  width: auto;
+  height: auto;
+}
+.preload_img {
+  width: 1px;
+  height: 1px;
+  object-fit: cover;
+}
