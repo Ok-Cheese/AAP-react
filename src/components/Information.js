@@ -1,14 +1,16 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './style/information.module.css';
 
 function Information(props) {
   const sidePage = useRef();
-  const [sideClosed, setSideClosed] = useState(true);
+  
+  useEffect(() => {
+    props.closed ? sidePage.current.style.left = "100%" 
+      : sidePage.current.style.left = "30%";
+  }, [props.closed])
   
   function handleSideClosed(e) {
-    setSideClosed(current => !current);
-    sideClosed ? sidePage.current.style.left = "30%" 
-      : sidePage.current.style.left = "100%";
+    props.propFunc(current => !current);
   }
   return (
     <div ref={sidePage} className={styles.container_inform}>
@@ -16,7 +18,7 @@ function Information(props) {
         className={styles.inform_handle}
         onClick={handleSideClosed}
         >
-          { sideClosed ? "◀" : "▶"}
+          { props.closed ? "◀" : "▶"}
         </button>
       <div className={styles.information}>
         <img src={props.img1}></img>

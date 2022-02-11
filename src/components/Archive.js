@@ -61,6 +61,7 @@ function Archive() {
   
   
   const cityData = itemData[+id - 1]["items"];
+  const [sideClosed, setSideClosed] = useState(true);
 
   const [selectedItemData, setSeletecItemData] = useState({
     "title": cityData[0].name,
@@ -70,6 +71,7 @@ function Archive() {
     "img2": cityData[0].informImage2,
     "img3": cityData[0].informImage3
   });
+
 
   function handleItemClick(selectedId) {
     let selectedItem;
@@ -90,8 +92,9 @@ function Archive() {
 
     const newPosition 
       = new kakao.maps.LatLng(+selectedItem.latitude, +selectedItem.longitude);
-    console.log(newPosition);
     //map.panTo(newPosition);
+
+    setSideClosed(false);
   }
 
   
@@ -112,6 +115,8 @@ function Archive() {
                 img1={selectedItemData.img1}
                 img2={selectedItemData.img2}
                 img3={selectedItemData.img3}
+                closed={sideClosed}
+                propFunc={setSideClosed}
               ></Information>
             </section>
           </div>
