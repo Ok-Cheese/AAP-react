@@ -5,7 +5,7 @@
   width: 70%;
   height: 100%;
   z-index: 1;
-  transition: 0.5s;
+  transition: 1s;
 }
 .inform_handle {
   position: absolute;

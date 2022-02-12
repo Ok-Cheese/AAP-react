@@ -56,6 +56,7 @@ function Archive() {
   };
 
   useEffect(() => {
+    // 로딩 시간과 맞출 것
     setLoad(false);
     setTimeout(() => {
       setLoad(true);
@@ -64,14 +65,27 @@ function Archive() {
 
     setCoord([latLon[id][0], latLon[id][1]]);
     options["center"] = new kakao.maps.LatLng(coord[0], coord[1]);
+    // 로딩 시간과 맞출 것
     setTimeout(() => {
       renderMap();
     }, 2000);
   }, [id]);
   
 
-  function renderMap(inputFilterData, lat, lon) {
+  function renderMap(inputFilterData, coordArr) {
     const map = new kakao.maps.Map(kakaoMap.current, options);
+    if (coordArr) {
+      // 기본 1초 지연
+      setTimeout(() => {
+        const lat = +coordArr[0];
+        const lon = +coordArr[1];
+        map.panTo(new kakao.maps.LatLng(lat, lon));
+      }, 1000);
+      setTimeout(() => {
+        setSideClosed(false);    
+      }, 2000)
+    }
+
     for (let i = 0; i < cityData.length; i++) {
       let data = inputFilterData;
       if (!data) {
@@ -162,10 +176,12 @@ function Archive() {
       function mouseClickListener() {
         const lat = +cityData[i].latitude;
         const lon = +cityData[i].longitude;
-        options["center"] = new kakao.maps.LatLng(lat, lon);
         map.panTo(new kakao.maps.LatLng(lat, lon));
 
-        setSideClosed(false);
+        setTimeout(() => {
+          setSideClosed(false);
+        }, 1000);
+
         setSeletecItemData({
           "title": cityData[i].name,
           "subtitle": cityData[i].subName + " " + cityData[i].year,
@@ -210,14 +226,9 @@ function Archive() {
       "img3": selectedItem.informImage3
     });
 
-    setSideClosed(false);
-
     const lat = +selectedItem.latitude;
     const lon = +selectedItem.longitude;
-    options["level"] = 1;
-    options["center"] = new kakao.maps.LatLng(lat, lon);
-    renderMap(filterData, lat, lon);
-    console.log('run');
+    renderMap(filterData, [lat, lon]);
   }
   
   function preloading() {
