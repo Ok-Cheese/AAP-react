@@ -24,6 +24,7 @@ function ArchiveList(props) {
     newData[e.target.name] = !newData[e.target.name];
     props.setFilterData(newData);
     props.onFilterChange(newData);
+    console.log('run');
   }
   return (
     <ul className={styles.lists}>

@@ -64,13 +64,13 @@ function Archive() {
 
     setCoord([latLon[id][0], latLon[id][1]]);
     options["center"] = new kakao.maps.LatLng(coord[0], coord[1]);
+    setTimeout(() => {
+      renderMap();
+    }, 2000);
   }, [id]);
+  
 
-  function runEmptyRenderMap() {
-    renderMap();
-  }
-
-  function renderMap(inputFilterData) {
+  function renderMap(inputFilterData, lat, lon) {
     const map = new kakao.maps.Map(kakaoMap.current, options);
     for (let i = 0; i < cityData.length; i++) {
       let data = inputFilterData;
@@ -147,6 +147,7 @@ function Archive() {
           marker, 'mouseover', mouseOverListener(map, customOverlay));
         kakao.maps.event.addListener(
           marker, 'mouseout', mouseOutListener(customOverlay));
+        kakao.maps.event.addListener(marker, 'click', mouseClickListener);
       }
       function mouseOverListener(map, customOverlay) {
         return () => {
@@ -157,6 +158,23 @@ function Archive() {
         return () => {
           customOverlay.setMap(null);
         }
+      }
+      function mouseClickListener() {
+        const lat = +cityData[i].latitude;
+        const lon = +cityData[i].longitude;
+        options["center"] = new kakao.maps.LatLng(lat, lon);
+        map.panTo(new kakao.maps.LatLng(lat, lon));
+
+        setSideClosed(false);
+        setSeletecItemData({
+          "title": cityData[i].name,
+          "subtitle": cityData[i].subName + " " + cityData[i].year,
+          "desc": cityData[i].desc,
+          "img0": cityData[i].imageId,
+          "img1": cityData[i].informImage1,
+          "img2": cityData[i].informImage2,
+          "img3": cityData[i].informImage3
+        })
       }
     }
   }
@@ -196,9 +214,10 @@ function Archive() {
 
     const lat = +selectedItem.latitude;
     const lon = +selectedItem.longitude;
-    options["level"] = 2;
+    options["level"] = 1;
     options["center"] = new kakao.maps.LatLng(lat, lon);
-    renderMap(filterData);
+    renderMap(filterData, lat, lon);
+    console.log('run');
   }
   
   function preloading() {
@@ -227,9 +246,7 @@ function Archive() {
             <div className={styles.preload_imgs}>
               {preloading()}
             </div>
-            <section 
-              className={styles.container_map}
-              onLoad={runEmptyRenderMap}>
+            <section className={styles.container_map}>
               <ArchiveList 
                 propFunc={handleItemClick}
                 id={id}

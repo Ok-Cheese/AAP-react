@@ -13,21 +13,22 @@ function Information(props) {
   function handleSideClosed(e) {
     props.propFunc(current => !current);
   }
-  
-  const img0_link = props.img0 ?
+
+  let imgArr = [];
+  imgArr[0] = props.img0 ?
     `https://drive.google.com/uc?export=download&id=${props.img0.split('/')[5]}`
     : emptyImg;
-  const img1_link = props.img1 ?
+  imgArr[1] = props.img1 ?
   `https://drive.google.com/uc?export=download&id=${props.img1.split('/')[5]}`
   : emptyImg;
-  const img2_link = props.img2 ?
+  imgArr[2] = props.img2 ?
   `https://drive.google.com/uc?export=download&id=${props.img2.split('/')[5]}`
   : emptyImg;
-  const img3_link = props.img3 ?
+  imgArr[3] = props.img3 ?
   `https://drive.google.com/uc?export=download&id=${props.img3.split('/')[5]}`
   : emptyImg;
 
-  const [mainImg, setMainImg] = useState([img0_link, img1_link, img2_link, img3_link]);
+  const [mainImg, setMainImg] = useState(imgArr);
   function changeMainImg(e) {
     const newArr = mainImg.slice();
     if (e.target.id === "left") {
@@ -37,6 +38,10 @@ function Information(props) {
     }
     setMainImg(newArr);
   }
+
+  useEffect(() => {
+    setMainImg(imgArr);
+  }, [props.img0]);
 
   return (
     <div ref={sidePage} className={styles.container_inform}>
@@ -48,7 +53,7 @@ function Information(props) {
         </button>
       <div className={styles.information}>
         <div className={styles.img_outerBox}>
-          <img className={styles.img_main} src={mainImg[0]}></img>
+        <img className={styles.img_main} src={imgArr[0]}></img>
           <button 
             id="left" 
             className={styles.changeBefore} 
