@@ -23,24 +23,70 @@
 }
 .information {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
   background-color: white;
-  padding: 5vh;
+  padding: 5%;
 }
-.information img {
-  width: 60%;
-  height: 55%;
-  border: 1px solid black;
-  margin-right: 3vw;
+.information .img_outerBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  height: 80%;
 }
+.information .changeBefore {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  width: 5%;
+  height: 10%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+}
+.information .changeAfter {
+  position: absolute;
+  top: 50%;
+  left: 97%;
+  width: 5%;
+  height: 10%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+}
+.information .img_main {
+  width: 100%;
+  height: 78%;
+  border-radius: 15px;
+  margin-bottom: 2%;
+  object-fit: cover;
+}
+.information .img_innerBox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 20%;
+}
+.information .img_sub {
+  width: 32%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
 .information .textbox {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  height: auto;
+  width: 43%;
+  height: 80%;
+  border-radius: 10px;
+  background-color: blanchedalmond;
   padding: 1%;
 }
 .information .textbox .title {
@@ -50,7 +96,7 @@
 .information .textbox .subtitle {
   font-size: 1.4rem;
   font-weight: normal;
-  margin-bottom: 3vh;
+  margin-bottom: 1vh;
 }
 .information .textbox .content {
   font-size: 1.2rem;

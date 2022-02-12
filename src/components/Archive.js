@@ -73,6 +73,7 @@ function Archive() {
     "title": cityData[0].name,
     "subtitle": cityData[0].subName + " " + `(${cityData[0].year})`,
     "desc": cityData[0].desc,
+    "img0": cityData[0].imageId,
     "img1": cityData[0].informImage1,
     "img2": cityData[0].informImage2,
     "img3": cityData[0].informImage3
@@ -90,6 +91,7 @@ function Archive() {
       "title": selectedItem.name,
       "subtitle": selectedItem.subName + " " + selectedItem.year,
       "desc": selectedItem.desc,
+      "img0": selectedItem.imageId,
       "img1": selectedItem.informImage1,
       "img2": selectedItem.informImage2,
       "img3": selectedItem.informImage3
@@ -99,9 +101,9 @@ function Archive() {
 
     const lat = +selectedItem.latitude;
     const lon = +selectedItem.longitude;
-    /* options["level"] = 1;
+    options["level"] = 1;
     options["center"] = new kakao.maps.LatLng(lat, lon);
-    renderMap(); */
+    renderMap();
   }
   
   function preloading() {
@@ -141,6 +143,7 @@ function Archive() {
                 title={selectedItemData.title}
                 subtitle={selectedItemData.subtitle}
                 desc={selectedItemData.desc}
+                img0={selectedItemData.img0}
                 img1={selectedItemData.img1}
                 img2={selectedItemData.img2}
                 img3={selectedItemData.img3}

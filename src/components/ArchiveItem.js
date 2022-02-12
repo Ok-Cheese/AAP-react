@@ -27,7 +27,6 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
       ) {
         continue;
       } else {
-        console.log(trueArr, item.heritage);
         const link = item.imageId ?
         `https://drive.google.com/uc?export=download&id=${item.imageId.split('/')[5]}`
         : emptyImg;
