@@ -35,6 +35,18 @@ function Archive() {
 
   const cityData = itemData[+id - 1]["items"];
   const [coord, setCoord] = useState([latLon[id][0], latLon[id][1]]);
+  const [filterOepn, setFilterOpen] = useState(false);
+  const [filterData, setFilterData] = useState({
+    "공공": true,
+    "금융": true,
+    "상업": true,
+    "교육": true,
+    "주거": true,
+    "현존": true,
+    "소실": true,
+    "문화재": false,
+    "비문화재": true,
+  })
 
   // 카카오 맵
   const kakaoMap = useRef();
@@ -54,67 +66,88 @@ function Archive() {
     options["center"] = new kakao.maps.LatLng(coord[0], coord[1]);
   }, [id]);
 
-  function renderMap() {
+  function runEmptyRenderMap() {
+    renderMap();
+  }
+
+  function renderMap(inputFilterData) {
     const map = new kakao.maps.Map(kakaoMap.current, options);
     for (let i = 0; i < cityData.length; i++) {
-      const markerSrc = cityData[i].heritage === "1" ? markerH : markerB;
-      const markerSize = new kakao.maps.Size(40, 60);
-      const markerOption = { offset: new kakao.maps.Point(35, 70)};
-      const markerImage 
-        = new kakao.maps.MarkerImage(markerSrc, markerSize, markerOption);
-      const lat = +cityData[i]["latitude"];
-      const lon = +cityData[i]["longitude"];
-      const position = new kakao.maps.LatLng(lat, lon);
-      const marker = new kakao.maps.Marker({
-        image: markerImage,
-        position: position
-      })
-      marker.setMap(map);
+      let data = inputFilterData;
+      if (!data) {
+        data = filterData;
+      }
+      if (
+        data[cityData[i].role]
+        || (cityData[i].heritage === "1" && data["문화재"])
+        || (cityData[i].heritage === "0" && data["비문화재"])
+        || (cityData[i].existence === "1" && data["현존"])
+        || (cityData[i].existence === "0" && data["소실"])
+      ){
+        renderMarkers();
+      } else {
+        continue;  
+      }
 
-      const link = cityData[i].imageId ?
-        `https://drive.google.com/uc?export=download&id=${cityData[i].imageId.split('/')[5]}`
-        : emptyImg;
-        
-      const content = `
-        <div 
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width:10vw;
-            height:15vh;
-            border: 3px solid gray;
-            border-radius:10px;
-            background-color:rgba(255,255,255,0.8);
-            padding:3%;
-            transition: 0.1s;
-          "
-        >
-          <img src="${link}" style="width:100%; height: 80%"></img>
-          <span 
+      function renderMarkers() {
+        const markerSrc = cityData[i].heritage === "1" ? markerH : markerB;
+        const markerSize = new kakao.maps.Size(40, 60);
+        const markerOption = { offset: new kakao.maps.Point(35, 70)};
+        const markerImage 
+          = new kakao.maps.MarkerImage(markerSrc, markerSize, markerOption);
+        const lat = +cityData[i]["latitude"];
+        const lon = +cityData[i]["longitude"];
+        const position = new kakao.maps.LatLng(lat, lon);
+        const marker = new kakao.maps.Marker({
+          image: markerImage,
+          position: position
+        })
+        marker.setMap(map);
+  
+        const link = cityData[i].imageId ?
+          `https://drive.google.com/uc?export=download&id=${cityData[i].imageId.split('/')[5]}`
+          : emptyImg;
+          
+        const content = `
+          <div 
             style="
-              width:100%; 
-              height:15%; 
-              font-size: 1rem; 
-              font-weight:bold;
-              text-align:center;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              width:10vw;
+              height:15vh;
+              border: 3px solid gray;
+              border-radius:10px;
+              background-color:rgba(255,255,255,0.8);
+              padding:3%;
+              transition: 0.1s;
             "
           >
-          ${cityData[i].name}</span>
-        </div>
-      `;
-
-      const customOverlay = new kakao.maps.CustomOverlay({
-        position: position,
-        content: content,
-        yAnchor: 1.55,
-        xAnchor: 0.6,
-      })
-      kakao.maps.event.addListener(
-        marker, 'mouseover', mouseOverListener(map, customOverlay));
-      kakao.maps.event.addListener(
-        marker, 'mouseout', mouseOutListener(customOverlay));
-
+            <img src="${link}" style="width:100%; height: 80%"></img>
+            <span 
+              style="
+                width:100%; 
+                height:15%; 
+                font-size: 1rem; 
+                font-weight:bold;
+                text-align:center;
+              "
+            >
+            ${cityData[i].name}</span>
+          </div>
+        `;
+  
+        const customOverlay = new kakao.maps.CustomOverlay({
+          position: position,
+          content: content,
+          yAnchor: 1.55,
+          xAnchor: 0.6,
+        })
+        kakao.maps.event.addListener(
+          marker, 'mouseover', mouseOverListener(map, customOverlay));
+        kakao.maps.event.addListener(
+          marker, 'mouseout', mouseOutListener(customOverlay));
+      }
       function mouseOverListener(map, customOverlay) {
         return () => {
           customOverlay.setMap(map);
@@ -163,9 +196,9 @@ function Archive() {
 
     const lat = +selectedItem.latitude;
     const lon = +selectedItem.longitude;
-    options["level"] = 1;
+    options["level"] = 2;
     options["center"] = new kakao.maps.LatLng(lat, lon);
-    renderMap();
+    renderMap(filterData);
   }
   
   function preloading() {
@@ -194,8 +227,18 @@ function Archive() {
             <div className={styles.preload_imgs}>
               {preloading()}
             </div>
-            <section className={styles.container_map} onLoad={renderMap}>
-              <ArchiveList propFunc={handleItemClick} id={id}></ArchiveList>
+            <section 
+              className={styles.container_map}
+              onLoad={runEmptyRenderMap}>
+              <ArchiveList 
+                propFunc={handleItemClick}
+                id={id}
+                filterData={filterData}
+                filterOepn={filterOepn}
+                setFilterData={setFilterData}
+                setFilterOpen={setFilterOpen}
+                onFilterChange={renderMap}
+              ></ArchiveList>
               <div id="map" 
                 ref={kakaoMap}
                 className={styles.map}

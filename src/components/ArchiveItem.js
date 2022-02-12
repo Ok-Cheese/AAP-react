@@ -7,26 +7,23 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
     propFunc(e.currentTarget.id);
   }
 
-  useEffect(() => {
-  }, [filterData]);
   const renderList = (filterData) => {
     const result = [];
-    const trueArr = [];
+    /* const trueArr = [];
     for (let key of Object.keys(filterData)) {
       if (filterData[key]) {
         trueArr.push(key);
       }
-    }
+    } */
     for (let i = 0; i < cityData.length; i++) {
       const item = cityData[i];
-      if (!trueArr.includes(item.role)
-        || (!trueArr.includes("문화재") && item.heritage === "1")
-        || (!trueArr.includes("비문화재") && item.heritage === "0")
-        || (!trueArr.includes("현존") && item.existence === "1")
-        || (!trueArr.includes("소실") && item.heritage === "0")
+      if (
+        filterData[item.role]
+        || (item.heritage === "1" && filterData["문화재"])
+        || (item.heritage === "0" && filterData["비문화재"])
+        || (item.existence === "1" && filterData["현존"])
+        || (item.existence === "0" && filterData["소실"])
       ) {
-        continue;
-      } else {
         const link = item.imageId ?
         `https://drive.google.com/uc?export=download&id=${item.imageId.split('/')[5]}`
         : emptyImg;
@@ -84,6 +81,8 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
             </div>
           </li>
         )
+      } else {
+        continue;
       }
     }
     if (result.length < 1) {

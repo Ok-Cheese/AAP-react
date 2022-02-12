@@ -3,50 +3,38 @@ import itemData from '../data/item.js';
 import ArchiveItem from './ArchiveItem.js';
 import styles from './style/ArchiveList.module.css';
 
-function ArchiveList({ id, propFunc }) {
+function ArchiveList(props) {
 
-  const cityData = itemData[+id - 1]["items"];
-  const [filterOepn, setFilterOepn] = useState(false);
-  const [filterData, setFilterData] = useState({
-    "공공": true,
-    "금융": true,
-    "상업": true,
-    "교육": true,
-    "주거": true,
-    "현존": true,
-    "소실": true,
-    "문화재": false,
-    "비문화재": true,
-  })
-
+  const cityData = itemData[+props.id - 1]["items"];
   useEffect(() => {
-    for (let key of Object.keys(filterData)) {
-      if (filterData[key]) {
+    for (let key of Object.keys(props.filterData)) {
+      if (props.filterData[key]) {
         const target = document.getElementsByName(key);
         target[0].checked = true;
       }
     }
-  }, [filterOepn]);
+  }, [props.filterOepn]);
 
   function handleFilter() {
-    setFilterOepn(current => !current);
+    props.setFilterOpen(current => !current);
   }
   function handleCheck(e) {
-    const stringified = JSON.stringify(filterData);
+    const stringified = JSON.stringify(props.filterData);
     const newData = JSON.parse(stringified);
     newData[e.target.name] = !newData[e.target.name];
-    setFilterData(newData);
+    props.setFilterData(newData);
+    props.onFilterChange(newData);
   }
   return (
     <ul className={styles.lists}>
       <ArchiveItem 
-        propFunc={propFunc} 
+        propFunc={props.propFunc} 
         cityData={cityData}
-        filterData={filterData}
+        filterData={props.filterData}
       >
       </ArchiveItem>
       {
-        filterOepn ? 
+        props.filterOepn ? 
           <div>
             <button onClick={handleFilter}>➖</button>
             <div className={styles.filter_opened}>
