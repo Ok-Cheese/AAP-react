@@ -7,6 +7,8 @@ import Loading from './Loading.js';
 import itemData from '../data/item.js';
 import logo from '../imgs/logo_letter_border.png';
 import emptyImg from '../imgs/logo_empty.png';
+import markerH from '../imgs/marker_heritage.png';
+import markerB from '../imgs/marker_non_heritage.png';
 import styles from './style/Archive.module.css';
 import ArchiveList from './ArchiveList.js';
 
@@ -55,14 +57,74 @@ function Archive() {
   function renderMap() {
     const map = new kakao.maps.Map(kakaoMap.current, options);
     for (let i = 0; i < cityData.length; i++) {
+      const markerSrc = cityData[i].heritage === "1" ? markerH : markerB;
+      const markerSize = new kakao.maps.Size(40, 60);
+      const markerOption = { offset: new kakao.maps.Point(35, 70)};
+      const markerImage 
+        = new kakao.maps.MarkerImage(markerSrc, markerSize, markerOption);
       const lat = +cityData[i]["latitude"];
       const lon = +cityData[i]["longitude"];
       const position = new kakao.maps.LatLng(lat, lon);
       const marker = new kakao.maps.Marker({
-        map: map,
+        image: markerImage,
         position: position
       })
       marker.setMap(map);
+
+      const link = cityData[i].imageId ?
+        `https://drive.google.com/uc?export=download&id=${cityData[i].imageId.split('/')[5]}`
+        : emptyImg;
+        
+      const content = `
+        <div 
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width:10vw;
+            height:15vh;
+            border: 3px solid gray;
+            border-radius:10px;
+            background-color:rgba(255,255,255,0.8);
+            padding:3%;
+            transition: 0.1s;
+          "
+        >
+          <img src="${link}" style="width:100%; height: 80%"></img>
+          <span 
+            style="
+              width:100%; 
+              height:15%; 
+              font-size: 1rem; 
+              font-weight:bold;
+              text-align:center;
+            "
+          >
+          ${cityData[i].name}</span>
+        </div>
+      `;
+
+      const customOverlay = new kakao.maps.CustomOverlay({
+        position: position,
+        content: content,
+        yAnchor: 1.55,
+        xAnchor: 0.6,
+      })
+      kakao.maps.event.addListener(
+        marker, 'mouseover', mouseOverListener(map, customOverlay));
+      kakao.maps.event.addListener(
+        marker, 'mouseout', mouseOutListener(customOverlay));
+
+      function mouseOverListener(map, customOverlay) {
+        return () => {
+          customOverlay.setMap(map);
+        }
+      }
+      function mouseOutListener(customOverlay) {
+        return () => {
+          customOverlay.setMap(null);
+        }
+      }
     }
   }
   
