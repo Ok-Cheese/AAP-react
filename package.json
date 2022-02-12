@@ -40,7 +40,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://ok.cheese.github.io/AAP-with-React",
   "devDependencies": {
     "gh-pages": "^3.2.3"
   }
