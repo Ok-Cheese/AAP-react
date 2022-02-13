@@ -63,7 +63,7 @@ function Archive() {
     }, 2000);
 
 
-    setCoord([latLon[id][0], latLon[id][1]]);
+    setCoord([latLon[id - 1][0], latLon[id - 1][1]]);
     options["center"] = new kakao.maps.LatLng(coord[0], coord[1]);
     // 로딩 시간과 맞출 것
     setTimeout(() => {
