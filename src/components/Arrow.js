@@ -14,7 +14,8 @@ function ArrowUp() {
         backgroundImage: `url(${arrow_up})`,
       }}
       to=""
-    />
+    >
+    </Link>
   )
 }
 
@@ -26,7 +27,8 @@ function ArrowLeft() {
         backgroundImage: `url(${arrow_left})`,
       }}
       to=""
-    />
+    >
+    </Link>
   )
 }
 
@@ -38,7 +40,8 @@ function ArrowRight() {
         backgroundImage: `url(${arrow_right})`,
       }}
       to=""
-    />
+    >
+    </Link>
   )
 }
 

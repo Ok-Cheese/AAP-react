@@ -2,33 +2,45 @@
   position: absolute;
   top: 50%;
   left: 46.5%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   width: 7vw;
   height: 7vw;
+  text-decoration: none;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .arrow_left {
   position: absolute;
   top: 80%;
   left: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 7vw;
   height: 7vw;
+  text-decoration: none;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .arrow_right {
   position: absolute;
   top: 80%;
   right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 7vw;
   height: 7vw;
+  text-decoration: none;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .arrow_up:hover {
