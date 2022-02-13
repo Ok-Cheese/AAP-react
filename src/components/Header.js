@@ -13,19 +13,21 @@ function Header() {
   }
 
   const currentPath = window.location.pathname;
-  const basicPath = "/AAP-with-React/"
+  const basicPath = "/AAP-with-React";
+  const homeChecker = (currentPath === basicPath || currentPath === basicPath + "/");
+  console.log(homeChecker);
   useEffect (() => {
-    if (currentPath === basicPath) {
+    if (homeChecker) {
       setOpened(false);
     }
   }, [])
   return (
     <header className={styles.header}>
       {opened ? 
-        <Link to={currentPath === basicPath ? '/alt' : '/'}>
+        <Link to={homeChecker ? '/alt' : '/'}>
           <img className={styles.logo} src={logo_rev}></img>
         </Link> :
-        <Link to={currentPath === basicPath ? '/alt' : '/'}>
+        <Link to={homeChecker ? '/alt' : '/'}>
           <img className={styles.logo} src={logo}></img>
         </Link>
       }
