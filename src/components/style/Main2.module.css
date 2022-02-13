@@ -9,7 +9,7 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .container_main {
@@ -63,4 +63,15 @@ body {
   padding: 1vh;
   cursor: pointer;
   transform: rotateZ(90deg);
+}
+
+.container_preload_img {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+}
+
+.container_preload_img .preload_img {
+  width: 1px;
+  height: 1px;
 }

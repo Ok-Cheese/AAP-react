@@ -234,15 +234,41 @@ function Archive() {
   function preloading() {
     const result = [];
     for (let i = 0; i < cityData.length; i++) {
-      const link = cityData[i].imageId ?
+      const link1 = cityData[i].imageId ?
         `https://drive.google.com/uc?export=download&id=${cityData[i].imageId.split('/')[5]}`
         : emptyImg;
-      result.push(
-      <img
-        key={i}
-        className={styles.preload_img}
-        src={link}
-      />
+      const link2 = cityData[i].imageId ?
+      `https://drive.google.com/uc?export=download&id=${cityData[i].informImage1.split('/')[5]}`
+      : emptyImg;
+      const link3 = cityData[i].imageId ?
+      `https://drive.google.com/uc?export=download&id=${cityData[i].informImage2.split('/')[5]}`
+      : emptyImg;
+      const link4 = cityData[i].imageId ?
+      `https://drive.google.com/uc?export=download&id=${cityData[i].informImage3.split('/')[5]}`
+      : emptyImg;
+        result.push(
+        <div>
+          <img
+            key={i + "A"}
+            className={styles.preload_img}
+            src={link1}
+          />
+          <img
+            key={i + "B"}
+            className={styles.preload_img}
+            src={link2}
+          />
+          <img
+            key={i + "C"}
+            className={styles.preload_img}
+            src={link3}
+          />
+          <img
+            key={i + "D"}
+            className={styles.preload_img}
+            src={link4}
+          />
+        </div>
       )
     }
     return result;

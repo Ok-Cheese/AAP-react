@@ -53,7 +53,7 @@ function Information(props) {
         </button>
       <div className={styles.information}>
         <div className={styles.img_outerBox}>
-        <img className={styles.img_main} src={imgArr[0]}></img>
+        <img className={styles.img_main} src={mainImg[0]}></img>
           <button 
             id="left" 
             className={styles.changeBefore} 

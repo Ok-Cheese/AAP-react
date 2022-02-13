@@ -7,6 +7,24 @@ import main3 from '../imgs/main3.jpg';
 import arrow from '../imgs/arrow_no_tail.png';
 import styles from './style/Main2.module.css';
 
+// preload img
+import mark1 from '../imgs/Marks/경성.png';
+import mark2 from '../imgs/Marks/인천.png';
+import mark3 from '../imgs/Marks/대전.png';
+import mark4 from '../imgs/Marks/대구.png';
+import mark5 from '../imgs/Marks/부산.png';
+import mark6 from '../imgs/Marks/군산.png';
+import mark7 from '../imgs/Marks/목포.png';
+import mark8 from '../imgs/Marks/광주.png';
+import mark9 from '../imgs/Marks/평양.png';
+import mark10 from '../imgs/Marks/청진.png';
+import mark11 from '../imgs/Marks/신의주.png';
+import mark12 from '../imgs/Marks/함흥.png';
+import mark13 from '../imgs/Marks/원산.png';
+import about1 from '../imgs/about1.png';
+import about2 from '../imgs/about2.png';
+import about3 from '../imgs/about3.png';
+
 function Main2() {
   const [start, setStart] = useState(true);
   useEffect(() => {
@@ -84,6 +102,24 @@ function Main2() {
                 className={styles.down} 
                 src={arrow}
               ></img>
+            </div>
+            <div className={styles.container_preload_img}>
+              <img className={styles.preload_img} src={mark1}></img>
+              <img className={styles.preload_img} src={mark2}></img>
+              <img className={styles.preload_img} src={mark3}></img>
+              <img className={styles.preload_img} src={mark4}></img>
+              <img className={styles.preload_img} src={mark5}></img>
+              <img className={styles.preload_img} src={mark6}></img>
+              <img className={styles.preload_img} src={mark7}></img>
+              <img className={styles.preload_img} src={mark8}></img>
+              <img className={styles.preload_img} src={mark9}></img>
+              <img className={styles.preload_img} src={mark10}></img>
+              <img className={styles.preload_img} src={mark11}></img>
+              <img className={styles.preload_img} src={mark12}></img>
+              <img className={styles.preload_img} src={mark13}></img>
+              <img className={styles.preload_img} src={about1}></img>
+              <img className={styles.preload_img} src={about2}></img>
+              <img className={styles.preload_img} src={about3}></img>
             </div>
           </section>
       }
