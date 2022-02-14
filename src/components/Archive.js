@@ -217,6 +217,7 @@ function Archive() {
         break;
       }
     }
+    console.log(selectedItem);
     setSeletecItemData({
       "title": selectedItem.name,
       "subtitle": selectedItem.subName + " " + selectedItem.year,
@@ -238,13 +239,13 @@ function Archive() {
       const link1 = cityData[i].imageId ?
         `https://drive.google.com/uc?export=download&id=${cityData[i].imageId.split('/')[5]}`
         : emptyImg;
-      const link2 = cityData[i].imageId ?
+      const link2 = cityData[i].informImage1 ?
       `https://drive.google.com/uc?export=download&id=${cityData[i].informImage1.split('/')[5]}`
       : emptyImg;
-      const link3 = cityData[i].imageId ?
+      const link3 = cityData[i].informImage2 ?
       `https://drive.google.com/uc?export=download&id=${cityData[i].informImage2.split('/')[5]}`
       : emptyImg;
-      const link4 = cityData[i].imageId ?
+      const link4 = cityData[i].informImage3 ?
       `https://drive.google.com/uc?export=download&id=${cityData[i].informImage3.split('/')[5]}`
       : emptyImg;
         result.push(
