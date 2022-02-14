@@ -1,25 +1,20 @@
-.about {
+.outer {
   width: 100vw;
   height: 100vh;
   overflow-y: hidden;
 }
 
-.container_outer {
-  width: 100vw;
-  height: 100vh;
-  margin-top: 0vh;
-  transition: 1s;
-}
-
-.container_inner {
+.container {
   position: relative;
   display: flex;
-  justify-content: flex-end;
   width: 100vw;
   height: 100vh;
 }
 
-.img_tmp {
+.img_intro {
+  position: absolute;
+  top: 0%;
+  left: 40%;
   height: 100%;
   object-fit: cover;
   pointer-events: none;

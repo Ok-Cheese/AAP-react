@@ -6,7 +6,7 @@ import building3 from '../imgs/about3.png';
 import { useEffect, useState } from 'react';
 
 function About() {
-  document.onwheel = handleScroll;
+/*  document.onwheel = handleScroll;
   
   const [scroll, setScroll] = useState(0);
   let flag = true;
@@ -32,37 +32,19 @@ function About() {
       setScroll(value);
       flag = true;
     }, 1000);
-  }
+  } */
+
   return (
-    <section className={styles.about}>
+    <section className={styles.outer}>
       <Header></Header>
-      <div id="outer" className={styles.container_outer}>
-        <div className={styles.container_inner}>
-          <p className={styles.introAbout}>
-            Architecture<br></br>
-            Archive<br></br>
-            Project<br></br>
-          </p>
-          <img className={styles.img_tmp} src={building1}>
-          </img>
-        </div>
-        <div className={styles.container_inner}>
-          <p className={styles.introAbout}>
-            Text text<br></br>
-            Sed et felis.
-          </p>
-          <img className={styles.img_tmp} src={building2}
-            style={{ transform: "translate(30%, 0%)" }}>
-          </img>
-        </div>
-        <div className={styles.container_inner}>
-          <p className={styles.introAbout}>
-            In sollicitudin elit.<br></br>
-            Nullam non diam.
-          </p>
-          <img className={styles.img_tmp} src={building3}>
-            </img>
-        </div>
+      <div className={styles.container}>
+        <p className={styles.introAbout}>
+          Architecture<br></br>
+          Archive<br></br>
+          Project
+        </p>
+        <img className={styles.img_intro} src={building1}>
+        </img>
       </div>
     </section>
   )
