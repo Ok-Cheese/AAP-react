@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo_rev from '../imgs/logo_bold_rev.png';
 import logo from '../imgs/logo_bold.png';
-import btn_menu from '../imgs/menu_rev.png';
+import btn_menu from '../imgs/menu.png';
+import btn_menu_rev from '../imgs/menu_rev.png';
 import styles from './style/Header.module.css';
 
 function Header() {
@@ -40,11 +41,20 @@ function Header() {
           </div>
           : <div className={styles.container_menu_closed}></div>
       }
-      <img 
-        className={styles.btn_menu}
-        src={btn_menu}
-        onClick={openMenu}
-        />
+      {
+        opened ?
+          <img 
+          className={styles.btn_menu}
+          src={btn_menu_rev}
+          onClick={openMenu}
+          /> :
+          <img 
+          className={styles.btn_menu}
+          src={btn_menu}
+          onClick={openMenu}
+          />
+      }
+      
     </header>
   )
 }

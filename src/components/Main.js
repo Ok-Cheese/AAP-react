@@ -20,9 +20,6 @@ function Main() {
           <div className={styles.contianer}>
             <Header></Header>
             <img className={styles.stair} src={img_stair} alt='main'/>
-            <ArrowUp></ArrowUp>
-            <ArrowLeft></ArrowLeft>
-            <ArrowRight></ArrowRight>
           </div>
       }
     </main>

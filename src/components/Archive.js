@@ -271,6 +271,7 @@ function Archive() {
         </div>
       )
     }
+    console.log(result);
     return result;
   }
 

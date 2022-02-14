@@ -5,14 +5,15 @@
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 140px;
+  height: 15vh;
   padding: 15px;
   z-index: 1;
 }
 
 .logo {
-  height: 100px;
-  margin-left: 15px;
+  height: 11vh;
+  margin-left: 3vw;
+  margin-top: 1vh;
   animation: fadeIn 1s;
 }
 
@@ -30,12 +31,13 @@
   top: 0%;
   left: 0%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   width: 100vw;
   height: 100%;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  padding-right: 8vw;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: -1;
   transition: 1s;
@@ -64,10 +66,10 @@
 }
 
 .btn_menu {
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  margin-right: 4vw;
+  height: 80%;
+  border-radius: 5px;
+  margin-top: 1.5vh;
+  margin-right: 2vw;
 }
 .btn_menu:hover {
   transform: scale(1.1, 1.1);

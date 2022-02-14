@@ -31,7 +31,7 @@ function Logos() {
       <section className={styles.contianer}>
         <Link to={'/archive/01'}
           className={styles.contianer_logo}
-          style={{ top: "50%", left: "50%", width: "10vw", height: "10vw"}}
+          style={{ top: "50%", left: "50%", width: "12vw", height: "12vw"}}
         >
           <img
             className={`${styles.logo} ${styles.logo_center}`} src={logo1} hidden
