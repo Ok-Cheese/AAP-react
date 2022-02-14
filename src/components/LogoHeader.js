@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import btn_menu from '../imgs/menu_rev.png';
+import btn_menu from '../imgs/menu.png';
+import btn_menu_rev from '../imgs/menu_rev.png';
 import logo from '../imgs/logo_bold_rev.png';
 import logo1 from '../imgs/Marks/경성.png';
 import logo2 from '../imgs/Marks/인천.png';
@@ -17,7 +18,7 @@ import logo12 from '../imgs/Marks/함흥.png';
 import logo13 from '../imgs/Marks/원산.png';
 import styles from './style/LogoHeader.module.css';
 
-function LogoHeader() {
+function LogoHeader({ closed }) {
   const [opened, setOpened] = useState(false);
 
   function openMenu() {
@@ -69,11 +70,20 @@ function LogoHeader() {
           </Link>
         </div>
       </header>
-      <img 
-        className={styles.btn_menu}
-        src={btn_menu}
-        onClick={openMenu}
-        />
+      {
+        opened || !closed ? 
+          <img 
+          className={styles.btn_menu}
+          src={btn_menu_rev}
+          onMouseOver={openMenu}
+          /> :
+          <img 
+          className={styles.btn_menu}
+          src={btn_menu}
+          onMouseOver={openMenu}
+          style={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
+          />
+      }
     </div>
   )
 }

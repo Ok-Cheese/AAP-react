@@ -1,11 +1,15 @@
 import emptyImg from '../imgs/logo_empty.png';
+import logo from '../imgs/logo_bold_letter.png';
 import styles from "./style/Loading.module.css";
 
 function Loading({ cityData, propFunc }) {
   
   return (
     <div className={styles.outer}>
-      <span className={styles.loading}>Now Loading...</span>
+      <img
+        src={logo}
+        className={styles.loading_img}
+      ></img>
       <div className={styles.preload_imgs}>
         {propFunc()}
       </div>

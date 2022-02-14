@@ -6,9 +6,9 @@
   height: 100vh;
 }
 
-.loading {
-  font-size: 5rem;
-  font-weight: bolder;
+.loading_img {
+  height: 60vh;
+  object-fit: cover;
 }
 
 .preload_imgs {

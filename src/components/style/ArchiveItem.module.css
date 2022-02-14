@@ -20,10 +20,10 @@
 }
 
 .item .img_container {
-  width: 150px;
+  width: 28%;
   height: 16vh;
-  border: 1px solid black;
-  border-radius: 100px;
+  /* border: 1px solid black; */
+  border-radius: 1000px;
   overflow: hidden;
 }
 .item .img_item {
@@ -46,10 +46,12 @@
 .item .textbox .namebox p {
   font-size: 2.4vmin;
   font-weight: bold;
+  color: #E0DDCF;
 }
 .item .textbox .namebox span {
-  font-size: 1.8vmin;
+  font-size: 2vmin;
   font-weight: normal;
+  color: #E0DDCF;
 }
 
 .item .textbox .tagbox {
@@ -66,8 +68,8 @@
   height: 30px;
   font-size: 1rem;
   font-weight: bold;
-  color: white;
-  background-color: rgb(235, 135, 135);
+  color: #474448;
+  background-color: #E0DDCF;
   border: none;
   border-radius: 10px;
   padding: 1vh;

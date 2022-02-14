@@ -51,31 +51,26 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
                   item.role ? 
                     <span 
                       className={styles.tag}
-                      style={{ backgroundColor: "rgb(155, 235, 135)" }}
                     >{item.role}</span> : ""
                 }
                 {
                   item.heritage === "1" ? 
                     <span 
                       className={styles.tag}
-                      style={{ backgroundColor: "rgb(135, 232, 235)" }}
                     >문화재
                     </span> :
                     <span 
                       className={styles.tag}
-                      style={{ backgroundColor: "rgb(135, 232, 235)" }}
                     >비문화재
                     </span>
                 }
                 { item.existence === "1" ?
                     <span 
                       className={styles.tag}
-                      style={{ backgroundColor: "rgb(235, 135, 135)" }}
-                    >남아있음</span> :
+                    >현존</span> :
                     <span 
                       className={styles.tag}
-                      style={{ backgroundColor: "rgb(235, 135, 135)" }}
-                    >소실</span> 
+                    >멸실</span> 
                 }
               </div>
             </div>

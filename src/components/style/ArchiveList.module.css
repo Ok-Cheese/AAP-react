@@ -5,7 +5,8 @@
   align-items: center;
   width: 30%;
   height: 100%;
-  border-right: 3px solid gray;
+  border-right: 3px solid #E0DDCF;
+  background-color: #474448;
   overflow-y: scroll;
 }
 .lists button {
@@ -42,7 +43,7 @@
   border-radius: 10px;
   padding: 1vh;
   padding-right: 2vw;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(45, 35, 46, 1);
   transform: translate(-100%, 0%);
   transition: 0.3s;
 }

@@ -5,7 +5,7 @@ import LogoHeader from './LogoHeader.js';
 import Information from './Information.js';
 import Loading from './Loading.js';
 import itemData from '../data/item.js';
-import logo from '../imgs/logo_letter_border.png';
+import logo from '../imgs/logo_border.jpg';
 import emptyImg from '../imgs/logo_empty.png';
 import markerH from '../imgs/marker_heritage.png';
 import markerB from '../imgs/marker_non_heritage.png';
@@ -19,21 +19,22 @@ function Archive() {
 
   const latLon = {
     "01": [37.56565117391511, 126.97802884615828],
-    "02": [37.45634518220743, 126.70591569796464],
-    "03": [36.3506813476847, 127.38482942677764],
-    "04": [35.874152514881764, 128.60107525663113],
-    "05": [35.179885065470344, 129.0749567679195],
-    "06": [35.96842717961212, 126.73799108259405],
-    "07": [34.81202287181826, 126.39220869791285],
-    "08": [37.429569555820215, 127.25515282679928],
-    "09": [39.02996489523854, 125.74193254201009],
-    "10": [41.79141638008713, 129.78587875223323],
-    "11": [40.10909571963557, 124.35265900143106],
-    "12": [39.98958399088236, 127.60446093583046],
-    "13": [39.15260516930561, 127.44150024696026],
+    "02": [37.47368254306729, 126.62159900732166],
+    "03": [36.32763002093959, 127.42368049653705],
+    "04": [35.871653424063766, 128.6010600506663],
+    "05": [35.09805578905904, 129.03620934559444],
+    "06": [35.987533938696394, 126.71149659960581],
+    "07": [34.78753148889084, 126.38219983202765],
+    "08": [35.14514172561415, 126.91745588072244],
+    "09": [39.01687898412967, 125.74740012181566],
+    "10": [41.78260845483389, 129.82547863209868],
+    "11": [40.10444829002156, 124.39294147170328],
+    "12": [39.91611996290939, 127.53146637211736],
+    "13": [39.17259875116029, 127.42874326829241],
   }
 
   const cityData = itemData[+id - 1]["items"];
+  console.log(cityData);
   const [coord, setCoord] = useState([latLon[id][0], latLon[id][1]]);
   const [filterOepn, setFilterOpen] = useState(false);
   const [filterData, setFilterData] = useState({
@@ -60,7 +61,7 @@ function Archive() {
     setLoad(false);
     setTimeout(() => {
       setLoad(true);
-    }, 2000);
+    }, 1000);
 
 
     setCoord([latLon[id][0], latLon[id][1]]);
@@ -68,7 +69,7 @@ function Archive() {
     // 로딩 시간과 맞출 것
     setTimeout(() => {
       renderMap();
-    }, 2000);
+    }, 1000);
   }, [id]);
   
 
@@ -280,7 +281,9 @@ function Archive() {
       {
         load ? 
           <div className={styles.outer}>
-            <LogoHeader></LogoHeader>
+            <LogoHeader
+              closed={sideClosed}
+            ></LogoHeader>
             <div className={styles.preload_imgs}>
               {preloading()}
             </div>

@@ -4,13 +4,13 @@
   align-items: center;
   width: 100vw;
   height: calc(100vh - 140px);
-  margin-top: 15vh;
+  margin-top: 17vh;
 }
 
 .contianer {
   position: relative;
-  width: calc(100vh - 25vh);
-  height: calc(100vh - 25vh);
+  width: calc(100vh - 32vh);
+  height: calc(100vh - 32vh);
 }
 
 .contianer_logo {
@@ -18,8 +18,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 8vw;
-  height: 8vw;
+  width: 7vw;
+  height: 7vw;
   text-decoration: none;
   transform: translate(-50%, -50%);
 }
@@ -37,16 +37,16 @@
 
 .logo {
   position: absolute;
-  width: 8vw;
-  height: 8vw;
+  width: 7vw;
+  height: 7vw;
   object-fit: cover;
   cursor: pointer;
 }
 
 .logo_center {
   position: absolute;
-  width: 12vw;
-  height: 12vw;
+  width: 13vw;
+  height: 13vw;
   object-fit: cover;
 }
 

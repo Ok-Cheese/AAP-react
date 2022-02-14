@@ -93,7 +93,7 @@ function ArchiveList(props) {
                   name="소실"
                   onClick={handleCheck}
                 ></input>
-                <span>소실</span>
+                <span>멸실</span>
               </div>
               <div className={styles.selection_set}>
                 <input 

@@ -23,9 +23,9 @@ ul, li {
 }
 .logo {
   position: absolute;
-  top: 85%;
-  left: 90%;
-  width: 10%;
+  top: 88%;
+  left: 91%;
+  width: 8%;
   height: auto;
   object-fit: contain;
   z-index: 1;
@@ -37,7 +37,6 @@ ul, li {
   left: 100%;
   width: auto;
   height: auto;
-  background-color: aqua;
 }
 .preload_img {
   width: 1px;
