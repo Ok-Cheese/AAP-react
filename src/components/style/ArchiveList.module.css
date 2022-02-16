@@ -13,10 +13,15 @@
   position: absolute;
   top: 2%;
   left: 97%;
-  width: 1.5vw;
-  height: 1.5vw;
+  width: 2vw;
+  height: 2vw;
   font-size: 1.5vmin;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
   transform: translate(-100%, 0%);
+  cursor: pointer;
   z-index: 1;
 }
 .filter_closed{
@@ -35,17 +40,23 @@
   top: 1%;
   left: 99%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
   flex-wrap: wrap;
   width: 97%;
-  height: 10vh;
+  height: 12vh;
   border-radius: 10px;
   padding: 1vh;
-  padding-right: 2vw;
   background-color: rgba(45, 35, 46, 1);
   transform: translate(-100%, 0%);
   transition: 0.3s;
+}
+.filter_row{
+  display: flex;
+  width: 100%;
+  height: 30%;
+  justify-content: flex-start;
+  align-items: center;
 }
 .filter_opened input {
   width: 1vw;

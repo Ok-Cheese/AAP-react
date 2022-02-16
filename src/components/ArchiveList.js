@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import itemData from '../data/item.js';
 import ArchiveItem from './ArchiveItem.js';
+import filterIcon from '../imgs/filter.png';
 import styles from './style/ArchiveList.module.css';
 
 function ArchiveList(props) {
@@ -37,85 +38,97 @@ function ArchiveList(props) {
       {
         props.filterOepn ? 
           <div>
-            <button onClick={handleFilter}>➖</button>
+            <button 
+              onClick={handleFilter} 
+              style={{ backgroundImage: `url(${filterIcon})` }}>  
+            </button>
             <div className={styles.filter_opened}>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="공공"
-                  onClick={handleCheck}
-                ></input>
-                <span>공공</span>
+              <div className={styles.filter_row}>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="공공"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>공공</span>
+                </div>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="금융"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>금융</span>
+                </div>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="상업"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>상업</span>
+                </div>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="교육"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>교육</span>
+                </div>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="주거"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>주거</span>
+                </div>
               </div>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="금융"
-                  onClick={handleCheck}
-                ></input>
-                <span>금융</span>
+              <div className={styles.filter_row}>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="현존"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>현존</span>
+                </div>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="소실"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>멸실</span>
+                </div>
               </div>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="상업"
-                  onClick={handleCheck}
-                ></input>
-                <span>상업</span>
-              </div>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="교육"
-                  onClick={handleCheck}
-                ></input>
-                <span>교육</span>
-              </div>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="주거"
-                  onClick={handleCheck}
-                ></input>
-                <span>주거</span>
-              </div>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="현존"
-                  onClick={handleCheck}
-                ></input>
-                <span>현존</span>
-              </div>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="소실"
-                  onClick={handleCheck}
-                ></input>
-                <span>멸실</span>
-              </div>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="문화재"
-                  onClick={handleCheck}
-                ></input>
-                <span>문화재</span>
-              </div>
-              <div className={styles.selection_set}>
-                <input 
-                  type="checkbox" 
-                  name="비문화재"
-                  onClick={handleCheck}
-                ></input>
-                <span>비문화재</span>
+              <div className={styles.filter_row}>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="문화재"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>문화재</span>
+                </div>
+                <div className={styles.selection_set}>
+                  <input 
+                    type="checkbox" 
+                    name="비문화재"
+                    onClick={handleCheck}
+                  ></input>
+                  <span>비문화재</span>
+                </div>
               </div>
             </div>
           </div>
           :
           <div>
-            <button onClick={handleFilter}>➕</button>
+            <button 
+              onClick={handleFilter} 
+              style={{ backgroundImage: `url(${filterIcon})` }}>  
+            </button>
             <div className={styles.filter_closed}>
               <div hidden className={styles.selection_set}>
                 <input 

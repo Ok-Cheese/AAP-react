@@ -34,14 +34,7 @@
   height: 75%;
   object-fit: cover;
 }
-.mark {
-  width: 100%;
-  filter: invert(100%);
-  object-fit: cover;
-}
-.mark:hover {
-  transform: translate(0, -1vh);
-}
+
 
 @keyframes fadeIn {
   from {
@@ -62,6 +55,9 @@
 }
 
 .link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   flex-basis: 5%;
   font-size: 30px;
   font-weight: bolder;
@@ -69,15 +65,37 @@
   text-decoration: none;
   margin: 0 5px;
 }
+.link:hover .mark {
+  transform: translate(0, -1vh);
+}
+.link:hover .cityName {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.mark {
+  width: 100%;
+  filter: invert(100%);
+  object-fit: cover;
+}
+.cityName {
+  position: absolute;
+  top: 90%;
+  width: 100%;
+  font-size: 2vmin;
+  text-align: center;
+  opacity: 0;
+}
 
 .btn_menu {
   position: absolute;
-  top: 3.5%;
+  top: 4%;
   left: 93%;
   height: 60px;
   border-radius: 10px;
   margin-right: 4vw;
   z-index: 5;
+  transition: 1s;
 }
 .btn_menu:hover {
   transform: scale(1.1, 1.1);

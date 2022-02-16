@@ -9,6 +9,8 @@ import logo from '../imgs/logo_border.jpg';
 import emptyImg from '../imgs/logo_empty.png';
 import markerH from '../imgs/marker_heritage.png';
 import markerB from '../imgs/marker_non_heritage.png';
+import legendH from '../imgs/legend_heritage.png';
+import legendB from '../imgs/legend_non_heritage.png';
 import styles from './style/Archive.module.css';
 import ArchiveList from './ArchiveList.js';
 
@@ -34,7 +36,6 @@ function Archive() {
   }
 
   const cityData = itemData[+id - 1]["items"];
-  console.log(cityData);
   const [coord, setCoord] = useState([latLon[id][0], latLon[id][1]]);
   const [filterOepn, setFilterOpen] = useState(false);
   const [filterData, setFilterData] = useState({
@@ -45,7 +46,7 @@ function Archive() {
     "주거": true,
     "현존": true,
     "소실": true,
-    "문화재": false,
+    "문화재": true,
     "비문화재": true,
   })
 
@@ -70,6 +71,7 @@ function Archive() {
     setTimeout(() => {
       renderMap();
     }, 1000);
+    setSideClosed(true);
   }, [id]);
   
 
@@ -189,8 +191,7 @@ function Archive() {
           "desc": cityData[i].desc,
           "img0": cityData[i].imageId,
           "img1": cityData[i].informImage1,
-          "img2": cityData[i].informImage2,
-          "img3": cityData[i].informImage3
+          "img2": cityData[i].informImage2
         })
       }
     }
@@ -245,35 +246,23 @@ function Archive() {
       const link3 = cityData[i].informImage2 ?
       `https://lh3.googleusercontent.com/d/${cityData[i].informImage2.split('/')[5]}=s500?authuser=0`
       : emptyImg;
-      const link4 = cityData[i].informImage3 ?
-      `https://lh3.googleusercontent.com/d/${cityData[i].informImage3.split('/')[5]}=s500?authuser=0`
-      : emptyImg;
         result.push(
-        <div>
+        <div key={i}>
           <img
-            key={i + "A"}
             className={styles.preload_img}
             src={link1}
           />
           <img
-            key={i + "B"}
             className={styles.preload_img}
             src={link2}
           />
           <img
-            key={i + "C"}
             className={styles.preload_img}
             src={link3}
-          />
-          <img
-            key={i + "D"}
-            className={styles.preload_img}
-            src={link4}
           />
         </div>
       )
     }
-    console.log(result);
     return result;
   }
 
@@ -303,6 +292,16 @@ function Archive() {
                 className={styles.map}
               ></div>
               <img className={styles.logo} src={logo}></img>
+              <div className={styles.legend}>
+                <div className={styles.legend_row}>
+                  <img src={legendH} className={styles.icon_legend}></img>
+                  <span>문화재</span>
+                </div>
+                <div className={styles.legend_row}>
+                  <img src={legendB} className={styles.icon_legend}></img>
+                  <span>비문화재</span>
+                </div>
+              </div>
               <Information
                 title={selectedItemData.title}
                 subtitle={selectedItemData.subtitle}
@@ -310,7 +309,6 @@ function Archive() {
                 img0={selectedItemData.img0}
                 img1={selectedItemData.img1}
                 img2={selectedItemData.img2}
-                img3={selectedItemData.img3}
                 closed={sideClosed}
                 propFunc={setSideClosed}
               ></Information>

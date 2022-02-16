@@ -22,42 +22,46 @@
   cursor: pointer;
 }
 .information {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 60% 35%;
+  grid-template-rows: 20% 75%;
+  grid-column-gap: 1vh;
+  grid-row-gap: 1vh;
   width: 100%;
   height: 100%;
   background-color: #474448;
-  padding: 5%;
+  padding: 2.5%;
 }
+
+.titleBox {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #E0DDCF;
+  padding: 2vh;
+}
+.information .titleBox .title {
+  font-size: 4vmin;
+  font-weight: bold;
+}
+.information .titleBox .subtitle {
+  font-size: 3vmin;
+  font-weight: normal;
+  margin-bottom: 1vh;
+}
+
 .information .img_outerBox {
+  grid-column: 1 / 2 ;
+  grid-row: 2 / 3;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 55%;
-  height: 80%;
-}
-.information .changeBefore {
-  position: absolute;
-  top: 40%;
-  left: 3%;
-  width: 5%;
-  height: 10%;
-  border: 1px solid gray;
-  border-radius: 10px;
-  transform: translate(-50%, -50%);
-}
-.information .changeAfter {
-  position: absolute;
-  top: 40%;
-  left: 97%;
-  width: 5%;
-  height: 10%;
-  border: 1px solid gray;
-  border-radius: 10px;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
 }
 .information .img_main {
   width: 100%;
@@ -82,24 +86,18 @@
 }
 
 .information .textbox {
+  grid-column: 2 / 3 ;
+  grid-row: 2 / 3;
   display: flex;
   flex-direction: column;
-  width: 43%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   color: #474448;
   border-radius: 10px;
   background-color: #E0DDCF;
-  padding: 1%;
+  padding: 2vh;
 }
-.information .textbox .title {
-  font-size: 2rem;
-  font-weight: bold;
-}
-.information .textbox .subtitle {
-  font-size: 1.4rem;
-  font-weight: normal;
-  margin-bottom: 1vh;
-}
+
 .information .textbox .content {
   font-size: 1.2rem;
 }

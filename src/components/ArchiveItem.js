@@ -18,11 +18,11 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
     for (let i = 0; i < cityData.length; i++) {
       const item = cityData[i];
       if (
-        filterData[item.role]
-        || (item.heritage === "1" && filterData["문화재"])
-        || (item.heritage === "0" && filterData["비문화재"])
-        || (item.existence === "1" && filterData["현존"])
-        || (item.existence === "0" && filterData["소실"])
+        filterData[item.role] === true
+        && ((item.heritage === "1" && filterData["문화재"])
+        || (item.heritage === "0" && filterData["비문화재"]))
+        && ((item.existence === "1" && filterData["현존"])
+        || (item.existence === "0" && filterData["소실"]))
       ) {
         const link = item.imageId ?
         `https://lh3.googleusercontent.com/d/${cityData[i].imageId.split('/')[5]}=s500?authuser=0`
@@ -74,10 +74,9 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
                 }
               </div>
             </div>
+            <hr></hr>
           </li>
         )
-      } else {
-        continue;
       }
     }
     if (result.length < 1) {

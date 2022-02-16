@@ -14,34 +14,21 @@ function Information(props) {
     props.propFunc(current => !current);
   }
 
-  let imgArr = [];
-  imgArr[0] = props.img0 ?
+  const img0 = props.img0 ?
     `https://drive.google.com/uc?export=download&id=${props.img0.split('/')[5]}`
     : emptyImg;
-  imgArr[1] = props.img1 ?
+  const img1 = props.img1 ?
   `https://drive.google.com/uc?export=download&id=${props.img1.split('/')[5]}`
   : emptyImg;
-  imgArr[2] = props.img2 ?
+  const img2 = props.img2 ?
   `https://drive.google.com/uc?export=download&id=${props.img2.split('/')[5]}`
   : emptyImg;
-  imgArr[3] = props.img3 ?
-  `https://drive.google.com/uc?export=download&id=${props.img3.split('/')[5]}`
-  : emptyImg;
 
-  const [mainImg, setMainImg] = useState(imgArr);
-  function changeMainImg(e) {
-    const newArr = mainImg.slice();
-    if (e.target.id === "left") {
-      newArr.unshift(newArr.pop());
-    } else if (e.target.id === "right") {
-      newArr.push(newArr.shift());
-    }
-    setMainImg(newArr);
-  }
-
+  const [mainImg, setMainImg] = useState(img0);
+  
   useEffect(() => {
-    setMainImg(imgArr);
-  }, [props.img0]);
+    setMainImg(img0);
+  }, [props.img0])
 
   return (
     <div ref={sidePage} className={styles.container_inform}>
@@ -52,34 +39,31 @@ function Information(props) {
           { props.closed ? "◀" : "▶"}
         </button>
       <div className={styles.information}>
+        <div className={styles.titleBox}>
+          <span className={styles.title}>{props.title}</span>
+          <span className={styles.subtitle}>{props.subtitle}</span>
+        </div>
         <div className={styles.img_outerBox}>
-        <img className={styles.img_main} src={mainImg[0]}></img>
-          <button 
-            id="left" 
-            className={styles.changeBefore} 
-            onClick={changeMainImg}>◀</button>
-          <button 
-            id="right" 
-            className={styles.changeAfter} 
-            onClick={changeMainImg}>▶</button>
+          <img className={styles.img_main} src={mainImg}></img>
           <div className={styles.img_innerBox}>
             <img 
               className={styles.img_sub} 
-              src={mainImg[1]}
+              src={img0}
+              onClick={() => setMainImg(img0)}
             ></img>
             <img 
               className={styles.img_sub} 
-              src={mainImg[2]}
+              src={img1}
+              onClick={() => setMainImg(img1)}
             ></img>
             <img 
               className={styles.img_sub} 
-              src={mainImg[3]}
+              src={img2}
+              onClick={() => setMainImg(img2)}
             ></img>
           </div>
         </div>
         <div className={styles.textbox}>
-          <span className={styles.title}>{props.title}</span>
-          <span className={styles.subtitle}>{props.subtitle}</span>
           <p className={styles.content}>{props.desc}</p>
         </div>
       </div>

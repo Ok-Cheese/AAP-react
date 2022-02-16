@@ -22,7 +22,7 @@ function LogoHeader({ closed }) {
   const [opened, setOpened] = useState(false);
 
   function openMenu() {
-    opened ? setOpened(false) : setOpened(true)
+    setOpened(current => !current);
   }
   return (
     <div className='outer'>
@@ -31,42 +31,55 @@ function LogoHeader({ closed }) {
           <img className={styles.logo} src={logo}></img>
           <Link className={styles.link} to='/archive/01'>
             <img className={styles.mark} src={logo1}></img>
+            <span className={styles.cityName}>경성</span>
           </Link>
           <Link className={styles.link} to='/archive/02'>
             <img className={styles.mark} src={logo2}></img>
+            <span className={styles.cityName}>인천</span>
           </Link>
           <Link className={styles.link} to='/archive/03'>
             <img className={styles.mark} src={logo3}></img>
+            <span className={styles.cityName}>대전</span>
           </Link>
           <Link className={styles.link} to='/archive/04'>
             <img className={styles.mark} src={logo4}></img>
+            <span className={styles.cityName}>대구</span>
           </Link>
           <Link className={styles.link} to='/archive/05'>
             <img className={styles.mark} src={logo5}></img>
+            <span className={styles.cityName}>부산</span>
           </Link>
           <Link className={styles.link} to='/archive/06'>
             <img className={styles.mark} src={logo6}></img>
+            <span className={styles.cityName}>군산</span>
           </Link>
           <Link className={styles.link} to='/archive/07'>
             <img className={styles.mark} src={logo7}></img>
+            <span className={styles.cityName}>목포</span>
           </Link>
           <Link className={styles.link} to='/archive/08'>
             <img className={styles.mark} src={logo8}></img>
+            <span className={styles.cityName}>광주</span>
           </Link>
           <Link className={styles.link} to='/archive/09'>
             <img className={styles.mark} src={logo9}></img>
+            <span className={styles.cityName}>평양</span>
           </Link>
           <Link className={styles.link} to='/archive/10'>
             <img className={styles.mark} src={logo10}></img>
+            <span className={styles.cityName}>청진</span>
           </Link>
           <Link className={styles.link} to='/archive/11'>
             <img className={styles.mark} src={logo11}></img>
+            <span className={styles.cityName}>신의주</span>
           </Link>
           <Link className={styles.link} to='/archive/12'>
             <img className={styles.mark} src={logo12}></img>
+            <span className={styles.cityName}>함흥</span>
           </Link>
           <Link className={styles.link} to='/archive/13'>
             <img className={styles.mark} src={logo13}></img>
+            <span className={styles.cityName}>원산</span>
           </Link>
         </div>
       </header>
@@ -75,13 +88,22 @@ function LogoHeader({ closed }) {
           <img 
           className={styles.btn_menu}
           src={btn_menu_rev}
-          onMouseOver={openMenu}
+          onClick={openMenu}
+          style={{
+            
+            transition: "1s"
+          }}
           /> :
           <img 
           className={styles.btn_menu}
           src={btn_menu}
-          onMouseOver={openMenu}
-          style={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
+          onClick={openMenu}
+          style={{
+            border: "2px solid #474448",
+            backgroundColor: "rgba(255, 255, 255, 1)",
+            backgroundSize: "cover",
+            transition: "1s"
+          }}
           />
       }
     </div>

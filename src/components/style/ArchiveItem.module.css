@@ -1,4 +1,5 @@
 .item {
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -7,7 +8,7 @@
   cursor: pointer;
 }
 .item:hover .img_item {
-  transform: scale(1.2, 1.2);
+  transform: scale(1.4, 1.4);
   transition: 0.5s;
 }
 
@@ -17,6 +18,7 @@
   height: 100vh;
   font-size: 3vmin;
   font-weight: bold;
+  color: #E0DDCF;
 }
 
 .item .img_container {
@@ -30,6 +32,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1.2, 1.2);
 }
 
 .item .textbox {
@@ -74,4 +77,11 @@
   border-radius: 10px;
   padding: 1vh;
   margin-right: 0.5vh;
+}
+
+.item hr {
+  position: absolute;
+  width: 95%;
+  top: 100%;
+  left: 2.5%;
 }
