@@ -120,7 +120,7 @@ function Archive() {
         marker.setMap(map);
   
         const link = cityData[i].imageId ?
-          `https://drive.google.com/uc?export=download&id=${cityData[i].imageId.split('/')[5]}`
+        `https://lh3.googleusercontent.com/d/${cityData[i].imageId.split('/')[5]}=s500?authuser=0`
           : emptyImg;
           
         const content = `
@@ -237,16 +237,16 @@ function Archive() {
     const result = [];
     for (let i = 0; i < cityData.length; i++) {
       const link1 = cityData[i].imageId ?
-        `https://drive.google.com/uc?export=download&id=${cityData[i].imageId.split('/')[5]}`
+      `https://lh3.googleusercontent.com/d/${cityData[i].imageId.split('/')[5]}=s500?authuser=0`
         : emptyImg;
       const link2 = cityData[i].informImage1 ?
-      `https://drive.google.com/uc?export=download&id=${cityData[i].informImage1.split('/')[5]}`
+      `https://lh3.googleusercontent.com/d/${cityData[i].informImage1.split('/')[5]}=s500?authuser=0`
       : emptyImg;
       const link3 = cityData[i].informImage2 ?
-      `https://drive.google.com/uc?export=download&id=${cityData[i].informImage2.split('/')[5]}`
+      `https://lh3.googleusercontent.com/d/${cityData[i].informImage2.split('/')[5]}=s500?authuser=0`
       : emptyImg;
       const link4 = cityData[i].informImage3 ?
-      `https://drive.google.com/uc?export=download&id=${cityData[i].informImage3.split('/')[5]}`
+      `https://lh3.googleusercontent.com/d/${cityData[i].informImage3.split('/')[5]}=s500?authuser=0`
       : emptyImg;
         result.push(
         <div>

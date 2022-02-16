@@ -25,7 +25,7 @@ function ArchiveItem({ cityData, propFunc, filterData }) {
         || (item.existence === "0" && filterData["소실"])
       ) {
         const link = item.imageId ?
-        `https://drive.google.com/uc?export=download&id=${item.imageId.split('/')[5]}`
+        `https://lh3.googleusercontent.com/d/${cityData[i].imageId.split('/')[5]}=s500?authuser=0`
         : emptyImg;
         result.push(
           <li 

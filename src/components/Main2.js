@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Start from './Start.js';
 import Header from './Header';
 import main1 from '../imgs/main1.jpg';
@@ -32,6 +32,7 @@ function Main2() {
       setStart(false);
     }, 3000);
   }, []);
+  const container = useRef();
 
   const [scroll, setScroll] = useState(0);
   let flag = true;
