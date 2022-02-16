@@ -30,8 +30,17 @@ function Main2() {
   useEffect(() => {
     setTimeout(() => {
       setStart(false);
+      const interval = setInterval(() => {
+        const nowPosition = container.current.style.marginTop;
+        if (nowPosition === "-200vh") {
+          container.current.style.marginTop = "0vh";
+        } else {
+          container.current.style.marginTop = `${+nowPosition.split('vh')[0] - 100}vh`;
+        }
+      }, 5000);
     }, 3000);
   }, []);
+
   const container = useRef();
 
   const [scroll, setScroll] = useState(0);
@@ -42,7 +51,6 @@ function Main2() {
     }
     let value;
     flag = false;
-    const container = e.target.parentNode;
     if (e.deltaY > 0 && scroll < 2) {
       value = scroll + 1;
     } else if (e.deltaY < 0 && scroll > 0) {
@@ -50,7 +58,7 @@ function Main2() {
     } else {
       value = scroll;
     }
-    container.style.marginTop = `${value * -100}vh`;
+    container.current.style.marginTop = `${value * -100}vh`;
 
     // Main2.module.css의 .container_main transition과 시간 맞출 것.
     setTimeout(() => {
@@ -58,6 +66,7 @@ function Main2() {
       flag = true;
     }, 1000);
   }
+
   return (
     <main>
       {
@@ -65,7 +74,7 @@ function Main2() {
         start ? <Start></Start> :
           <section className={styles.container}>
             <Header></Header>
-            <div id="container_img" className={styles.container_main}>
+            <div id="container_img" className={styles.container_main} ref={container}>
               <div 
                 id='img_main'
                 className={styles.img_main} 
