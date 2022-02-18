@@ -10,9 +10,9 @@
   overflow-y: scroll;
 }
 .lists button {
-  position: absolute;
+  position: fixed;
   top: 2%;
-  left: 97%;
+  left: 29%;
   width: 2vw;
   height: 2vw;
   font-size: 1.5vmin;
@@ -22,28 +22,28 @@
   border: none;
   transform: translate(-100%, 0%);
   cursor: pointer;
-  z-index: 1;
+  z-index: 100;
 }
 .filter_closed{
-  position: absolute;
+  position: fixed;
   top: 1%;
-  left: 99%;
+  left: 29.5%;
 
-  width: 5vh;
+  width: 29%;
   height: 5vh;
   border-radius: 10px;
   transform: translate(-100%, 0%);
   transition: 0.3s;
 }
 .filter_opened {
-  position: absolute;
+  position: fixed;
   top: 1%;
-  left: 99%;
+  left: 29.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   flex-wrap: wrap;
-  width: 97%;
+  width: 29%;
   height: 20vh;
   border-radius: 10px;
   padding: 1vh;
