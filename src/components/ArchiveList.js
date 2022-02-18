@@ -85,6 +85,7 @@ function ArchiveList(props) {
                   <span>주거</span>
                 </div>
               </div>
+              <hr></hr>
               <div className={styles.filter_row}>
                 <div className={styles.selection_set}>
                   <input 
@@ -103,6 +104,7 @@ function ArchiveList(props) {
                   <span>멸실</span>
                 </div>
               </div>
+              <hr></hr>
               <div className={styles.filter_row}>
                 <div className={styles.selection_set}>
                   <input 

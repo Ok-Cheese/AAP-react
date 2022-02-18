@@ -96,10 +96,10 @@ function Archive() {
       }
       if (
         data[cityData[i].role]
-        || (cityData[i].heritage === "1" && data["문화재"])
-        || (cityData[i].heritage === "0" && data["비문화재"])
-        || (cityData[i].existence === "1" && data["현존"])
-        || (cityData[i].existence === "0" && data["소실"])
+        && ((cityData[i].heritage === "1" && data["문화재"])
+        || (cityData[i].heritage === "0" && data["비문화재"]))
+        && ((cityData[i].existence === "1" && data["현존"])
+        || (cityData[i].existence === "0" && data["소실"]))
       ){
         renderMarkers();
       } else {

@@ -44,7 +44,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   width: 97%;
-  height: 12vh;
+  height: 20vh;
   border-radius: 10px;
   padding: 1vh;
   background-color: rgba(45, 35, 46, 1);
@@ -57,6 +57,11 @@
   height: 30%;
   justify-content: flex-start;
   align-items: center;
+}
+.filter_opened hr {
+  width: 80%;
+  margin-left: 0.5vw;
+  margin-bottom: 0.5vh;
 }
 .filter_opened input {
   width: 1vw;

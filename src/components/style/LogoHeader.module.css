@@ -28,10 +28,13 @@
   transition: 1s;
 }
 
-.logo {
+.logo_link {
   position: absolute;
   left: 2%;
   height: 75%;
+}
+.logo {
+  height: 100%;
   object-fit: cover;
 }
 

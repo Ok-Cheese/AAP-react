@@ -27,8 +27,10 @@ function LogoHeader({ closed }) {
   return (
     <div className='outer'>
       <header className={opened ? styles.opened : styles.closed}>
-        <div className={styles.container_logo}>   
+        <Link className={styles.logo_link} to={'/'}>
           <img className={styles.logo} src={logo}></img>
+        </Link>
+        <div className={styles.container_logo}>
           <Link className={styles.link} to='/archive/01'>
             <img className={styles.mark} src={logo1}></img>
             <span className={styles.cityName}>경성</span>
