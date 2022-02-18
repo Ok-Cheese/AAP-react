@@ -3,14 +3,14 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: calc(100vh - 140px);
-  margin-top: 17vh;
+  height: calc(100vh - 15vh);
+  margin-top: 15vh;
 }
 
 .contianer {
   position: relative;
-  width: calc(100vh - 32vh);
-  height: calc(100vh - 32vh);
+  width: calc(100vh - 15vh - 7vw - 1vw);
+  height: calc(100vh - 15vh - 7vw - 1vw);
 }
 
 .contianer_logo {

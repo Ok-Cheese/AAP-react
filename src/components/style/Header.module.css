@@ -47,12 +47,13 @@
   top: -100%;
   left: 0%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   width: 100vw;
   height: 100%;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  padding-right: 8vw;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   z-index: -1;
   transition: 1s;
 }
