@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from './Header.js';
-import styles from './style/Logos.module.css';
+import Header from '../UI/Header';
+import styles from './Logos.module.css';
 import logo1 from '../imgs/Marks/경성.png';
 import logo2 from '../imgs/Marks/인천.png';
 import logo3 from '../imgs/Marks/대전.png';

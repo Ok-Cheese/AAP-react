@@ -1,17 +1,16 @@
 /* global kakao */
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import LogoHeader from './LogoHeader.js';
+import LogoHeader from '../UI/MarkHeader.js';
 import Information from './Information.js';
 import Loading from './Loading.js';
-import itemData from '../data/item.js';
 import logo from '../imgs/logo_border.jpg';
 import emptyImg from '../imgs/logo_empty.png';
 import markerH from '../imgs/marker_heritage.png';
 import markerB from '../imgs/marker_non_heritage.png';
 import legendH from '../imgs/legend_heritage.png';
 import legendB from '../imgs/legend_non_heritage.png';
-import styles from './style/Archive.module.css';
+import styles from './Archive.module.css';
 import ArchiveList from './ArchiveList.js';
 
 function Archive() {
@@ -35,7 +34,7 @@ function Archive() {
     "13": [39.17259875116029, 127.42874326829241],
   }
 
-  const cityData = itemData[+id - 1]["items"];
+  const cityData = /* itemData[+id - 1]["items"] */'a';
   const [coord, setCoord] = useState([latLon[id][0], latLon[id][1]]);
   const [filterOepn, setFilterOpen] = useState(false);
   const [filterData, setFilterData] = useState({

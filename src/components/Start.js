@@ -2,7 +2,7 @@ import logo from '../imgs/logo_bold_letter.png';
 import main1 from '../imgs/main1.jpg';
 import main2 from '../imgs/main2.jpg';
 import main3 from '../imgs/main3.jpg';
-import styles from './style/Start.module.css';
+import styles from './Start.module.css';
 
 function Start() {
   return (

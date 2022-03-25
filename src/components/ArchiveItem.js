@@ -1,6 +1,6 @@
 import { useEffect} from 'react';
 import emptyImg from '../imgs/logo_empty.png';
-import styles from './style/ArchiveItem.module.css';
+import styles from './ArchiveItem.module.css';
 
 function ArchiveItem({ cityData, propFunc, filterData }) {
   function handleClick(e) {

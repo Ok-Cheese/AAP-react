@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Start from './Start.js';
+import Start from '../components/Start.js';
 import Header from './Header.js';
-import { ArrowUp, ArrowLeft, ArrowRight} from './Arrow.js';
+import { ArrowUp, ArrowLeft, ArrowRight} from '../components/Arrow.js';
 import styles from './style/Main2.module.css';
 import img_stair from '../imgs/main.jpg';
 

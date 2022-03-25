@@ -1,6 +1,6 @@
 import emptyImg from '../imgs/logo_empty.png';
 import logo from '../imgs/logo_bold_letter.png';
-import styles from "./style/Loading.module.css";
+import styles from "./Loading.module.css";
 
 function Loading({ cityData, propFunc }) {
   

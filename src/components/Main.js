@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import Start from './Start.js';
-import Header from './Header';
+import Header from '../UI/Header';
 import main1 from '../imgs/main1.jpg';
 import main2 from '../imgs/main2.jpg';
 import main3 from '../imgs/main3.jpg';
 import arrow from '../imgs/arrow_no_tail.png';
 import preloadImgs from './module/Main2.preload.js';
-import styles from './style/Main.module.css';
+import styles from './Main.module.css';
 
 
 

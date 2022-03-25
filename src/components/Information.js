@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import emptyImg from '../imgs/logo_empty.png';
-import styles from './style/Information.module.css';
+import styles from './Information.module.css';
 
 function Information(props) {
   const sidePage = useRef();

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import arrow_left from '../imgs/arrow_left.png';
 import arrow_right from '../imgs/arrow_right.png';
 import arrow_up from '../imgs/arrow_up.png';
-import styles from './style/Arrow.module.css';
+import styles from './Arrow.module.css';
 
 
 

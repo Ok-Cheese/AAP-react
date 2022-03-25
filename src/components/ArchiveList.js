@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-import itemData from '../data/item.js';
+/* import { useEffect, useState } from 'react';
 import ArchiveItem from './ArchiveItem.js';
 import filterIcon from '../imgs/filter.png';
-import styles from './style/ArchiveList.module.css';
+import styles from './ArchiveList.module.css';
 
 function ArchiveList(props) {
 
@@ -211,4 +210,4 @@ function ArchiveList(props) {
   )
 }
 
-export default ArchiveList;
+export default ArchiveList; */
