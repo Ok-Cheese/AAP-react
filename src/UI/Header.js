@@ -18,16 +18,14 @@ function Header() {
     isOpened ? setIsOpened(false) : setIsOpened(true)
   }
 
-  /* 홈에서는 미리 열어두기
   const currentPath = window.location.pathname;
-  const basicPath = "/AAP-with-React";
-  const homeChecker = (currentPath === basicPath || currentPath === basicPath + "/");
-  console.log(homeChecker);
-  useEffect (() => {
-    if (homeChecker) {
+  useEffect(() => {
+    if (currentPath.includes('archive')) {
       setIsOpened(false);
+      setIsArchive(true);
     }
-  }, []) */
+  }, []);
+  
 
   return (
     <header className={classes.header}>

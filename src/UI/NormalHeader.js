@@ -14,7 +14,7 @@ const NormalHeader = () => {
       </NavLink>
       <NavLink 
         className={({ isActive }) => classes.nav + (isActive ? ` ${classes.active}` : "")} 
-        to='/logos'>
+        to='/marks'>
       Archive
       </NavLink>
       <NavLink 

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Main from './components/Main/Main.js';
 import About from './components/About/About.js';
-import Logos from './components/Logos.js';
+import Marks from './components/Marks/Marks.js';
 import Archive from './components/Archive.js';
 
 const App = () => {
@@ -16,8 +16,8 @@ const App = () => {
         <Route path="/about" element={
           <About></About>
         } />
-        <Route path="/logos" element={
-          <Logos></Logos>
+        <Route path="/marks" element={
+          <Marks></Marks>
         } />
         <Route path="/archive/:id" element={
           <Archive></Archive>

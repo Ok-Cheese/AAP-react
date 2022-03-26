@@ -1,0 +1,10 @@
+.markOuter {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7vw;
+  height: 7vw;
+  text-decoration: none;
+  transform: translate(-50%, -50%);
+}
