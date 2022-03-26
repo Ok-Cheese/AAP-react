@@ -1,11 +1,11 @@
-import Header from '../UI/Header';
+import Header from '../../UI/Header';
 import styles from './About.module.css';
-import building1 from '../imgs/about1.png';
-import building2 from '../imgs/about2.png';
-import building3 from '../imgs/about3.png';
+import building1 from '../../imgs/about1.png';
+import building2 from '../../imgs/about2.png';
+import building3 from '../../imgs/about3.png';
 import { useEffect, useState } from 'react';
 
-function About() {
+const About = () => {
 /*  document.onwheel = handleScroll;
   
   const [scroll, setScroll] = useState(0);

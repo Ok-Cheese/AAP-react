@@ -1,11 +1,12 @@
 import './App.css';
-import Main from './components/Main.js';
-import About from './components/About.js';
-import Logos from './components/Logos.js';
-import Archive from './components/Archive.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+import Main from './components/Main/Main.js';
+import About from './components/About/About.js';
+import Logos from './components/Logos.js';
+import Archive from './components/Archive.js';
+
+const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
