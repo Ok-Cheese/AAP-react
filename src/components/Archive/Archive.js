@@ -5,7 +5,7 @@ import Information from '../Information.js';
 
 import ArchiveList from './ArchiveList.js';
 import Header from '../../UI/Header.js';
-import ArchiveMap from './ArchiveMap.js';
+import ArchiveMapContainer from './ArchiveMapContainer.js';
 import classes from './Archive.module.css';
 
 function Archive() {
@@ -51,12 +51,12 @@ function Archive() {
             cityId={cityId}
             currentCityItems={currentCityItems}
             filterState={filterState}
-            setFilterData={setFilterState}
+            setFilterState={setFilterState}
             onFilterChange={renderMap}
           ></ArchiveList>
           {
             currentCityItems !== undefined &&
-            <ArchiveMap 
+            <ArchiveMapContainer 
               cityId={cityId}
               currentCityItems={currentCityItems}
               filterState={filterState}

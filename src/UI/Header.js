@@ -34,7 +34,10 @@ function Header() {
           <img 
             className={classes.logo}
             src={logo_aap}
-            style={ isOpened ? { opacity: 1, filter: "invert(100%)" } : { opacity: 0 }}  
+            style={ 
+              isOpened ? { opacity: 1, filter: "invert(100%)" } 
+              : { opacity: 0, pointerEvents: "none" }
+            }  
           ></img>
         </Link> :
         <Link to={'/'}>

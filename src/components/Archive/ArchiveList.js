@@ -5,7 +5,7 @@ import ArchiveListFilter from './Filter/ArchiveListFilter.js';
 import classes from './ArchiveList.module.css';
 
 function ArchiveList(props) {
-  const [isFilterOepn, setIsFilterOpen] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   /* useEffect(() => {
     for (let key of Object.keys(props.filterData)) {
@@ -23,14 +23,15 @@ function ArchiveList(props) {
   return (
     <ul className={classes.archiveList}>
       <ArchiveItem 
-        onItemClick={props.onItemClick} 
         currentCityItems={props.currentCityItems}
         filterState={props.filterState}
+        onItemClick={props.onItemClick}
       >
       </ArchiveItem>
-      <ArchiveListFilter 
+      <ArchiveListFilter
+        filterState={props.filterState}
         setFilterState={props.setFilterState}
-        isFilterOepn={isFilterOepn}
+        isFilterOpen={isFilterOpen}
         toggleFilter={toggleFilter}
       />
     </ul>

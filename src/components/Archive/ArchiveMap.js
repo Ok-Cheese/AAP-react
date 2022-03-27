@@ -1,79 +1,54 @@
-/* global kakao */
-import { useState, useEffect, useRef, Fragment } from "react";
-import { createRoutesFromChildren, useParams } from 'react-router-dom';
-import { useAsync } from "react-async";
+import { useEffect, useState } from 'react';
+import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
-import MapIndex from './MapIndex';
-import centerCoords from '../../data/centerCoords';
-import logo from '../../imgs/logo_border.jpg';
-import markerHeritage from '../../imgs/marker_heritage.png';
-import markerNonHeritage from '../../imgs/marker_non_heritage.png';
 import classes from './ArchiveMap.module.css';
 
+import cityCoordsData from '../../data/cityCoordsData';
 import checkFilterCondition from "../../modules/checkFilterCondition";
+import markerHeritage from '../../imgs/marker_heritage.png';
+import markerNonHeritage from '../../imgs/marker_non_heritage.png';
 
 const ArchiveMap = (props) => {
-  const kakaoMap = document.getElementById('kakaoMap');
-
-  const lat = centerCoords[props.cityId][0];
-  const lon = centerCoords[props.cityId][1];
-  
-  const options = {
-    center: new kakao.maps.LatLng(lat, lon),
-    level: 5,
-  };
-
-  let archiveMap;
+  const [centerCoord, setCenterCoord] = useState(cityCoordsData[props.cityId]);
 
   useEffect(() => {
-    if (!kakaoMap) return;
+    setCenterCoord(cityCoordsData[props.cityId]);
+  }, [props.cityId]);
 
-    archiveMap = new kakao.maps.Map(kakaoMap, options);
-
-    for (let itemData of props.currentCityItems) {
-      if (
-        checkFilterCondition('role', itemData, props.filterState)
-        && checkFilterCondition('heritage', itemData, props.filterState)
-        && checkFilterCondition('existence', itemData, props.filterState)
-      ){
-        renderMarkers(itemData);
-      } else {
-        continue;  
+  const itemMarkers = props.currentCityItems.map(item => {
+    if (
+      checkFilterCondition('role', item, props.filterState)
+      && checkFilterCondition('heritage', item, props.filterState)
+      && checkFilterCondition('existence', item, props.filterState)
+    ) {
+        return (
+          <MapMarker 
+            key={item.id}
+            position={{
+              lat: item.latitude,
+              lng: item.longitude
+            }}
+            image={{
+              src: item.heritage === "1" ? markerHeritage : markerNonHeritage,
+              size: { width: 40, height: 60 },
+              options: { offset: { x: 35, y: 70 } }
+            }}
+          />
+        )
       }
-    }
-  }, [kakaoMap, props.cityId, props.currentCityItems]);
-
-  function renderMarkers(itemData) {
-    const markerSetting = {
-      markerSrc: itemData.heritage === "1" ? markerHeritage : markerNonHeritage,
-      markerSize: new kakao.maps.Size(40, 60),
-      markerOption: { offset: new kakao.maps.Point(35, 70) }
-    }
-
-    const markerImg = new kakao.maps.MarkerImage(
-      markerSetting.markerSrc, 
-      markerSetting.markerSize, 
-      markerSetting.markerOption
-    );
-    const markerPosition = new kakao.maps.LatLng(itemData["latitude"], itemData["longitude"]);
-    
-    const newMarker = new kakao.maps.Marker({
-      image: markerImg,
-      position: markerPosition
     });
 
-    newMarker.setMap(archiveMap);
-  };
-
   return (
-    <Fragment>
-      <div
-        id="kakaoMap"
-        className={classes.archiveMap}
-      ></div>
-      <img className={classes.logo__map}src={logo}></img>
-      <MapIndex></MapIndex>
-    </Fragment>
+    <Map
+      className={classes.kakaoMap}
+      center={{
+        lat: centerCoord[0],
+        lng: centerCoord[1],
+      }}
+      level={5}
+    >
+      {itemMarkers}
+    </Map>
   )
 }
 

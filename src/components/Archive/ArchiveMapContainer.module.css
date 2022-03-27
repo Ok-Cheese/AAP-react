@@ -1,0 +1,13 @@
+.contianer__map {
+  width: 70%;
+  height: 100vh;
+}
+.logo__map {
+  position: absolute;
+  top: 88%;
+  left: 91%;
+  width: 8%;
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+}

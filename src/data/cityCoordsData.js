@@ -1,4 +1,4 @@
-const centerCoords = {
+const cityCoordsData = {
   "01": [37.56565117391511, 126.97802884615828],
   "02": [37.47368254306729, 126.62159900732166],
   "03": [36.32763002093959, 127.42368049653705],
@@ -14,4 +14,4 @@ const centerCoords = {
   "13": [39.17259875116029, 127.42874326829241],
 };
 
-export default centerCoords;
+export default cityCoordsData;

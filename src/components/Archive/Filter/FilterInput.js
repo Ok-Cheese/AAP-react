@@ -6,8 +6,8 @@ const FilterInput = (props) => {
     props.setFilterState(current => {
       const newFilterState = {...current};
       newFilterState[props.filterType] = event.target.checked;
+      return newFilterState;
     });
-    props.onFilterChange(newData);
   }
 
   return (
@@ -15,11 +15,11 @@ const FilterInput = (props) => {
       <input
         className={classes.checkbox}
         type="checkbox"
-        checked={true}
+        checked={props.filterState[props.filterType]}
         name={props.filterType}
-        onClick={handleFilterCheck}
+        onChange={handleFilterCheck}
       ></input>
-      <span>{props.FilterType}</span>
+      <span className={classes.filterLabel}>{props.filterType}</span>
     </div>
   )
 };
