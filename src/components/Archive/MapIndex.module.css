@@ -1,0 +1,30 @@
+.mapIndex {
+  position: absolute;
+  top: 85%;
+  left: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 10px;
+  background-color: #474447;
+  padding: 1vh;
+  z-index: 1;
+}
+.row__mapIndex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+.icon__mapIndex {
+  width: 50px;
+  height: 50px;
+  margin-right: 0.5vw;
+  object-fit: cover;
+}
+.mapIndex span {
+  font-size: 1.8vmin;
+  font-weight: bold;
+  color: #E0DDCF
+}

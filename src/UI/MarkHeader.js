@@ -6,6 +6,7 @@ function markHeader() {
 
   const cityMarks = cityMarkData.map(markData => {
     return <CityLogoInHeader
+      key={markData.cityId}
       id={markData.cityId}
       src={markData.cityMark}
       name={markData.cityName}

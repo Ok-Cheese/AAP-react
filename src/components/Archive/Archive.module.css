@@ -1,0 +1,18 @@
+ul, li {
+  display: inline;
+  list-style: none;
+}
+.outer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container_map {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}

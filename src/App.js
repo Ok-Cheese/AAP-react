@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from './components/Main/Main.js';
 import About from './components/About/About.js';
 import Marks from './components/Marks/Marks.js';
-import Archive from './components/Archive.js';
+import Archive from './components/Archive/Archive.js';
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/marks" element={
           <Marks></Marks>
         } />
-        <Route path="/archive/:id" element={
+        <Route path="/archive/:cityId" element={
           <Archive></Archive>
         } />
       </Routes>

@@ -1,0 +1,15 @@
+.empty_list {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  font-size: 3vmin;
+  font-weight: bold;
+  color: #E0DDCF;
+}
+
+hr {
+  position: absolute;
+  width: 95%;
+  top: 100%;
+  left: 2.5%;
+}
