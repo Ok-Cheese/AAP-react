@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
+import ItemMarkerContainer from './ItemMarkerContainer';
 import classes from './ArchiveMap.module.css';
 
 import cityCoordsData from '../../data/cityCoordsData';
 import checkFilterCondition from "../../modules/checkFilterCondition";
-import markerHeritage from '../../imgs/marker_heritage.png';
-import markerNonHeritage from '../../imgs/marker_non_heritage.png';
 
 const ArchiveMap = (props) => {
   const [centerCoord, setCenterCoord] = useState(cityCoordsData[props.cityId]);
@@ -22,21 +21,18 @@ const ArchiveMap = (props) => {
       && checkFilterCondition('existence', item, props.filterState)
     ) {
         return (
-          <MapMarker 
+          <ItemMarkerContainer 
             key={item.id}
-            position={{
-              lat: item.latitude,
-              lng: item.longitude
-            }}
-            image={{
-              src: item.heritage === "1" ? markerHeritage : markerNonHeritage,
-              size: { width: 40, height: 60 },
-              options: { offset: { x: 35, y: 70 } }
-            }}
+            item={item}
+            onMarkerClick={onMarkerClickHandler}
           />
         )
       }
     });
+
+    function onMarkerClickHandler(clickedItem) {
+      setCenterCoord([+clickedItem.latitude, +clickedItem.longitude]);
+    }
 
   return (
     <Map
@@ -46,6 +42,7 @@ const ArchiveMap = (props) => {
         lng: centerCoord[1],
       }}
       level={5}
+      isPanto={true}
     >
       {itemMarkers}
     </Map>
