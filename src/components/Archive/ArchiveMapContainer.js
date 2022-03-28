@@ -5,15 +5,15 @@ import classes from './ArchiveMapContainer.module.css';
 
 import logo from '../../imgs/logo_border.jpg';
 
-import checkFilterCondition from "../../modules/checkFilterCondition";
-
 const ArchiveMapContianer = (props) => {
   return (
     <div className={classes.contianer__map}>
       <ArchiveMap
         cityId={props.cityId}
+        centerCoord={props.centerCoord}
         currentCityItems={props.currentCityItems}
         filterState={props.filterState}
+        onItemClickHandler={props.onItemClickHandler}
       />
       <img className={classes.logo__map}src={logo}></img>
       <MapIndex></MapIndex>

@@ -8,7 +8,7 @@ const ItemMarkerContainer = (props) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
 
   function onClickHandler(event) {
-    props.onMarkerClick(props.item);
+    props.onItemClickHandler(props.item);
   }
 
   function onMouseOverHandler() {

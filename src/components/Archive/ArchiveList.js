@@ -22,10 +22,10 @@ function ArchiveList(props) {
 
   return (
     <ul className={classes.archiveList}>
-      <ArchiveItem 
+      <ArchiveItem
         currentCityItems={props.currentCityItems}
         filterState={props.filterState}
-        onItemClick={props.onItemClick}
+        onItemClickHandler={props.onItemClickHandler}
       >
       </ArchiveItem>
       <ArchiveListFilter

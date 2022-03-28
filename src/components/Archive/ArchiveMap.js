@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react';
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import { useState } from 'react';
+import { Map } from 'react-kakao-maps-sdk';
 
 import ItemMarkerContainer from './ItemMarkerContainer';
 import classes from './ArchiveMap.module.css';
 
-import cityCoordsData from '../../data/cityCoordsData';
 import checkFilterCondition from "../../modules/checkFilterCondition";
 
 const ArchiveMap = (props) => {
-  const [centerCoord, setCenterCoord] = useState(cityCoordsData[props.cityId]);
-
-  useEffect(() => {
-    setCenterCoord(cityCoordsData[props.cityId]);
-  }, [props.cityId]);
+  const [mapLevel, setMapLevel] = useState(5);
 
   const itemMarkers = props.currentCityItems.map(item => {
     if (
@@ -20,28 +15,28 @@ const ArchiveMap = (props) => {
       && checkFilterCondition('heritage', item, props.filterState)
       && checkFilterCondition('existence', item, props.filterState)
     ) {
-        return (
-          <ItemMarkerContainer 
-            key={item.id}
-            item={item}
-            onMarkerClick={onMarkerClickHandler}
-          />
-        )
-      }
-    });
-
-    function onMarkerClickHandler(clickedItem) {
-      setCenterCoord([+clickedItem.latitude, +clickedItem.longitude]);
+      return (
+        <ItemMarkerContainer 
+          key={item.id}
+          item={item}
+          onItemClickHandler={onMarkerClickHandler}
+        />
+      )
     }
+  });
+
+  function onMarkerClickHandler(clickedItem) {
+    props.onItemClickHandler(clickedItem);
+  }
 
   return (
     <Map
       className={classes.kakaoMap}
       center={{
-        lat: centerCoord[0],
-        lng: centerCoord[1],
+        lat: props.centerCoord[0],
+        lng: props.centerCoord[1],
       }}
-      level={5}
+      level={mapLevel}
       isPanto={true}
     >
       {itemMarkers}

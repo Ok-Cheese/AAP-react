@@ -7,8 +7,8 @@ import classes from './ArchiveListItem.module.css';
 const ArcvhiveListItem = (props) => {
   const [isMouseHover, setIsMouseHover] = useState(false);
 
-  function onItemClickHandler(event) {
-    props.onItemClick(event.currentTarget.id);
+  function onClickHandler(event) {
+    props.onItemClickHandler(props.itemData);
   }
 
   function onMouseEnterHandler(event) {
@@ -23,7 +23,7 @@ const ArcvhiveListItem = (props) => {
     <li 
       id={props.itemData.id}
       className={classes.item}
-      onClick={onItemClickHandler} 
+      onClick={onClickHandler} 
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
     >

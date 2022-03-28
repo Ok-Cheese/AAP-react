@@ -21,7 +21,7 @@ const ArchiveItem = (props) => {
             key={item.id}
             itemData={item}
             className={classes.item}
-            onItemClick={props.onItemClick}
+            onItemClickHandler={props.onItemClickHandler}
           />
         )
       }

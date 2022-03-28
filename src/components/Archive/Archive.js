@@ -1,16 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import Information from '../Information.js';
+import SideInformPage from './SideInformPage/SideInformPage.js';
 
 import ArchiveList from './ArchiveList.js';
 import Header from '../../UI/Header.js';
 import ArchiveMapContainer from './ArchiveMapContainer.js';
 import classes from './Archive.module.css';
 
+import cityCoordsData from '../../data/cityCoordsData.js';
+
 function Archive() {
+  const cityId = useParams().cityId;
+
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [currentCityItems, setCurrentCityItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState([currentCityItems])
+  const [centerCoord, setCenterCoord] = useState(cityCoordsData[cityId]);
+  const [isSidePageOpened, setIsSidePageOpened] = useState(false);
   const [filterState, setFilterState] = useState({
     "공공": true,
     "금융": true,
@@ -23,10 +30,10 @@ function Archive() {
     "비문화재": true,
   });
 
-  const cityId = useParams().cityId;
-  
   useEffect(async () => {
-    setCurrentCityItems(await loadCityItemData());
+    const loadedCityItems = await loadCityItemData();
+    setCurrentCityItems(loadedCityItems);
+    setSelectedItem(loadedCityItems[0]);
   }, [cityId]);
 
   async function loadCityItemData() {
@@ -38,40 +45,42 @@ function Archive() {
     return result;
   }
 
-  function handleListItemClick() {}
-  function renderMap() {}
-  
+  function onItemClickHandler(clickedItemItem) {
+    setSelectedItem(clickedItemItem);
+    setCenterCoord([+clickedItemItem.latitude, +clickedItemItem.longitude]);
+  }
+
+  function toggleSidePage() {
+    setIsSidePageOpened(current => !current);
+  }
+
   return (
     <main>
       <div className={classes.outer}>
         <Header></Header>
         <section className={classes.container_map}>
           <ArchiveList
-            onItemClick={handleListItemClick}
             cityId={cityId}
             currentCityItems={currentCityItems}
             filterState={filterState}
             setFilterState={setFilterState}
-            onFilterChange={renderMap}
+            onItemClickHandler={onItemClickHandler}
           ></ArchiveList>
           {
             currentCityItems !== undefined &&
             <ArchiveMapContainer 
               cityId={cityId}
+              centerCoord={centerCoord}
               currentCityItems={currentCityItems}
               filterState={filterState}
+              onItemClickHandler={onItemClickHandler}
             />
           }
-          {/* <Information
-            title={selectedItemData.title}
-            subtitle={selectedItemData.subtitle}
-            desc={selectedItemData.desc}
-            img0={selectedItemData.img0}
-            img1={selectedItemData.img1}
-            img2={selectedItemData.img2}
-            closed={sideClosed}
-            propFunc={setSideClosed}
-          ></Information> */}
+          <SideInformPage
+            selectedItem={selectedItem}
+            isSidePageOpened={isSidePageOpened}
+            toggleSidePage={toggleSidePage}
+          ></SideInformPage>
         </section>
       </div>
     </main>

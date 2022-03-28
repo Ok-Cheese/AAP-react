@@ -1,0 +1,18 @@
+.contianer__title {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #E0DDCF;
+  padding: 2vh;
+}
+.title {
+  font-size: 4vmin;
+  font-weight: bold;
+}
+.subtitle {
+  font-size: 3vmin;
+  font-weight: normal;
+  margin-bottom: 1vh;
+}
