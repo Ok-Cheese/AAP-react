@@ -1,0 +1,65 @@
+.form__signIn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 35%;
+  border-radius: 15px;
+  background-color: gray;
+  padding: 10px;
+}
+
+.form__signIn p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.container__inputs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+.container__input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 45%;
+  margin: 5px 0;
+}
+
+.container__input label {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.container__input input {
+  width: 100%;
+  height: 30px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10%;
+  margin-bottom: 5px;
+}
+
+.message__wrongSubmit {
+  font-weight: bold;
+  color: red;
+}
+
+.submitButton {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  width: 100px;
+  height: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-right: 15px;
+}

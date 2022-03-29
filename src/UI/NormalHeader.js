@@ -15,12 +15,12 @@ const NormalHeader = () => {
       <NavLink 
         className={({ isActive }) => classes.nav + (isActive ? ` ${classes.active}` : "")} 
         to='/marks'>
-      Archive
+        Archive
       </NavLink>
       <NavLink 
         className={({ isActive }) => classes.nav + (isActive ? ` ${classes.active}` : "")} 
-        to='/about'>
-      Category
+        to='/dataControll'>
+        Data
       </NavLink>
     </div>
   )
