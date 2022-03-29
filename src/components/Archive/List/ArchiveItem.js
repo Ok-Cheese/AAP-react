@@ -1,27 +1,30 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import ArcvhiveListItem from './ArchiveListItem';
 import classes from './ArchiveItem.module.css';
 
-import checkFilterCondition from '../../modules/checkFilterCondition';
+import archiveContext from '../../../context/archiveContext';
+import checkFilterCondition from '../../../modules/checkFilterCondition';
 
 const ArchiveItem = (props) => {
-  const cityItems = props.currentCityItems ? props.currentCityItems : [];
+  const archiveContextValue = useContext(archiveContext);
+
+  const cityItems = archiveContextValue.currentCityItems ? archiveContextValue.currentCityItems : [];
+
 
   const renderItemList = () => {
     const result = [];
     for (let item of cityItems) {
       if (
-        checkFilterCondition('role', item, props.filterState)
-        && checkFilterCondition('existence', item, props.filterState)
-        && checkFilterCondition('heritage', item, props.filterState)
+        checkFilterCondition('role', item, archiveContextValue.filterState)
+        && checkFilterCondition('existence', item, archiveContextValue.filterState)
+        && checkFilterCondition('heritage', item, archiveContextValue.filterState)
       ) {
         result.push(
           <ArcvhiveListItem 
             key={item.id}
             itemData={item}
             className={classes.item}
-            onItemClickHandler={props.onItemClickHandler}
           />
         )
       }

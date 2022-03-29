@@ -1,6 +1,6 @@
 import classes from './ItemImg.module.css';
 
-import emptyImg from '../../imgs/logo_empty.png';
+import emptyImg from '../../../imgs/logo_empty.png';
 
 const itemImg = (props) => {
   const imgSrc = props.imgId ?

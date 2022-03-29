@@ -1,26 +1,25 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect, useContext } from 'react';
 
 import SidePageButton from './SidePageButton';
 import SidePageContent from './SidePageContent';
 import classes from './SideInformPage.module.css';
 
+import archiveContext from '../../../context/archiveContext';
+
 function SideInformPage(props) {
   const sidePage = useRef();
+
+  const archiveContextValue = useContext(archiveContext);
   
   useEffect(() => {
-    props.isSidePageOpened ? sidePage.current.style.left = "30%" 
+    archiveContextValue.isSidePageOpened ? sidePage.current.style.left = "30%" 
       : sidePage.current.style.left = "100%";
-  }, [props.isSidePageOpened]);
+  }, [archiveContextValue.isSidePageOpened]);
 
   return (
     <div ref={sidePage} className={classes.sideInformPage}>
-      <SidePageButton 
-        isSidePageOpened={props.isSidePageOpened}
-        toggleSidePage={props.toggleSidePage}
-      />
-      <SidePageContent
-        selectedItem={props.selectedItem}
-      />
+      <SidePageButton/>
+      <SidePageContent/>
     </div>
   )
 }

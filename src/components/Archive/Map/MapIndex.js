@@ -1,5 +1,5 @@
-import indexHeritage from '../../imgs/legend_heritage.png';
-import indexNonHeritage from '../../imgs/legend_non_heritage.png';
+import indexHeritage from '../../../imgs/legend_heritage.png';
+import indexNonHeritage from '../../../imgs/legend_non_heritage.png';
 import classes from './MapIndex.module.css';
 
 const MapIndex = () => {

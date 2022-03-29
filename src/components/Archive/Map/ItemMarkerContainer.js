@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { MapMarker } from "react-kakao-maps-sdk";
 
-import markerHeritage from '../../imgs/marker_heritage.png';
-import markerNonHeritage from '../../imgs/marker_non_heritage.png';
+import archiveContext from "../../../context/archiveContext";
+import markerHeritage from '../../../imgs/marker_heritage.png';
+import markerNonHeritage from '../../../imgs/marker_non_heritage.png';
 
 const ItemMarkerContainer = (props) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
 
+  const archiveContextValue = useContext(archiveContext);
+
   function onClickHandler(event) {
-    props.onItemClickHandler(props.item);
+    archiveContextValue.onItemClickHandler(props.item);
   }
 
   function onMouseOverHandler() {

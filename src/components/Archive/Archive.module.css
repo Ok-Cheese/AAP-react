@@ -9,7 +9,7 @@ ul, li {
   overflow: hidden;
 }
 
-.container_map {
+.container__map {
   position: relative;
   display: flex;
   width: 100vw;

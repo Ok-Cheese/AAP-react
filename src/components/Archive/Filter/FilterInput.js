@@ -1,9 +1,14 @@
+import { useContext } from 'react';
+
 import classes from './FilterInput.module.css';
 
+import archiveContext from '../../../context/archiveContext';
+
 const FilterInput = (props) => {
-  
+  const archiveContextValue = useContext(archiveContext);
+
   function handleFilterCheck(event) {
-    props.setFilterState(current => {
+    archiveContextValue.setFilterState(current => {
       const newFilterState = {...current};
       newFilterState[props.filterType] = event.target.checked;
       return newFilterState;
@@ -15,7 +20,7 @@ const FilterInput = (props) => {
       <input
         className={classes.checkbox}
         type="checkbox"
-        checked={props.filterState[props.filterType]}
+        checked={archiveContextValue.filterState[props.filterType]}
         name={props.filterType}
         onChange={handleFilterCheck}
       ></input>

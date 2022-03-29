@@ -1,10 +1,15 @@
+import { useContext } from 'react';
+
 import classes from './SidePageTitle.module.css';
 
+import archiveContext from '../../../context/archiveContext';
+
 const SidePageTitle = (props) => {
+  const archiveContextValue = useContext(archiveContext);
   return (
     <div className={classes.contianer__title}>
-      <span className={classes.title}>{props.selectedItem.name}</span>
-      <span className={classes.subtitle}>{props.selectedItem.subName}</span>
+      <span className={classes.title}>{archiveContextValue.selectedItem.name}</span>
+      <span className={classes.subtitle}>{archiveContextValue.selectedItem.subName}</span>
     </div>
   )
 }

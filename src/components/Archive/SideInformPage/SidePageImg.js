@@ -1,25 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import classes from './SidePageImg.module.css';
 
+import archiveContext from '../../../context/archiveContext';
 import emptyImg from '../../../imgs/logo_empty.png';
 
 const SidePageImg = (props) => {
-  const [mainImg, setMainImg] = useState(props.selectedItem.informImage1);
+  const archiveContextValue = useContext(archiveContext);
 
-  const img0 = props.selectedItem.informImage1 ?
-  `https://drive.google.com/uc?export=download&id=${props.selectedItem.informImage1.split('/')[5]}`
+  const [mainImg, setMainImg] = useState(archiveContextValue.selectedItem.informImage1);
+
+  const img0 = archiveContextValue.selectedItem.informImage1 ?
+  `https://drive.google.com/uc?export=download&id=${archiveContextValue.selectedItem.informImage1.split('/')[5]}`
   : emptyImg;
-  const img1 = props.selectedItem.informImage2 ?
-  `https://drive.google.com/uc?export=download&id=${props.selectedItem.informImage2.split('/')[5]}`
+  const img1 = archiveContextValue.selectedItem.informImage2 ?
+  `https://drive.google.com/uc?export=download&id=${archiveContextValue.selectedItem.informImage2.split('/')[5]}`
   : emptyImg;
-  const img2 = props.selectedItem.informImage3 ?
-  `https://drive.google.com/uc?export=download&id=${props.selectedItem.informImage3.split('/')[5]}`
+  const img2 = archiveContextValue.selectedItem.informImage3 ?
+  `https://drive.google.com/uc?export=download&id=${archiveContextValue.selectedItem.informImage3.split('/')[5]}`
   : emptyImg;
 
   useEffect(() => {
     setMainImg(img0);
-  }, [props.selectedItem.id]);
+  }, [archiveContextValue.selectedItem.id]);
 
   return (
     <div className={classes.container__img}>

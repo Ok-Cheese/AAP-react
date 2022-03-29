@@ -1,10 +1,14 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useContext, useEffect } from "react";
 
 import FilterInput from "./FilterInput";
 import filterIcon from '../../../imgs/filter.png';
 import classes from './ArchiveListFilter.module.css';
 
+import archiveContext from "../../../context/archiveContext";
+
 const ArchiveListFilter = (props) => {
+  const archiveContextValue = useContext(archiveContext);
+
   const filterTypeData = [
     "공공", "금융", "상업", "교육", "주거", "현존", "소실", "문화재", "비문화재"
   ];
@@ -15,8 +19,6 @@ const ArchiveListFilter = (props) => {
       <FilterInput
         key={key}
         filterType={type}
-        filterState={props.filterState}
-        setFilterState={props.setFilterState}
       />
     )
   });
@@ -27,8 +29,6 @@ const ArchiveListFilter = (props) => {
       <FilterInput
         key={key}
         filterType={type}
-        filterState={props.filterState}
-        setFilterState={props.setFilterState}
       />
     )
   });
@@ -39,38 +39,40 @@ const ArchiveListFilter = (props) => {
       <FilterInput
         key={key}
         filterType={type}
-        filterState={props.filterState}
-        setFilterState={props.setFilterState}
       />
     )
   });
+
+  function onFilterButtonClickHandler() {
+    archiveContextValue.setIsFilterOpen(current => !current);
+  }
 
   return (
     <Fragment>
       <button
         className={classes.filterToggleButton}
-        onClick={props.toggleFilter} 
+        onClick={onFilterButtonClickHandler} 
         style={{ backgroundImage: `url(${filterIcon})` }}>  
       </button>
       <div className={
-        props.isFilterOpen ? classes.filter__opened : classes.filter__closed
+        archiveContextValue.isFilterOpen ? classes.filter__opened : classes.filter__closed
       }>
         {
-          props.isFilterOpen ? 
+          archiveContextValue.isFilterOpen ? 
             <div className={classes.row__filter}>
               {filterInputRole}
             </div> : ""
         }
-        {props.isFilterOpen ? <hr></hr> : ""}
+        {archiveContextValue.isFilterOpen ? <hr></hr> : ""}
         {
-          props.isFilterOpen ? 
+          archiveContextValue.isFilterOpen ? 
           <div className={classes.row__filter}>
             {filterInputExistence}
           </div> : ""
         }
-        {props.isFilterOpen ? <hr></hr> : ""}
+        {archiveContextValue.isFilterOpen ? <hr></hr> : ""}
         {
-          props.isFilterOpen ? 
+          archiveContextValue.isFilterOpen ? 
             <div className={classes.row__filter}>
               {filterInputHeritage}
             </div>  : ""

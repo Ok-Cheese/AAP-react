@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import ItemInform from './ItemInform';
 import ItemImg from './ItemImg';
 import classes from './ArchiveListItem.module.css';
 
+import archiveContext from '../../../context/archiveContext';
+
 const ArcvhiveListItem = (props) => {
   const [isMouseHover, setIsMouseHover] = useState(false);
 
+  const archiveContextValue = useContext(archiveContext);
+
   function onClickHandler(event) {
-    props.onItemClickHandler(props.itemData);
+    archiveContextValue.onItemClickHandler(props.itemData);
   }
 
   function onMouseEnterHandler(event) {
