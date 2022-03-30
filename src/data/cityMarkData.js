@@ -14,67 +14,67 @@ import mark13 from '../imgs/Marks/원산.png';
 
 const cityMarkData = [
   {
-    cityId: "01",
+    cityId: "KS",
     cityName: "경성",
     cityMark: mark1
   },
   {
-    cityId: "02",
+    cityId: "IC",
     cityName: "인천",
     cityMark: mark2
   },
   {
-    cityId: "03",
+    cityId: "DJ",
     cityName: "대전",
     cityMark: mark3
   },
   {
-    cityId: "04",
+    cityId: "DG",
     cityName: "대구",
     cityMark: mark4
   },
   {
-    cityId: "05",
+    cityId: "BS",
     cityName: "부산",
     cityMark: mark5
   },
   {
-    cityId: "06",
+    cityId: "GS",
     cityName: "군산",
     cityMark: mark6
   },
   {
-    cityId: "07",
+    cityId: "MP",
     cityName: "목포",
     cityMark: mark7
   },
   {
-    cityId: "08",
+    cityId: "KJ",
     cityName: "광주",
     cityMark: mark8
   },
   {
-    cityId: "09",
+    cityId: "PY",
     cityName: "평양",
     cityMark: mark9
   },
   {
-    cityId: "10",
+    cityId: "CJ",
     cityName: "청진",
     cityMark: mark10
   },
   {
-    cityId: "11",
+    cityId: "SUJ",
     cityName: "신의주",
     cityMark: mark11
   },
   {
-    cityId: "12",
+    cityId: "HH",
     cityName: "함흥",
     cityMark: mark12
   },
   {
-    cityId: "13",
+    cityId: "WS",
     cityName: "원산",
     cityMark: mark13
   }

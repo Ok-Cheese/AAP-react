@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, child, get } from "firebase/database";
+import { getDatabase, ref, child, get, set, remove } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -22,4 +22,14 @@ export async function getData(path) {
   } else {
     console.log('No data');
   }
+}
+
+export function writeData(path, newData) {
+  const db = getDatabase();
+  set(ref(db, path), newData);
+}
+
+export function removeData(path) {
+  const db = getDatabase();
+  remove(ref(db, path));
 }

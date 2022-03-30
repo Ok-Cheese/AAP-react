@@ -12,21 +12,21 @@ const CityItemList = (props) => {
   ];
 
   const itemData = [];
-  for (let item of props.cityItems) {
+  for (let id in props.cityItems) {
     const newData = {};
-    for (let key in item) {
+    for (let key in props.cityItems[id]) {
       if (exceptProperties.includes(key)) continue;
-      else newData[key] = item[key];
+      else newData[key] = props.cityItems[id][key];
     }
     itemData.push(newData);
   }
 
   const descData = [];
-  for (let item of props.cityItems) {
+  for (let id in props.cityItems) {
     const newData = {};
-    for (let key in item) {
+    for (let key in props.cityItems[id]) {
       if (key === "id" || key === "name" || key === "desc") {
-        newData[key] = item[key];
+        newData[key] = props.cityItems[id][key];
       }
     }
     descData.push(newData);

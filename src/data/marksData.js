@@ -17,7 +17,7 @@ const delayInterval = 100;
 
 const marksData = [
   {
-    id: "01",
+    id: "KS",
     name: "경성",
     top: "50%",
     left: "50%",
@@ -26,7 +26,7 @@ const marksData = [
     isCenter: true
   },
   {
-    id: "02",
+    id: "IC",
     name: "인천",
     top: "0",
     left: "50%",
@@ -35,7 +35,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "03",
+    id: "DJ",
     name: "대전",
     top: "6.75%",
     left: "75%",
@@ -44,7 +44,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "04",
+    id: "DG",
     name: "대구",
     top: "25%",
     left: "93.25%",
@@ -53,7 +53,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "05",
+    id: "BS",
     name: "부산",
     top: "50%",
     left: "100%",
@@ -62,7 +62,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "06",
+    id: "GS",
     name: "군산",
     top: "75%",
     left: "93.25%",
@@ -71,7 +71,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "07",
+    id: "MP",
     name: "목포",
     top: "93.25%",
     left: "75%",
@@ -80,7 +80,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "08",
+    id: "KJ",
     name: "광주",
     top: "100%",
     left: "50%",
@@ -89,7 +89,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "09",
+    id: "PY",
     name: "평양",
     top: "93.25%",
     left: "25%",
@@ -98,7 +98,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "10",
+    id: "CJ",
     name: "청진",
     top: "75%",
     left: "6.75%",
@@ -107,7 +107,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "11",
+    id: "SUJ",
     name: "신의주",
     top: "50%",
     left: "0%",
@@ -116,7 +116,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "12",
+    id: "HH",
     name: "함흥",
     top: "25%",
     left: "6.75%",
@@ -125,7 +125,7 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "13",
+    id: "WS",
     name: "원산",
     top: "6.75%",
     left: "25%",

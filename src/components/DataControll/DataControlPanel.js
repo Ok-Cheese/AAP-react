@@ -1,10 +1,15 @@
 import classes from './DataControlPanel.module.css';
 
 const DataControlPanel = (props) => {
-
-  function onDataAddHandler() {}
-  function onDataEditHandler() {}
-  function onDataRemoveHandler() {}
+  function onDataAddHandler() {
+    props.onAddClick(true);
+  }
+  function onDataEditHandler() {
+    props.onEditClick(true);
+  }
+  function onDataRemoveHandler() {
+    props.onRemoveClick(true);
+  }
 
   return (
     <div className={classes.dataControlPanel}>

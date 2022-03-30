@@ -16,3 +16,7 @@
   border: none;
   margin-left: 0.5vw;
 }
+
+.desc {
+  white-space: pre;
+}

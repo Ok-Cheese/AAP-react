@@ -12,7 +12,7 @@ const DescContainer = (props) => {
   return (
     <div className={classes.container__desc}>
       <div className={classes.descTitle}>
-        <p className={classes.itemName}>{props.name}</p>
+        <p className={classes.itemName}>{props.name + " Description"}</p>
         <button 
           className={classes.descToggleButton}
           onClick={descToggleHandler}
@@ -23,7 +23,7 @@ const DescContainer = (props) => {
           <p className={classes.desc}>
             {"Description: "}
             <br></br>
-            {props.desc}
+            {props.desc.toString()}
           </p> : ""
       }
     </div>

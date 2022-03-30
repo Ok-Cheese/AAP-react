@@ -9,8 +9,8 @@ const CityItemDataList = (props) => {
   const [cityData, setCityData] = useState([]);
   
   useEffect(async () => {
-    const loadCityData = await conlog('/');
-    setCityData(loadCityData);
+    const loadedCityData = await loadData('/cityItems');
+    setCityData(loadedCityData);
   }, []);
 
   const cityList = [];
@@ -18,13 +18,13 @@ const CityItemDataList = (props) => {
     cityList.push(
       <CityItemList 
         key={cityId} 
-        cityName={cityData[cityId].cityName} 
+        cityName={cityData[cityId].name} 
         cityItems={cityData[cityId].items ? cityData[cityId].items : []}
       />
     )
   }
 
-  async function conlog(path) {
+  async function loadData(path) {
     return new Promise((resolve, reject) => {
       const response = getData(path);
       if (response) resolve(response);
