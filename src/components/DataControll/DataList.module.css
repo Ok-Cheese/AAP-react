@@ -1,6 +1,6 @@
 .dataList {
-  width: 95vw;
-  height: 95vh;
+  width: 100vw;
+  height: auto;
   background-color: gainsboro;
   border-radius: 15px;
   padding: 5%;

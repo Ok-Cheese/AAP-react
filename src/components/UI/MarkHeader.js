@@ -1,4 +1,4 @@
-import cityMarkData from '../data/cityMarkData';
+import cityMarkData from '../../data/cityMarkData';
 import CityLogoInHeader from './CityLogoInHeader';
 import styles from './MarkHeader.module.css';
 

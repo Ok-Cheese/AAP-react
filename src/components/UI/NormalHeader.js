@@ -19,7 +19,7 @@ const NormalHeader = () => {
       </NavLink>
       <NavLink 
         className={({ isActive }) => classes.nav + (isActive ? ` ${classes.active}` : "")} 
-        to='/dataControll'>
+        to='/dataControl'>
         Data
       </NavLink>
     </div>

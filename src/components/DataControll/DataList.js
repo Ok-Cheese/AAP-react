@@ -1,8 +1,11 @@
+import CityItemDataList from './CityItemDataList';
 import classes from './DataList.module.css';
 
 const DataList = (props) => {
   return (
-    <ul className={classes.dataList}></ul>
+    <div className={classes.dataList}>
+      <CityItemDataList></CityItemDataList>
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 import StartPage from './StartPage.js';
-import Header from '../../UI/Header';
+import Header from '../UI/Header';
 import MainPage from './MainPage.js';
 import classes from './Main.module.css';
 

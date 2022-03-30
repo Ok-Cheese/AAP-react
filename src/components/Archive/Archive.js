@@ -3,12 +3,13 @@ import { useParams } from 'react-router-dom';
 
 import SideInformPage from './SideInformPage/SideInformPage.js';
 
-import Header from '../../UI/Header.js';
+import Header from '../UI/Header.js';
 import ArchiveList from './List/ArchiveList.js';
 import ArchiveMapContainer from './Map/ArchiveMapContainer.js';
 import classes from './Archive.module.css';
 
 import archiveContext from '../../context/archiveContext.js';
+import { getData } from '../../modules/firebase.js';
 import cityCoordsData from '../../data/cityCoordsData.js';
 
 function Archive() {
@@ -39,13 +40,11 @@ function Archive() {
     setCenterCoord(cityCoordsData[cityId]);
   }, [cityId]);
 
-  async function loadCityItemData() {
-    const dataURL = `https://aap-react-64aa0-default-rtdb.firebaseio.com/${cityId}/items.json`;
-    const response = await fetch(dataURL);
-    const result = await response.json();
-
-    setIsDataLoading(false);
-    return result;
+  function loadCityItemData() {
+    return new Promise((resolve, reject) => {
+      const response = getData(cityId + '/items');
+      if (response) resolve(response);
+    })
   }
 
   function onItemClickHandler(clickedItemItem) {

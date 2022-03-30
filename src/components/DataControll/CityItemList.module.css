@@ -1,0 +1,30 @@
+.cityItemList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 95vw;
+  height: auto;
+  border-radius: 15px;
+  background-color: white;
+  padding: 5%;
+  margin: 1%;
+}
+
+.cityTitle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1vh;
+}
+
+.cityName {
+  font-size: 2rem;
+}
+
+.tableToggleButton {
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  margin-left: 0.5vw;
+}

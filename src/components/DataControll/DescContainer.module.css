@@ -1,0 +1,18 @@
+.container__desc {
+  padding: 1%;
+}
+
+.descTitle {
+  display: flex;
+}
+
+.itemName {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.descToggleButton {
+  background-color: transparent;
+  border: none;
+  margin-left: 0.5vw;
+}
