@@ -1,18 +1,40 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import Modal from "../../UI/Modal";
 import classes from './RemoveDataModal.module.css';
 
-import { removeData } from "../../../modules/firebase";
+import warningContext from "../../../context/warningContext";
+import { getData, removeData } from "../../../modules/firebase";
+import cityIdData from "../../../data/cityIdData";
+
 
 const RemoveDataModal = (props) => {
   const [itemId, setItemId] = useState("");
   const [itemCityId, setItemCityId] = useState("");
 
-  function onRemoveHandler(event) {
+  const warningContextValue = useContext(warningContext);
+
+  async function onRemoveHandler(event) {
     event.preventDefault();
     
+    if (!cityIdData.includes(itemCityId)) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 City ID입니다.');
+      return;
+    }
+
+    const loadedCityData = await getData(`/cityItems/${itemCityId}/items/${itemId}`);
+    const itemName = loadedCityData ? loadedCityData.name : "";
+
+    if (!loadedCityData) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('존재하지 않는 ID입니다.');
+      return;
+    }
+
     removeData(`/cityItems/${itemCityId}/items/${itemId}`);
+    warningContextValue.setIsWarningModalOn(true);
+    warningContextValue.setWarningText(`${itemName}(${itemCityId}:${itemId})\n삭제되었습니다.`);
     props.onClose();
   }
   return (
@@ -26,8 +48,8 @@ const RemoveDataModal = (props) => {
           <br></br>
           <input
             className={classes.input__typing}
-            value={itemId}
-            onChange={(event => {setItemCityId(event.target.value)})}
+            value={itemCityId}
+            onChange={(event) => {setItemCityId(event.target.value)}}
           ></input>
         </div>
         <div className={classes.row__modal}>
@@ -36,7 +58,7 @@ const RemoveDataModal = (props) => {
           <input 
             className={classes.input__typing}
             value={itemId}
-            onChange={(event => {setItemCityId(event.target.value)})}
+            onChange={(event) => {setItemId(event.target.value)}}
           ></input>
         </div>
         <div className={classes.row__modal}>

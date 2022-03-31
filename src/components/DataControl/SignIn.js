@@ -9,7 +9,8 @@ const SignIn = (props) => {
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    if (inputId.current.value === 'testid' && inputPassword.current.value === 'testpassword') {
+    if (inputId.current.value === process.env.DB_CONTROL_ID
+       && inputPassword.current.value === process.env.DB_CONTROL_PW) {
       props.setIsSignIn(true);
     } else {
       inputId.current.value="";
@@ -18,6 +19,8 @@ const SignIn = (props) => {
       setIsInputWrong(true);
     }
   }
+
+  console.log(process.env.DB_CONTROL_ID, process.env.DB_CONTROL_PW);
 
   return (
     <form className={classes.form__signIn} onSubmit={onSubmitHandler}>

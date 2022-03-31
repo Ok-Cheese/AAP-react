@@ -1,5 +1,4 @@
 .form__signIn {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,9 +52,6 @@
 }
 
 .submitButton {
-  position: absolute;
-  bottom: 10%;
-  right: 5%;
   width: 100px;
   height: 50px;
   font-size: 1rem;

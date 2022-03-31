@@ -9,10 +9,8 @@ import EditDataModal from './DataModals/EditDataModal';
 import RemoveDataModal from './DataModals/RemoveDataModal';
 import classes from './DataControl.module.css';
 
-import { getData } from '../../modules/firebase';
-
 const DataControl = (props) => {
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignIn, setIsSignIn] = useState(false);
   const [isAddModalOpened, setIsAddModalOpened] = useState(false);
   const [isEditModalOpened, setIsEditModalOpened] = useState(false);
   const [isRemoveModalOpened, setIsRemoveModalOpened] = useState(false);

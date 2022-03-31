@@ -1,10 +1,12 @@
-import { useEffect, useReducer } from 'react';
+import { useContext, useEffect, useReducer } from 'react';
 
 import Modal from '../../UI/Modal';
 import DataModalInput from './DataModalInput';
 import classes from './AddDataModal.module.css';
 
 import { getData, writeData } from '../../../modules/firebase';
+import warningContext from '../../../context/warningContext';
+import cityIdData from '../../../data/cityIdData';
 
 function itemDataReducer(state, action) {
   const newState = {};
@@ -37,15 +39,56 @@ const AddDataModal = (props) => {
     heritage: "",    
   });
 
+  const warningContextValue = useContext(warningContext);
+
   async function onAddSubmitHandler(event) {
     event.preventDefault();
 
-    const response = await getData(`/cityItems/${itemData.cityId}/items/${itemData.id}`);
-    if (response) {
-      console.log("Duplicated CityID!");
+    // 1. 중복 ID 확인
+    const loadedAllItemData = await getData(`/cityItems`);
+
+    for (let cityIdIdx of cityIdData) {
+      // 변수 이름 바꿔야 함.
+      const CID = loadedAllItemData[cityIdIdx].items;
+
+      if (CID) {
+        const CID_keys = Object.keys(CID);
+  
+        for (let key of CID_keys) {
+          if (key === itemData.id) {
+            warningContextValue.setIsWarningModalOn(true);
+            warningContextValue.setWarningText('이미 존재하는 ID입니다.');
+            return;
+          }
+        }
+      }
+    }
+
+    const latitude__number = +itemData.latitude.trim();
+    const longitude__number = +itemData.longitude.trim();
+
+    // 2. 필수 입력값 확인
+    if (itemData.id.trim() === "") {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 ID입니다.');
+    } else if (!cityIdData.includes(itemData.cityId.trim())) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 City ID입니다.');
+    } else if (itemData.name.trim() === "") {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 이름입니다.');
+    } else if (itemData.latitude.trim() === "" || isNaN(latitude__number) || latitude__number < 33 || latitude__number > 43) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 위치(Latitude)입니다.');
+    } else if (itemData.longitude.trim() === "" || isNaN(longitude__number) || longitude__number < 124 || longitude__number > 132) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 위치(Longitude)입니다.');
     }
 
     writeData(`/cityItems/${itemData.cityId}/items/${itemData.id}`, itemData);
+
+    warningContextValue.setIsWarningModalOn(true);
+    warningContextValue.setWarningText(`${itemData.name}(${itemData.cityId}:${itemData.id})\n등록이 완료되었습니다.`);
 
     props.onClose();
   }
@@ -105,7 +148,7 @@ const AddDataModal = (props) => {
           <DataModalInput 
             category="latitude"
             tag="Latitude (필수)"
-            placeholder="위도를 입력하세요."
+            placeholder="위도를 입력하세요. (33 ~ 43)"
             value={itemData.latitude}
             isEditable={true}
             dispatch={dispatchItemData}
@@ -113,7 +156,7 @@ const AddDataModal = (props) => {
           <DataModalInput 
             category="longitude"
             tag="Longitude (필수)"
-            placeholder="경도를 입력하세요."
+            placeholder="경도를 입력하세요 (124 ~ 132)."
             value={itemData.longitude}
             isEditable={true}
             dispatch={dispatchItemData}

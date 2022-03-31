@@ -1,10 +1,12 @@
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useContext } from 'react';
 
 import Modal from '../../UI/Modal';
 import DataModalInput from './DataModalInput';
 import classes from './EditDataModal.module.css';
 
 import { getData, writeData } from '../../../modules/firebase';
+import warningContext from '../../../context/warningContext';
+import cityIdData from '../../../data/cityIdData';
 
 function itemDataReducer(state, action) {
   if (action.category === "all") {
@@ -43,14 +45,49 @@ const EditDataModal = (props) => {
     desc: "",
   });
 
+  const warningContextValue = useContext(warningContext);
+
   function onAddSubmitHandler(event) {
     event.preventDefault();
+
+    const latitude__number = +itemData.latitude.trim();
+    const longitude__number = +itemData.longitude.trim();
+
+    // 1. 필수 입력값 확인
+    if (itemData.name.trim() === "") {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 이름입니다.');
+    } else if (itemData.latitude.trim() === "" || isNaN(latitude__number) || latitude__number < 33 || latitude__number > 43) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 위치(Latitude)입니다.');
+    } else if (itemData.longitude.trim() === "" || isNaN(longitude__number) || longitude__number < 124 || longitude__number > 132) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 위치(Longitude)입니다.');
+    }
+
     writeData(`/cityItems/${itemData.cityId}/items/${itemData.id}`, itemData);
+
+    warningContextValue.setIsWarningModalOn(true);
+    warningContextValue.setWarningText(`${itemData.name}(${itemData.cityId}:${itemData.id})\n수정이 완료되었습니다.`);
+
     props.onClose();
   }
 
   async function onIdSubmitHandler(event) {
     event.preventDefault();
+
+    if (!cityIdData.includes(itemData.cityId)) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('잘못된 City ID입니다.');
+      return;
+    }
+
+    if (!await getData(`/cityItems/${itemData.cityId}/items/${itemData.id}`)) {
+      warningContextValue.setIsWarningModalOn(true);
+      warningContextValue.setWarningText('존재하지 않는 ID입니다.');
+      return;
+    }
+
     setIsIdReceived(true);
 
     const loadedItemData = await getData(`/cityItems/${itemData.cityId}/items/${itemData.id}`);
@@ -118,7 +155,7 @@ const EditDataModal = (props) => {
               <DataModalInput 
                 category="latitude"
                 tag="Latitude (필수)"
-                placeholder="위도를 입력하세요."
+                placeholder="위도를 입력하세요. (33 ~ 43)"
                 value={itemData.latitude}
                 isEditable={true}
                 dispatch={dispatchItemData}
@@ -126,7 +163,7 @@ const EditDataModal = (props) => {
               <DataModalInput 
                 category="longitude"
                 tag="Longitude (필수)"
-                placeholder="경도를 입력하세요."
+                placeholder="경도를 입력하세요. (124 ~ 132)"
                 value={itemData.longitude}
                 isEditable={true}
                 dispatch={dispatchItemData}
@@ -199,18 +236,18 @@ const EditDataModal = (props) => {
             <p className={classes.caution}>수정할 아이템의 ID를 입력하세요.</p>
           </div>
           <DataModalInput 
-            category="id"
-            tag="ID"
-            placeholder="ID를 입력하세요."
-            value={itemData.id}
-            isEditable={true}
-            dispatch={dispatchItemData}
-          />
-          <DataModalInput 
             category="cityId"
             tag="City ID"
             placeholder="도시 ID를 입력하세요."
             value={itemData.cityId}
+            isEditable={true}
+            dispatch={dispatchItemData}
+          />
+          <DataModalInput 
+            category="id"
+            tag="ID"
+            placeholder="ID를 입력하세요."
+            value={itemData.id}
             isEditable={true}
             dispatch={dispatchItemData}
           />
