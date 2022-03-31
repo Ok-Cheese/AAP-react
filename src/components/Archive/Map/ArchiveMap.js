@@ -10,20 +10,22 @@ import checkFilterCondition from "../../../modules/checkFilterCondition";
 const ArchiveMap = (props) => {
   const archiveContextValue = useContext(archiveContext);
 
-  const itemMarkers = archiveContextValue.currentCityItems.map(item => {
+  const itemMarkers = [];
+  for (let key in archiveContextValue.currentCityItems) {
+    const item = archiveContextValue.currentCityItems[key];
     if (
       checkFilterCondition('role', item, archiveContextValue.filterState)
       && checkFilterCondition('heritage', item, archiveContextValue.filterState)
       && checkFilterCondition('existence', item, archiveContextValue.filterState)
     ) {
-      return (
+      itemMarkers.push(
         <ItemMarkerContainer 
           key={item.id}
           item={item}
         />
       )
     }
-  });
+  };
 
   return (
     <Map

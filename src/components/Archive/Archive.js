@@ -36,20 +36,23 @@ function Archive() {
   useEffect(async () => {
     const loadedCityItems = await loadCityItemData();
     setCurrentCityItems(loadedCityItems);
-    setSelectedItem(loadedCityItems[0]);
     setCenterCoord(cityCoordsData[cityId]);
+    if (loadedCityItems) {
+      const firstKey = Object.keys(loadedCityItems)[0];
+      setSelectedItem(loadedCityItems[firstKey]);
+    }
   }, [cityId]);
 
   function loadCityItemData() {
     return new Promise((resolve, reject) => {
-      const response = getData(cityId + '/items');
+      const response = getData(`/cityItems/${cityId}/items`);
       if (response) resolve(response);
     })
   }
 
-  function onItemClickHandler(clickedItemItem) {
-    setSelectedItem(clickedItemItem);
-    setCenterCoord([+clickedItemItem.latitude, +clickedItemItem.longitude]);
+  function onItemClickHandler(clickedItem) {
+    setSelectedItem(clickedItem);
+    setCenterCoord([+clickedItem.latitude, +clickedItem.longitude]);
   }
 
   const archiveContextValue = {
@@ -75,9 +78,7 @@ function Archive() {
         <Header></Header>
         <section className={classes.container__map}>
           <ArchiveList></ArchiveList>
-          {
-            currentCityItems !== undefined && <ArchiveMapContainer />
-          }
+          <ArchiveMapContainer />
           <SideInformPage></SideInformPage>
         </section>
       </div>

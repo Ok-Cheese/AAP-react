@@ -14,7 +14,8 @@ const ArchiveItem = (props) => {
 
   const renderItemList = () => {
     const result = [];
-    for (let item of cityItems) {
+    for (let key in cityItems) {
+      const item = cityItems[key];
       if (
         checkFilterCondition('role', item, archiveContextValue.filterState)
         && checkFilterCondition('existence', item, archiveContextValue.filterState)

@@ -4,9 +4,9 @@ import Header from '../UI/Header';
 import SignIn from './SignIn';
 import DataList from './DataList';
 import DataControlPanel from './DataControlPanel';
-import AddDataModal from './AddDataModal';
-import EditDataModal from './EditDataModal';
-import RemoveDataModal from './RemoveDataModal';
+import AddDataModal from './DataModals/AddDataModal';
+import EditDataModal from './DataModals/EditDataModal';
+import RemoveDataModal from './DataModals/RemoveDataModal';
 import classes from './DataControl.module.css';
 
 import { getData } from '../../modules/firebase';
