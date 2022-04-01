@@ -1,4 +1,15 @@
-.containerMenu {
+.logo {
+  position: fixed;
+  top: 1.5vh;
+  left: 0.5vw;
+  height: 11vh;
+  margin-left: 3vw;
+  margin-top: 1vh;
+  z-index: 10;
+  transition: 0.5s;
+}
+
+.container__menu__opened {
   position: fixed;
   top: 0;
   display: flex;
@@ -8,40 +19,39 @@
   height: 15vh;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  padding: 15px;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1;
+  padding: 1vw;
+  z-index: 9;
   transition: 1s;
 }
-.containerMenu__closed {
+.container__menu__closed {
   top: -100%;
 }
 
-.logo {
-  position: absolute;
-  top: 1.5vh;
-  left: 0.5vw;
-  height: 11vh;
-  margin-left: 3vw;
-  margin-top: 1vh;
-  z-index: 100;
-  transition: 1s;
-}
-
 .btnMenu {
-  position: absolute;
+  position: fixed;
   top: 2vh;
   right: 1vw;
   height: 8vh;
-  border-radius: 5px;
   margin-top: 1.5vh;
   margin-right: 2vw;
-  z-index: 100;
+  z-index: 10;
 }
 .btnMenu:hover {
   transform: scale(1.1, 1.1);
   transition: 1s;
   cursor: pointer;
+}
+
+.invertColor {
+  filter: invert(100%);
+  transition: 1.5s;
+}
+
+.transparentStyle {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
 }
 
 @keyframes fadeIn {

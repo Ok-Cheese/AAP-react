@@ -3,25 +3,21 @@ import { NavLink } from "react-router-dom";
 
 import classes from './NormalHeader.module.css';
 
-
 const NormalHeader = () => {
   return (
-    <div className={classes.navWrapper}>
+    <div className={classes.wrapper__nav}>
       <NavLink 
+        to='/about'
         className={({ isActive }) => classes.nav + (isActive ? ` ${classes.active}` : "")} 
-        to='/about'>
-        About
-      </NavLink>
+      >About</NavLink>
       <NavLink 
+        to='/marks'
         className={({ isActive }) => classes.nav + (isActive ? ` ${classes.active}` : "")} 
-        to='/marks'>
-        Archive
-      </NavLink>
+      >Archive</NavLink>
       <NavLink 
+        to='/dataControl'
         className={({ isActive }) => classes.nav + (isActive ? ` ${classes.active}` : "")} 
-        to='/dataControl'>
-        Data
-      </NavLink>
+      >Data</NavLink>
     </div>
   )
 }

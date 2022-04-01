@@ -16,9 +16,9 @@ const App = () => {
   const [warningText, setWarningText] = useState("");
 
   const warningContextValue = {
-    isWarningModalOn, 
-    warningText, 
-    setIsWarningModalOn, 
+    isWarningModalOn,
+    warningText,
+    setIsWarningModalOn,
     setWarningText
   }
 
@@ -40,7 +40,7 @@ const App = () => {
         <Route path="/dataControl" element={
           <warningContext.Provider value={warningContextValue}>
             {
-              isWarningModalOn ? 
+              isWarningModalOn ?
                 <WarningModal></WarningModal> : ""
             }
             <DataControl></DataControl>
@@ -48,7 +48,7 @@ const App = () => {
         } />
       </Routes>
     </Router>
-    
+
   );
 }
 

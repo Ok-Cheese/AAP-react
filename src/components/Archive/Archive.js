@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import SideInformPage from './SideInformPage/SideInformPage.js';
 
-import Header from '../UI/Header.js';
+import Header from '../UI/Header/Header';
 import ArchiveList from './List/ArchiveList.js';
 import ArchiveMapContainer from './Map/ArchiveMapContainer.js';
 import classes from './Archive.module.css';

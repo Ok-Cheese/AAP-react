@@ -1,4 +1,4 @@
-import Header from '../UI/Header';
+import Header from '../UI/Header/Header';
 import styles from './About.module.css';
 import building1 from '../../imgs/about1.png';
 import building2 from '../../imgs/about2.png';

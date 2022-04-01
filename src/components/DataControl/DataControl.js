@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Header from '../UI/Header';
+import Header from '../UI/Header/Header';
 import SignIn from './SignIn';
 import DataList from './DataList';
 import DataControlPanel from './DataControlPanel';

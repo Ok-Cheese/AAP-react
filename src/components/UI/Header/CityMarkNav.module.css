@@ -1,0 +1,31 @@
+.nav__cityMark {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 5%;
+  margin: 0 0.25vw;
+}
+.nav__cityMark:hover .markImg {
+  transform: translate(0, -1vh);
+}
+.nav__cityMark:hover .cityName {
+  display: inline;
+  transition: 0.5s;
+}
+
+.markImg {
+  width: 100%;
+  filter: invert(100%);
+  object-fit: cover;
+}
+
+.cityName {
+  position: absolute;
+  top: 90%;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  text-align: center;
+  color: white;
+  display: none;
+}

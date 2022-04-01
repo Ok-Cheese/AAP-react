@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 
-import Header from '../UI/Header';
+import Header from '../UI/Header/Header';
 import CityMark from './CityMark';
 import marksData from '../../data/marksData';
 import classes from './Marks.module.css';

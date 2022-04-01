@@ -1,11 +1,12 @@
-import cityMarkData from '../../data/cityMarkData';
-import CityLogoInHeader from './CityLogoInHeader';
-import styles from './MarkHeader.module.css';
+import CityMarkNav from './CityMarkNav';
+import classes from './ArchiveHeader.module.css';
 
-function markHeader() {
+import cityMarkData from '../../../data/cityMarkData';
+
+const markHeader = () => {
 
   const cityMarks = cityMarkData.map(markData => {
-    return <CityLogoInHeader
+    return <CityMarkNav
       key={markData.cityId}
       id={markData.cityId}
       src={markData.cityMark}
@@ -14,7 +15,7 @@ function markHeader() {
   });
 
   return (
-    <div className={styles.container__mark}>
+    <div className={classes.container__mark}>
       {cityMarks}
     </div>
   )
