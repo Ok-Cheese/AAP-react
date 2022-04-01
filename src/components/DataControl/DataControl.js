@@ -10,7 +10,7 @@ import RemoveDataModal from './DataModals/RemoveDataModal';
 import classes from './DataControl.module.css';
 
 const DataControl = (props) => {
-  const [isSignIn, setIsSignIn] = useState(false);
+  const [isSignIn, setIsSignIn] = useState(true);
   const [isAddModalOpened, setIsAddModalOpened] = useState(false);
   const [isEditModalOpened, setIsEditModalOpened] = useState(false);
   const [isRemoveModalOpened, setIsRemoveModalOpened] = useState(false);

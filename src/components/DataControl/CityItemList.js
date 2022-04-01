@@ -1,38 +1,47 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import CItyDescTable from './CityDescTable';
 import classes from './CityItemList.module.css';
 import CityItemTable from './CityItemTable';
 
+import { getData } from '../../modules/firebase';
+
 const CityItemList = (props) => {
   const [isTableOpened, setIsTableOpend] = useState(false);
+  const [cityData, setCityData] = useState([]);
 
   const exceptProperties = [
     "imageId", "informImage1", "informImage2", "informImage3", "desc"
   ];
 
   const itemData = [];
-  for (let id in props.cityItems) {
+  const descData = [];
+
+  for (let id in cityData) {
     const newData = {};
-    for (let key in props.cityItems[id]) {
+    for (let key in cityData[id]) {
       if (exceptProperties.includes(key)) continue;
-      else newData[key] = props.cityItems[id][key];
+      else newData[key] = cityData[id][key];
     }
     itemData.push(newData);
   }
 
-  const descData = [];
-  for (let id in props.cityItems) {
+  for (let id in cityData) {
     const newData = {};
-    for (let key in props.cityItems[id]) {
+    for (let key in cityData[id]) {
       if (key === "id" || key === "name" || key === "desc") {
-        newData[key] = props.cityItems[id][key];
+        newData[key] = cityData[id][key];
       }
     }
     descData.push(newData);
   }
 
-  function tableToggleHandler() {
+  async function tableToggleHandler() {
+    if (!itemData.length) {
+      const loadedCityData = await getData(`/cityItems/${props.cityId}/items`);
+      setCityData(loadedCityData);
+    }
+
     setIsTableOpend(current => !current);
   }
 

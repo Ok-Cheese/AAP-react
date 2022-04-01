@@ -5,7 +5,7 @@ import classes from './CityItemTable.module.css';
 
 const CityItemTable = (props) => {
   const data = useMemo(
-    () => props.itemData, []
+    () => props.itemData, [props.itemData]
   );
 
   const columns = useMemo(

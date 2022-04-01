@@ -2,33 +2,18 @@ import { useEffect, useState } from 'react';
 
 import classes from './CityItemDataList.module.css';
 
-import { getData } from '../../modules/firebase';
 import CityItemList from './CityItemList';
+import cityIdData from '../../data/cityIdData';
+import cityNameData from '../../data/cityNameData';
 
 const CityItemDataList = (props) => {
-  const [cityData, setCityData] = useState([]);
-  
-  useEffect(async () => {
-    const loadedCityData = await loadData('/cityItems');
-    setCityData(loadedCityData);
-  }, []);
-
   const cityList = [];
-  for (let cityId in cityData) {
+  for (let i = 0; i < cityIdData.length; i++) {
+    const cityId = cityIdData[i];
+    const cityName = cityNameData[i];
     cityList.push(
-      <CityItemList 
-        key={cityId} 
-        cityName={cityData[cityId].name} 
-        cityItems={cityData[cityId].items ? cityData[cityId].items : []}
-      />
+      <CityItemList key={cityId} cityId={cityId} cityName={cityName}/>
     )
-  }
-
-  async function loadData(path) {
-    return new Promise((resolve, reject) => {
-      const response = getData(path);
-      if (response) resolve(response);
-    })
   }
 
   return (

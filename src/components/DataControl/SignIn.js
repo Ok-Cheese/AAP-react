@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+
 import classes from './SignIn.module.css';
 
 const SignIn = (props) => {
@@ -9,8 +10,8 @@ const SignIn = (props) => {
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    if (inputId.current.value === process.env.DB_CONTROL_ID
-       && inputPassword.current.value === process.env.DB_CONTROL_PW) {
+    if (inputId.current.value === process.env.REACT_APP_MANAGE_ID
+       && inputPassword.current.value === process.env.REACT_APP_MANAGE_PW) {
       props.setIsSignIn(true);
     } else {
       inputId.current.value="";
@@ -19,8 +20,6 @@ const SignIn = (props) => {
       setIsInputWrong(true);
     }
   }
-
-  console.log(process.env.DB_CONTROL_ID, process.env.DB_CONTROL_PW);
 
   return (
     <form className={classes.form__signIn} onSubmit={onSubmitHandler}>
