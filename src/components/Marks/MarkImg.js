@@ -1,18 +1,22 @@
 import classes from './MarkImg.module.css';
 
 const MarkImg = (props) => {
+  function onMarkLoadDone(event) {
+    setTimeout(() => event.target.hidden = false, props.timer);
+  }
+
   return (
     <img
       className={
         classes.mark
         + (props.isCenter ? ` ${classes.mark__center}` : "")
-        + (props.isMouseOn ? ` ${classes.mark__hover}` : "")
+        + (props.isMouseOnMark ? ` ${classes.mark__hover}` : "")
       }
       src={props.src}
-      onLoad={(event) => setTimeout(() => event.target.hidden = false, props.timer)}
+      onLoad={onMarkLoadDone}
       hidden
     ></img>
   );
-}
+};
 
 export default MarkImg;

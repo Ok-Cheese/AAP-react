@@ -1,16 +1,16 @@
 import CityMarkNav from './CityMarkNav';
 import classes from './ArchiveHeader.module.css';
 
-import cityMarkData from '../../../data/cityMarkData';
+import { marksData } from '../../../data/marksData';
 
 const markHeader = () => {
 
-  const cityMarks = cityMarkData.map(markData => {
+  const cityMarks = marksData.map(markData => {
     return <CityMarkNav
       key={markData.cityId}
       id={markData.cityId}
-      src={markData.cityMark}
       name={markData.cityName}
+      src={markData.src}
     />
   });
 

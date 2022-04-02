@@ -2,42 +2,42 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import MarkImg from "./MarkImg";
-import classes from "./CityMark.module.css";
 import MarkSpan from "./MarkSpan";
+import classes from "./CityMark.module.css";
 
 const CityMark = (props) => {
-  const [isMouseOn, setIsMouseOn] = useState(false);
+  const [isMouseOnMark, setIsMouseOnMark] = useState(false);
 
-  const onMouseEnterHandler = (event) => {
-    setIsMouseOn(true);
+  const onMouseEnterHandler = () => {
+    setIsMouseOnMark(true);
   }
 
-  const onMouseLeaveHandler = (event) => {
-    setIsMouseOn(false);
+  const onMouseLeaveHandler = () => {
+    setIsMouseOnMark(false);
   }
 
   return (
     <Link
-      to={`/archive/${props.id}`}
-      className={classes.markOuter}
-      style={{ top: props.top, left: props.left }}
+      to={`/archive/${props.data.cityId}`}
+      className={classes.wrapper__marker}
+      style={{ top: props.data.top, left: props.data.left }}
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
     >
       <MarkImg 
-        src={props.src}
-        isCenter={props.isCenter}
-        isMouseOn={isMouseOn}
-        timer={props.timer}
+        src={props.data.src}
+        isCenter={props.data.isCenter}
+        isMouseOnMark={isMouseOnMark}
+        timer={props.data.timer}
       />
       <MarkSpan 
-        name={props.name} 
-        isCenter={props.isCenter}
-        isLoaded={props.isLoaded}
-        isMouseOn={isMouseOn}
+        cityName={props.data.cityName} 
+        isCenter={props.data.isCenter}
+        isMarkLoaded={props.isMarkLoaded}
+        isMouseOnMark={isMouseOnMark}
       ></MarkSpan>
     </Link>
-  )
-}
+  );
+};
 
 export default CityMark;

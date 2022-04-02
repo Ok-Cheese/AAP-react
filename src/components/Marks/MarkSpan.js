@@ -6,17 +6,17 @@ const MarkSpan = (props) => {
   return (
     <Fragment>
       {
-        props.isLoaded ? 
+        props.isMarkLoaded ? 
         <span 
           className={
             classes.cityName 
             + (props.isCenter ? ` ${classes.cityName__center}` : "")
-            + (props.isMouseOn ? ` ${classes.cityName__hover}` : "")
+            + (props.isMouseOnMark ? ` ${classes.cityName__hover}` : "")
           }
-        >{props.name}</span> : ""
+        >{props.cityName}</span> : ""
       }
     </Fragment>
-  )
-}
+  );
+};
 
 export default MarkSpan

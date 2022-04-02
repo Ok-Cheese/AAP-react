@@ -15,10 +15,10 @@ import mark13 from '../imgs/Marks/원산.png';
 const delayStart = 1000;
 const delayInterval = 100;
 
-const marksData = [
+export const marksData = [
   {
-    id: "KS",
-    name: "경성",
+    cityId: "KS",
+    cityName: "경성",
     top: "50%",
     left: "50%",
     src: mark1,
@@ -26,8 +26,8 @@ const marksData = [
     isCenter: true
   },
   {
-    id: "IC",
-    name: "인천",
+    cityId: "IC",
+    cityName: "인천",
     top: "0",
     left: "50%",
     src: mark2,
@@ -35,8 +35,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "DJ",
-    name: "대전",
+    cityId: "DJ",
+    cityName: "대전",
     top: "6.75%",
     left: "75%",
     src: mark3,
@@ -44,8 +44,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "DG",
-    name: "대구",
+    cityId: "DG",
+    cityName: "대구",
     top: "25%",
     left: "93.25%",
     src: mark4,
@@ -53,8 +53,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "BS",
-    name: "부산",
+    cityId: "BS",
+    cityName: "부산",
     top: "50%",
     left: "100%",
     src: mark5,
@@ -62,8 +62,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "GS",
-    name: "군산",
+    cityId: "GS",
+    cityName: "군산",
     top: "75%",
     left: "93.25%",
     src: mark6,
@@ -71,8 +71,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "MP",
-    name: "목포",
+    cityId: "MP",
+    cityName: "목포",
     top: "93.25%",
     left: "75%",
     src: mark7,
@@ -80,8 +80,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "KJ",
-    name: "광주",
+    cityId: "KJ",
+    cityName: "광주",
     top: "100%",
     left: "50%",
     src: mark8,
@@ -89,8 +89,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "PY",
-    name: "평양",
+    cityId: "PY",
+    cityName: "평양",
     top: "93.25%",
     left: "25%",
     src: mark9,
@@ -98,8 +98,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "CJ",
-    name: "청진",
+    cityId: "CJ",
+    cityName: "청진",
     top: "75%",
     left: "6.75%",
     src: mark10,
@@ -107,8 +107,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "SUJ",
-    name: "신의주",
+    cityId: "SUJ",
+    cityName: "신의주",
     top: "50%",
     left: "0%",
     src: mark11,
@@ -116,8 +116,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "HH",
-    name: "함흥",
+    cityId: "HH",
+    cityName: "함흥",
     top: "25%",
     left: "6.75%",
     src: mark12,
@@ -125,8 +125,8 @@ const marksData = [
     isCenter: false
   },
   {
-    id: "WS",
-    name: "원산",
+    cityId: "WS",
+    cityName: "원산",
     top: "6.75%",
     left: "25%",
     src: mark13,
@@ -135,4 +135,4 @@ const marksData = [
   },
 ];
 
-export default marksData;
+export const markerLoadDoneTime = delayStart + (delayInterval * (marksData.length - 1));
