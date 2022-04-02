@@ -1,12 +1,11 @@
 body {
   -ms-overflow-style: none;
-
 }
 ::-webkit-scrollbar {
   display: none;
 }
 
-.container {
+.main {
   width: 100vw;
   height: 100vh;
   overflow: hidden;

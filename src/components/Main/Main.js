@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
-import StartPage from './StartPage.js';
+import Intro from './Intro.js';
 import Header from '../UI/Header/Header';
-import MainPage from './MainPage.js';
+import MainContentContainer from './MainContentContainer.js';
 import classes from './Main.module.css';
 
 const Main = () => {
@@ -12,14 +12,14 @@ const Main = () => {
     <main>
         {
           isStarting ? 
-          <StartPage onStart={setIsStarting}></StartPage> :
-          <section className={classes.container}>
+          <Intro onStart={setIsStarting}></Intro> :
+          <section className={classes.main}>
             <Header></Header>
-            <MainPage onStart={isStarting}/>
+            <MainContentContainer onStart={isStarting}/>
           </section>
         }
     </main>
-  )
-}
+  );
+};
 
 export default Main;
