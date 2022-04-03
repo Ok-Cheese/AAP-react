@@ -1,32 +1,49 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useMemo } from 'react';
 
 import classes from './SidePageImg.module.css';
 
 import archiveContext from '../../../context/archiveContext';
 import emptyImg from '../../../imgs/logo_empty.png';
 
-const SidePageImg = (props) => {
+const SidePageImg = () => {
   const archiveContextValue = useContext(archiveContext);
 
-  const [mainImg, setMainImg] = useState(archiveContextValue.selectedItem.informImage1);
+  const [mainImg, setMainImg] = useState("");
+  const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
 
-  const img0 = archiveContextValue.selectedItem.informImage1 ?
-  `https://drive.google.com/uc?export=download&id=${archiveContextValue.selectedItem.informImage1.split('/')[5]}`
-  : emptyImg;
-  const img1 = archiveContextValue.selectedItem.informImage2 ?
-  `https://drive.google.com/uc?export=download&id=${archiveContextValue.selectedItem.informImage2.split('/')[5]}`
-  : emptyImg;
-  const img2 = archiveContextValue.selectedItem.informImage3 ?
-  `https://drive.google.com/uc?export=download&id=${archiveContextValue.selectedItem.informImage3.split('/')[5]}`
-  : emptyImg;
+  useEffect(() => {
+    window.onresize = () => {
+      if (browserWidth < window.innerWidth) {
+        setBrowserWidth(window.innerWidth);
+      }
+    }
+  }, []);
 
+  const imageSize = Math.ceil(browserWidth * 0.3 * 0.6) * 2;
+
+  const [img0, img1, img2] = useMemo(() => {
+    const currnetItemImgs = [];
+
+    currnetItemImgs.push(archiveContextValue.selectedItem.informImage1 ?
+      `https://lh3.googleusercontent.com/d/${archiveContextValue.selectedItem.informImage1.split('/')[5]}=s${imageSize}?authuser=0` : emptyImg);
+    currnetItemImgs.push(archiveContextValue.selectedItem.informImage2 ?
+      `https://lh3.googleusercontent.com/d/${archiveContextValue.selectedItem.informImage2.split('/')[5]}=s${imageSize}?authuser=0` : emptyImg);
+    currnetItemImgs.push(archiveContextValue.selectedItem.informImage3 ?
+      `https://lh3.googleusercontent.com/d/${archiveContextValue.selectedItem.informImage3.split('/')[5]}=s${imageSize}?authuser=0` : emptyImg);
+
+    return currnetItemImgs;
+  }, [archiveContextValue.selectedItem.id]);
+  
   useEffect(() => {
     setMainImg(img0);
   }, [archiveContextValue.selectedItem.id]);
 
   return (
     <div className={classes.container__img}>
-      <img className={classes.img__main} src={mainImg}></img>
+      <img 
+        className={classes.img__main} 
+        src={mainImg}
+      ></img>
       <div className={classes.container__subImg}>
         <img 
           className={
@@ -51,7 +68,7 @@ const SidePageImg = (props) => {
         ></img>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SidePageImg;

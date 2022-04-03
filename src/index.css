@@ -25,6 +25,10 @@ code {
     monospace;
 }
 
+ul, li {
+  list-style: none;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

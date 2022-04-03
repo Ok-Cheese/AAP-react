@@ -4,7 +4,7 @@ import SidePageDesc from './SidePageDesc';
 import classes from './SidePageContent.module.css';
 
 
-const SidePageContent = (props) => {
+const SidePageContent = () => {
   return (
     <div className={classes.sidePageContent}>
         <SidePageTitle />
@@ -12,6 +12,6 @@ const SidePageContent = (props) => {
         <SidePageDesc />
       </div>
   );
-}
+};
 
 export default SidePageContent;

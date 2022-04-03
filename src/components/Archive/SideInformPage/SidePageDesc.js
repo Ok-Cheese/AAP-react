@@ -1,10 +1,10 @@
+import { useContext } from 'react';
 
 import classes from './SidePageDesc.module.css';
 
 import archiveContext from '../../../context/archiveContext';
-import { useContext } from 'react';
 
-const SidePageDesc = (props) => {
+const SidePageDesc = () => {
   const archiveContextValue = useContext(archiveContext);
 
   return (
@@ -12,6 +12,6 @@ const SidePageDesc = (props) => {
       <p className={classes.desc}>{archiveContextValue.selectedItem.desc}</p>
     </div>
   );
-}
+};
 
 export default SidePageDesc;

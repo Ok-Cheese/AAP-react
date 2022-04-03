@@ -9,12 +9,14 @@
   margin-left: 3vh;
   margin-bottom: 1vh;
 }
-.itemName {
+
+.name {
   font-size: 2.4vmin;
   font-weight: bold;
   color: #E0DDCF;
 }
-.itemSubName {
+
+.subName {
   font-size: 2vmin;
   font-weight: normal;
   color: #E0DDCF;

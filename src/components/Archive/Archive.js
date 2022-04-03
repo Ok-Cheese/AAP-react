@@ -1,23 +1,20 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
-import SideInformPage from './SideInformPage/SideInformPage.js';
 
 import Header from '../UI/Header/Header';
 import ArchiveList from './List/ArchiveList.js';
 import ArchiveMapContainer from './Map/ArchiveMapContainer.js';
+import SideInformPage from './SideInformPage/SideInformPage.js';
 import classes from './Archive.module.css';
 
-import archiveContext from '../../context/archiveContext.js';
 import { getData } from '../../modules/firebase.js';
+import archiveContext from '../../context/archiveContext.js';
 import cityCoordsData from '../../data/cityCoordsData.js';
 
-function Archive() {
+const Archive = () => {
   const cityId = useParams().cityId;
-
-  const [isDataLoading, setIsDataLoading] = useState(true);
-  const [currentCityItems, setCurrentCityItems] = useState([]);
-  const [selectedItem, setSelectedItem] = useState([currentCityItems])
+  const [currentCityItemData, setCurrentCityItemData] = useState([]);
+  const [selectedItem, setSelectedItem] = useState([currentCityItemData])
   const [centerCoord, setCenterCoord] = useState(cityCoordsData[cityId]);
   const [isSidePageOpened, setIsSidePageOpened] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -33,21 +30,19 @@ function Archive() {
     "비문화재": true,
   });
 
-  useEffect(async () => {
-    const loadedCityItems = await loadCityItemData();
-    setCurrentCityItems(loadedCityItems);
-    setCenterCoord(cityCoordsData[cityId]);
-    if (loadedCityItems) {
-      const firstKey = Object.keys(loadedCityItems)[0];
-      setSelectedItem(loadedCityItems[firstKey]);
-    }
+  useEffect(() => {
+    loadCityItemData(cityId);
   }, [cityId]);
 
-  function loadCityItemData() {
-    return new Promise((resolve, reject) => {
-      const response = getData(`/cityItems/${cityId}/items`);
-      if (response) resolve(response);
-    })
+  async function loadCityItemData(cityId) {
+    const loadedCurrentCityItemData = await getData(`/cityItems/${cityId}/items`);
+    setCurrentCityItemData(loadedCurrentCityItemData);
+    setCenterCoord(cityCoordsData[cityId]);
+
+    if (loadedCurrentCityItemData) {
+      const firstItemId = Object.keys(loadedCurrentCityItemData)[0];
+      setSelectedItem(loadedCurrentCityItemData[firstItemId]);
+    }
   }
 
   function onItemClickHandler(clickedItem) {
@@ -57,13 +52,13 @@ function Archive() {
 
   const archiveContextValue = {
     cityId,
-    currentCityItems,
+    currentCityItemData,
     selectedItem,
     centerCoord,
     isSidePageOpened,
     isFilterOpen,
     filterState,
-    setCurrentCityItems,
+    setCurrentCityItemData,
     setSelectedItem,
     setCenterCoord,
     setIsSidePageOpened,
@@ -74,14 +69,12 @@ function Archive() {
 
   return (
     <archiveContext.Provider value={archiveContextValue}>
-      <div className={classes.outer}>
         <Header></Header>
-        <section className={classes.container__map}>
+        <section className={classes.container__archiveContent}>
           <ArchiveList></ArchiveList>
           <ArchiveMapContainer />
           <SideInformPage></SideInformPage>
         </section>
-      </div>
     </archiveContext.Provider>
   );
 }

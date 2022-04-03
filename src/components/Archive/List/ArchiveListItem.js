@@ -7,38 +7,38 @@ import classes from './ArchiveListItem.module.css';
 import archiveContext from '../../../context/archiveContext';
 
 const ArcvhiveListItem = (props) => {
-  const [isMouseHover, setIsMouseHover] = useState(false);
+  const [isMouseOn, setIsMouseOn] = useState(false);
 
   const archiveContextValue = useContext(archiveContext);
 
-  function onClickHandler(event) {
+  function onClickHandler() {
     archiveContextValue.onItemClickHandler(props.itemData);
   }
 
-  function onMouseEnterHandler(event) {
-    setIsMouseHover(true);
+  function onMouseEnterHandler() {
+    setIsMouseOn(true);
   }
 
-  function onMouseLeaveHandler(event) {
-    setIsMouseHover(false);
+  function onMouseLeaveHandler() {
+    setIsMouseOn(false);
   }
 
   return (
     <li 
       id={props.itemData.id}
-      className={classes.item}
+      className={classes.listItem}
       onClick={onClickHandler} 
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
     >
       <ItemImg 
         imgId = {props.itemData.imageId}
-        isMouseHover={isMouseHover}
+        isMouseOn={isMouseOn}
       />
       <ItemInform itemData={props.itemData} />
       <hr></hr>
     </li>
-  )
-}
+  );
+};
 
 export default ArcvhiveListItem;

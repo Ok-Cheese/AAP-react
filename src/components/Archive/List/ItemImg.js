@@ -1,23 +1,34 @@
+import { useEffect, useState } from 'react';
+
 import classes from './ItemImg.module.css';
 
 import emptyImg from '../../../imgs/logo_empty.png';
 
-const itemImg = (props) => {
+const ItemImg = (props) => {
+  const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.onresize = () => {
+      if (browserWidth < window.innerWidth) {
+        setBrowserWidth(window.innerWidth);
+        console.log('1');
+      }
+    }
+  }, []);
+
+  const imageSize = Math.ceil(browserWidth * 0.08) * 2;
+
   const imgSrc = props.imgId ?
-    `https://lh3.googleusercontent.com/d/${props.imgId.split('/')[5]}=s500?authuser=0`
-    : emptyImg;
+    `https://lh3.googleusercontent.com/d/${props.imgId.split('/')[5]}=s${imageSize}?authuser=0` : emptyImg;
 
   return (
     <div className={classes.container__img}>
       <img
-        className={
-          classes.img__item 
-          + (props.isMouseHover ? ` ${classes.img__item__hover}` : "")
-        }
+        className={classes.img + (props.isMouseOn ? ` ${classes.img__hover}` : "")}
         src={imgSrc}
       />
     </div>
-  )
-}
+  );
+};
 
-export default itemImg
+export default ItemImg;

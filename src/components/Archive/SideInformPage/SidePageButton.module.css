@@ -1,14 +1,16 @@
-.button__sidePageToggle {
+.sidePageToggleButton {
   position: absolute;
   top: 50%;
   left: 0%;
   width: 50px;
   height: 100px;
-  border: 1px solid gray;
+  font-size: 1rem;
+  color: white;
+  border: 3px solid #E0DDCF;
   border-right: none;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-  background-color: #E0DDCF;
+  background-color: #474448;
   transform: translate(-100%, -50%);
   cursor: pointer;
 }

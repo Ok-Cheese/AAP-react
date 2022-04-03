@@ -5,21 +5,21 @@ import archiveContext from "../../../context/archiveContext";
 import markerHeritage from '../../../imgs/marker_heritage.png';
 import markerNonHeritage from '../../../imgs/marker_non_heritage.png';
 
-const ItemMarkerContainer = (props) => {
-  const [isMouseOver, setIsMouseOver] = useState(false);
+const ArchiveMapMarker = (props) => {
+  const [isMouseOn, setIsMouseOn] = useState(false);
 
   const archiveContextValue = useContext(archiveContext);
 
-  function onClickHandler(event) {
+  function onClickHandler() {
     archiveContextValue.onItemClickHandler(props.item);
   }
 
   function onMouseOverHandler() {
-    setIsMouseOver(true);
+    setIsMouseOn(true);
   }
 
   function onMouseOutHandler() {
-    setIsMouseOver(false);
+    setIsMouseOn(false);
   }
 
  return (
@@ -32,15 +32,15 @@ const ItemMarkerContainer = (props) => {
     }}
     image={{
       src: props.item.heritage === "1" ? markerHeritage : markerNonHeritage,
-      size: isMouseOver ? { width: 46, height: 69 } : { width: 40, height: 60 },
-      options: { offset: isMouseOver ? { x: 37.5, y: 80 } : { x: 35, y: 70 } }
+      size: isMouseOn ? { width: 46, height: 69 } : { width: 40, height: 60 },
+      options: { offset: isMouseOn ? { x: 37.5, y: 80 } : { x: 35, y: 70 } }
     }}
     clickable={true}
     onClick={onClickHandler}
     onMouseOver={onMouseOverHandler}
     onMouseOut={onMouseOutHandler}
   />
- )
-}
+ );
+};
 
-export default ItemMarkerContainer;
+export default ArchiveMapMarker;

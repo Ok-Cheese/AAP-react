@@ -17,22 +17,26 @@
   background-color: white;
   margin-bottom: 2%;
   object-fit: cover;
+  transition: 1s;
 }
+
 .container__subImg {
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 20%;
 }
+
 .img__sub {
   width: 32%;
   height: 100%;
   border: 3px solid #E0DDCF;
   border-radius: 15px;
-  background-color: white;
+  background-color: #E0DDCF;
   object-fit: cover;
   cursor: pointer;
 }
+
 .img__selected {
-  border-width: 10px;
+  border: 5px solid red;
 }

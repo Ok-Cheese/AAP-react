@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { Fragment, useContext } from 'react';
 
 import classes from './FilterInput.module.css';
 
@@ -16,17 +16,21 @@ const FilterInput = (props) => {
   }
 
   return (
-    <div className={classes.selection__filter}>
-      <input
-        className={classes.checkbox}
-        type="checkbox"
-        checked={archiveContextValue.filterState[props.filterType]}
-        name={props.filterType}
-        onChange={handleFilterCheck}
-      ></input>
-      <span className={classes.filterLabel}>{props.filterType}</span>
-    </div>
-  )
+    <Fragment>
+      <label 
+        className={classes.checkboxLabel}
+      >
+        <input
+          className={classes.checkbox}
+          type="checkbox"
+          checked={archiveContextValue.filterState[props.filterType]}
+          name={props.filterType}
+          onChange={handleFilterCheck}
+        ></input>
+        {props.filterType}
+      </label>
+    </Fragment>
+  );
 };
 
 export default FilterInput;

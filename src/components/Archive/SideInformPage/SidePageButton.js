@@ -4,7 +4,7 @@ import classes from './SidePageButton.module.css';
 
 import archiveContext from '../../../context/archiveContext';
 
-const SidePageButton = (props) => {
+const SidePageButton = () => {
   const archiveContextValue = useContext(archiveContext);
 
   function onSidePageButtonClickHandler() {
@@ -12,12 +12,12 @@ const SidePageButton = (props) => {
   }
   return (
     <button
-      className={classes.button__sidePageToggle}
+      className={classes.sidePageToggleButton}
       onClick={onSidePageButtonClickHandler}
     >
       { archiveContextValue.isSidePageOpened ? "▶" : "◀"}
     </button>
-  )
-}
+  );
+};
 
 export default SidePageButton;

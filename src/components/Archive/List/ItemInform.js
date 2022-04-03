@@ -5,10 +5,10 @@ const ItemInform = (props) => {
   return (
     <div className={classes.itemInform}>
       <div className={classes.container__name}>
-        <p className={classes.itemName}>{props.itemData.name}</p>
-        <span 
-          className={classes.itemSubName}
-        >{`${props.itemData.subName} (${props.itemData.year})`}</span>
+        <span className={classes.name}>{props.itemData.name}</span>
+        <span className={classes.subName}>
+          {`${props.itemData.subName} (${props.itemData.year})`}
+        </span>
       </div>
       <div className={classes.container__tag}>
         {
@@ -26,7 +26,7 @@ const ItemInform = (props) => {
         }
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ItemInform;

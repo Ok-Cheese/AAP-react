@@ -1,29 +1,29 @@
 import { useContext } from 'react';
 import { Map } from 'react-kakao-maps-sdk';
 
-import ItemMarkerContainer from './ItemMarkerContainer';
+import ArchiveMapMarker from './ArchiveMapMarker';
 import classes from './ArchiveMap.module.css';
 
 import archiveContext from '../../../context/archiveContext';
 import checkFilterCondition from "../../../modules/checkFilterCondition";
 
-const ArchiveMap = (props) => {
+const ArchiveMap = () => {
   const archiveContextValue = useContext(archiveContext);
 
   const itemMarkers = [];
-  for (let key in archiveContextValue.currentCityItems) {
-    const item = archiveContextValue.currentCityItems[key];
+  for (let key in archiveContextValue.currentCityItemData) {
+    const item = archiveContextValue.currentCityItemData[key];
     if (
       checkFilterCondition('role', item, archiveContextValue.filterState)
       && checkFilterCondition('heritage', item, archiveContextValue.filterState)
       && checkFilterCondition('existence', item, archiveContextValue.filterState)
     ) {
       itemMarkers.push(
-        <ItemMarkerContainer 
+        <ArchiveMapMarker 
           key={item.id}
           item={item}
         />
-      )
+      );
     }
   };
 

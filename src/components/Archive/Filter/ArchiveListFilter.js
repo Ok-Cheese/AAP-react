@@ -1,49 +1,46 @@
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext } from "react";
 
 import FilterInput from "./FilterInput";
-import filterIcon from '../../../imgs/filter.png';
 import classes from './ArchiveListFilter.module.css';
 
 import archiveContext from "../../../context/archiveContext";
+import filterIcon from '../../../imgs/filter.png';
 
-const ArchiveListFilter = (props) => {
+const ArchiveListFilter = () => {
   const archiveContextValue = useContext(archiveContext);
 
   const filterTypeData = [
     "공공", "금융", "상업", "교육", "주거", "현존", "소실", "문화재", "비문화재"
   ];
 
-  const filterInputRole = filterTypeData.slice(0, 5).map((type, index) => {
-    const key = index.toString().padStart(2, "0");
+  const filterInputRole = filterTypeData.slice(0, 5).map(type => {
     return (
       <FilterInput
-        key={key}
+        key={type}
         filterType={type}
       />
-    )
+    );
   });
 
-  const filterInputExistence = filterTypeData.slice(5, 7).map((type, index) => {
-    const key = index.toString().padStart(2, "0");
+  const filterInputExistence = filterTypeData.slice(5, 7).map(type => {
     return (
       <FilterInput
-        key={key}
+        key={type}
         filterType={type}
       />
-    )
+    );
   });
 
-  const filterInputHeritage = filterTypeData.slice(7).map((type, index) => {
-    const key = index.toString().padStart(2, "0");
+  const filterInputHeritage = filterTypeData.slice(7).map(type => {
     return (
       <FilterInput
-        key={key}
+        key={type}
         filterType={type}
       />
-    )
+    );
   });
 
-  function onFilterButtonClickHandler() {
+  function onFilterToggleButtonClickHandler() {
     archiveContextValue.setIsFilterOpen(current => !current);
   }
 
@@ -51,7 +48,7 @@ const ArchiveListFilter = (props) => {
     <Fragment>
       <button
         className={classes.filterToggleButton}
-        onClick={onFilterButtonClickHandler} 
+        onClick={onFilterToggleButtonClickHandler} 
         style={{ backgroundImage: `url(${filterIcon})` }}>  
       </button>
       <div className={
@@ -79,7 +76,7 @@ const ArchiveListFilter = (props) => {
         }
       </div>
     </Fragment>
-  )
-}
+  );
+};
 
 export default ArchiveListFilter;

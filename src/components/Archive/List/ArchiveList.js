@@ -1,24 +1,15 @@
-import { useContext, useState } from 'react';
-
-import ArchiveItem from './ArchiveItem.js';
+import ArchiveListItemContainer from './ArchiveListItemContainer.js';
 import ArchiveListFilter from '../Filter/ArchiveListFilter.js';
 import classes from './ArchiveList.module.css';
 
-import archiveContext from '../../../context/archiveContext.js';
 
-function ArchiveList(props) {
-  const archiveContextValue = useContext(archiveContext);
-
-  function toggleFilter() {
-    archiveContextValue.setIsFilterOpen(current => !current);
-  }
-
+const ArchiveList = () => {
   return (
     <ul className={classes.archiveList}>
-      <ArchiveItem></ArchiveItem>
+      <ArchiveListItemContainer></ArchiveListItemContainer>
       <ArchiveListFilter/>
     </ul>
-  )
-}
+  );
+};
 
 export default ArchiveList;

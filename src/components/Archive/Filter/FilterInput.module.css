@@ -1,11 +1,11 @@
 .checkbox {
   width: 1vw;
   height: 1vw;
-  margin-left: 1vw;
+  margin-right: 0.5vw;
 }
-.filterLabel {
+.checkboxLabel {
   font-size: 2vmin;
   font-weight: bold;
   color: white;
-  margin-left: 1vh;
+  margin-right: 1vw;
 }

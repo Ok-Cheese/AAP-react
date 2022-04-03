@@ -6,7 +6,7 @@ const ItemTag = (props) => {
       className={classes.tag}
       style={{backgroundColor: props.color}}
     >{props.type}</span>
-  )
-}
+  );
+};
 
 export default ItemTag;

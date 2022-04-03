@@ -6,15 +6,15 @@ const MapIndex = () => {
   return (
     <div className={classes.mapIndex}>
       <div className={classes.row__mapIndex}>
-        <img src={indexHeritage} className={classes.icon__mapIndex}></img>
+        <img src={indexHeritage} className={classes.mapIndexIcon}></img>
         <span>문화재</span>
       </div>
       <div className={classes.row__mapIndex}>
-        <img src={indexNonHeritage} className={classes.icon__mapIndex}></img>
+        <img src={indexNonHeritage} className={classes.mapIndexIcon}></img>
         <span>비문화재</span>
       </div>
     </div>
-  )
+  );
 };
 
 export default MapIndex;
