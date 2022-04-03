@@ -3,8 +3,8 @@ import { useContext, useState } from "react";
 import Modal from "../../UI/Modal";
 import classes from './RemoveDataModal.module.css';
 
-import warningContext from "../../../context/warningContext";
 import { getData, removeData } from "../../../modules/firebase";
+import warningContext from "../../../context/warningContext";
 import cityIdData from "../../../data/cityIdData";
 
 
@@ -39,12 +39,12 @@ const RemoveDataModal = (props) => {
   }
   return (
     <Modal width="40vw">
-      <div className={classes.container__selectId}>
+      <form className={classes.form__selectId}>
         <div className={classes.row__modal}>
-          <p className={classes.caution}>⛔삭제한 데이터는 다시 복구할 수 없습니다.⛔</p>
+          <p className={classes.cautionMessage}>⛔삭제한 데이터는 다시 복구할 수 없습니다.⛔</p>
         </div>
         <div className={classes.row__modal}>
-          <label className={classes.label}>CityID</label>
+          <span className={classes.inputLabel}>CityID</span>
           <br></br>
           <input
             className={classes.input__typing}
@@ -53,7 +53,7 @@ const RemoveDataModal = (props) => {
           ></input>
         </div>
         <div className={classes.row__modal}>
-          <label className={classes.label}>ID</label>
+          <span className={classes.inputLabel}>ID</span>
           <br></br>
           <input 
             className={classes.input__typing}
@@ -62,12 +62,12 @@ const RemoveDataModal = (props) => {
           ></input>
         </div>
         <div className={classes.row__modal}>
-          <button className={classes.button} onClick={onRemoveHandler}>삭제</button>
+          <button className={classes.button} type="submit" onClick={onRemoveHandler}>삭제</button>
           <button className={classes.button} onClick={props.onClose}>취소</button>
         </div>
-      </div>
+      </form>
     </Modal>
   );
-}
+};
 
 export default RemoveDataModal;

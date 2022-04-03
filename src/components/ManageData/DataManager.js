@@ -3,13 +3,13 @@ import { useState } from 'react';
 import Header from '../UI/Header/Header';
 import SignIn from './SignIn';
 import DataList from './DataList';
-import DataControlPanel from './DataControlPanel';
+import DataManagePanel from './DataManagePanel';
 import AddDataModal from './DataModals/AddDataModal';
 import EditDataModal from './DataModals/EditDataModal';
 import RemoveDataModal from './DataModals/RemoveDataModal';
-import classes from './DataControl.module.css';
+import classes from './DataManager.module.css';
 
-const DataControl = (props) => {
+const DataControl = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isAddModalOpened, setIsAddModalOpened] = useState(false);
   const [isEditModalOpened, setIsEditModalOpened] = useState(false);
@@ -28,7 +28,7 @@ const DataControl = (props) => {
         <SignIn setIsSignIn={setIsSignIn}></SignIn>
       }
       
-      <DataControlPanel
+      <DataManagePanel
         onAddClick={setIsAddModalOpened}
         onEditClick={setIsEditModalOpened}
         onRemoveClick={setIsRemoveModalOpened}
@@ -53,6 +53,6 @@ const DataControl = (props) => {
       }
     </section>
   );
-}
+};
 
 export default DataControl;

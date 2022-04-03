@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import CItyDescTable from './CityDescTable';
-import classes from './CityItemList.module.css';
-import CityItemTable from './CityItemTable';
+import DescTable from './DescTable';
+import ItemTable from './ItemTable';
+import classes from './CityItemData.module.css';
 
 import { getData } from '../../modules/firebase';
 
-const CityItemList = (props) => {
+const CityItemData = (props) => {
   const [isTableOpened, setIsTableOpend] = useState(false);
-  const [cityData, setCityData] = useState([]);
+  const [cityData, setCityItemData] = useState([]);
 
   const exceptProperties = [
     "imageId", "informImage1", "informImage2", "informImage3", "desc"
@@ -36,17 +36,18 @@ const CityItemList = (props) => {
     descData.push(newData);
   }
 
+
   async function tableToggleHandler() {
     if (!itemData.length) {
       const loadedCityData = await getData(`/cityItems/${props.cityId}/items`);
-      setCityData(loadedCityData);
+      setCityItemData(loadedCityData);
     }
 
     setIsTableOpend(current => !current);
   }
 
   return (
-    <ul className={classes.cityItemList}>
+    <section className={classes.cityItemData}>
       <div className={classes.cityTitle}>
         <p className={classes.cityName}>{props.cityName}</p>
         <button className={classes.tableToggleButton} onClick={tableToggleHandler}>
@@ -57,14 +58,14 @@ const CityItemList = (props) => {
       </div>
       {
         isTableOpened ?
-         <CityItemTable itemData={itemData}></CityItemTable> : ""
+         <ItemTable itemData={itemData}></ItemTable> : ""
       }
       {
         isTableOpened ?
-        <CItyDescTable descData={descData}></CItyDescTable> : ""
+        <DescTable descData={descData}></DescTable> : ""
       }
-    </ul>
+    </section>
   );
 };
 
-export default CityItemList;
+export default CityItemData;

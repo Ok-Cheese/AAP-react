@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import classes from './DescContainer.module.css';
+import classes from './DescContent.module.css';
 
-const DescContainer = (props) => {
+const DescContent = (props) => {
   const [isDescOpen, setIsDescOpen] = useState(false);
 
   function descToggleHandler() {
@@ -10,7 +10,7 @@ const DescContainer = (props) => {
   }
 
   return (
-    <div className={classes.container__desc}>
+    <li className={classes.descContent}>
       <div className={classes.descTitle}>
         <p className={classes.itemName}>{props.name + " Description"}</p>
         <button 
@@ -23,11 +23,11 @@ const DescContainer = (props) => {
           <p className={classes.desc}>
             {"Description: "}
             <br></br>
-            {props.desc.toString()}
+            {props.desc}
           </p> : ""
       }
-    </div>
+    </li>
   );
 };
 
-export default DescContainer;
+export default DescContent;

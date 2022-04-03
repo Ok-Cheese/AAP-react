@@ -1,4 +1,5 @@
-.container__desc {
+.descContent {
+  width: 100%;
   padding: 1%;
 }
 
@@ -18,5 +19,6 @@
 }
 
 .desc {
-  white-space: pre;
+  width: 100%;
+  white-space: pre-line;
 }

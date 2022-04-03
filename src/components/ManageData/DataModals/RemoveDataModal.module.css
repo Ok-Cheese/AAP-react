@@ -1,8 +1,8 @@
-.container__selectId {
+.form__selectId {
   width: 90%;
 }
 
-.caution {
+.cautionMessage {
   font-size: 1.2rem;
   font-weight: bold;
   columns: red;
@@ -14,7 +14,7 @@
   margin-bottom: 10px;
 }
 
-.label {
+.inputLabel {
   font-size: 1.2rem;
   font-weight: bold;
   margin-right: 1vw;

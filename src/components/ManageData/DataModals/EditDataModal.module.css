@@ -24,11 +24,11 @@
   height: 100%;
 }
 
-.container__selectId {
+.form__selectId {
   width: 90%;
 }
 
-.caution {
+.message {
   width: 90%;
   font-size: 1.2rem;
   font-weight: bold;
@@ -39,30 +39,6 @@
   width: 90%;
   height: auto;
   margin-bottom: 10px;
-}
-
-.categoryTag {
-  font-weight: bold;
-}
-
-.label {
-  margin-right: 0.5vw;
-}
-
-.input__typing {
-  width: 100%;
-  height: 3vh;
-  padding: 1%;
-}
-
-.input__radio {
-  margin-right: 0.2vw;
-}
-
-.textarea {
-  width: 100%;
-  height: 50vh;
-  padding: 1%;
 }
 
 .button {

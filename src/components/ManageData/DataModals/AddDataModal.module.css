@@ -1,3 +1,8 @@
+.addDataForm {
+  width: 100%;
+  height: 100%;
+}
+
 .section__input {
   width: 100%;
   height: 90%;
@@ -21,36 +26,6 @@
   align-items: center;
   width: 30%;
   height: 10%;
-}
-
-.row__modal {
-  width: 90%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.categoryTag {
-  font-weight: bold;
-}
-
-.label {
-  margin-right: 0.5vw;
-}
-
-.input__typing {
-  width: 100%;
-  height: 3vh;
-  padding: 1%;
-}
-
-.input__radio {
-  margin-right: 0.2vw;
-}
-
-.textarea {
-  width: 100%;
-  height: 50vh;
-  padding: 1%;
 }
 
 .button {

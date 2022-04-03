@@ -1,17 +1,19 @@
-.form__signIn {
+.signInForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 35%;
   height: 35%;
+  border: 3px solid #474448;
   border-radius: 15px;
-  background-color: gray;
-  padding: 10px;
+  background-color: #E0DDCF;
+  padding: 1%;
 }
 
-.form__signIn p {
+.guidePhrase {
   font-size: 1.5rem;
+  color: #474448;
   margin-bottom: 20px;
 }
 
@@ -33,6 +35,7 @@
 .container__input label {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #474448;
 }
 
 .container__input input {
@@ -46,16 +49,24 @@
   margin-bottom: 5px;
 }
 
-.message__wrongSubmit {
+.wrongSubmitMessage {
   font-weight: bold;
   color: red;
 }
 
-.submitButton {
+.container__button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.button {
   width: 100px;
   height: 50px;
   font-size: 1rem;
   font-weight: bold;
-  align-self: flex-end;
+  border: 1px solid #474448;
+  border-radius: 10px;
   margin-right: 15px;
 }

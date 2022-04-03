@@ -6,11 +6,11 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 5%;
-  height: 20%;
-  border: 1px solid black;
+  width: 5vw;
+  height: 25vh;
+  border: 1px solid #e0ddcf;
   border-radius: 10px;
-  background-color: rgb(220, 210, 210);
+  background-color: #474448;
 }
 
 .button__dataControll {

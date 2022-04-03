@@ -57,18 +57,23 @@ const EditDataModal = (props) => {
     if (itemData.name.trim() === "") {
       warningContextValue.setIsWarningModalOn(true);
       warningContextValue.setWarningText('잘못된 이름입니다.');
+      return;
     } else if (itemData.latitude.trim() === "" || isNaN(latitude__number) || latitude__number < 33 || latitude__number > 43) {
       warningContextValue.setIsWarningModalOn(true);
       warningContextValue.setWarningText('잘못된 위치(Latitude)입니다.');
+      return;
     } else if (itemData.longitude.trim() === "" || isNaN(longitude__number) || longitude__number < 124 || longitude__number > 132) {
       warningContextValue.setIsWarningModalOn(true);
       warningContextValue.setWarningText('잘못된 위치(Longitude)입니다.');
+      return;
     }
 
     writeData(`/cityItems/${itemData.cityId}/items/${itemData.id}`, itemData);
 
     warningContextValue.setIsWarningModalOn(true);
     warningContextValue.setWarningText(`${itemData.name}(${itemData.cityId}:${itemData.id})\n수정이 완료되었습니다.`);
+
+    setIsIdReceived(false);
 
     props.onClose();
   }
@@ -101,7 +106,7 @@ const EditDataModal = (props) => {
     >
       {
         isIdReceived ?
-        <div className={classes.form__editItem}>
+        <form className={classes.form__editItem}>
           <section className={classes.section__input}>
             <section className={classes.container__input}>
               <DataModalInput 
@@ -227,13 +232,13 @@ const EditDataModal = (props) => {
             </section>
           </section>
           <section className={classes.row__modal}>
-            <button className={classes.button} onClick={onAddSubmitHandler}>추가</button>
+            <button className={classes.button} type="submit" onClick={onAddSubmitHandler}>추가</button>
             <button className={classes.button} onClick={props.onClose}>취소</button>
           </section>
-        </div> :
-        <div className={classes.container__selectId}>
+        </form> :
+        <form className={classes.form__selectId}>
           <div className={classes.row__modal}>
-            <p className={classes.caution}>수정할 아이템의 ID를 입력하세요.</p>
+            <p className={classes.message}>수정할 아이템의 ID를 입력하세요.</p>
           </div>
           <DataModalInput 
             category="cityId"
@@ -252,13 +257,13 @@ const EditDataModal = (props) => {
             dispatch={dispatchItemData}
           />
           <div className={classes.row__modal}>
-            <button className={classes.button} onClick={onIdSubmitHandler}>완료</button>
+            <button className={classes.button} type="submit" onClick={onIdSubmitHandler}>완료</button>
             <button className={classes.button} onClick={props.onClose}>취소</button>
           </div>
-        </div>
+        </form>
       }
     </Modal>
   );
-}
+};
 
 export default EditDataModal;

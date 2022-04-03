@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import { useTable } from "react-table";
 
-import classes from './CityItemTable.module.css';
+import classes from './ItemTable.module.css';
 
-const CityItemTable = (props) => {
+const ItemTable = (props) => {
   const data = useMemo(
     () => props.itemData, [props.itemData]
   );
@@ -24,7 +24,7 @@ const CityItemTable = (props) => {
     ], []
   )
 
-  const tableInstance = useTable({ columns, data});
+  const tableInstance = useTable({ columns, data });
 
   const {
     getTableProps,
@@ -73,6 +73,6 @@ const CityItemTable = (props) => {
      </tbody>
    </table>
   );
-}
+};
 
-export default CityItemTable;
+export default ItemTable;

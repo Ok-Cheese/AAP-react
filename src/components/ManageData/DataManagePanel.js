@@ -1,4 +1,4 @@
-import classes from './DataControlPanel.module.css';
+import classes from './DataManagePanel.module.css';
 
 const DataControlPanel = (props) => {
   function onDataAddHandler() {
@@ -17,7 +17,7 @@ const DataControlPanel = (props) => {
       <button className={classes.button__dataControll} onClick={onDataEditHandler}>Edit Data</button>
       <button className={classes.button__dataControll} onClick={onDataRemoveHandler}>Remove Data</button>
     </div>
-  )
-}
+  );
+};
 
 export default DataControlPanel;
