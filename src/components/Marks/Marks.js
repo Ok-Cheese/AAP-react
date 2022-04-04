@@ -4,15 +4,17 @@ import Header from '../UI/Header/Header';
 import CityMark from './CityMark';
 import classes from './Marks.module.css';
 
-import { marksData, markerLoadDoneTime } from '../../data/marksData';
+import { marksData, markLoadDoneTime } from '../../data/marksData';
 
 const Marks = () => {
   const [isMarkLoaded, setIsMarkLoaded] = useState(false);
   // 마지막 로고가 나타난 후 loaded를 true로 변경.
   useEffect(() => {
-    setTimeout(() => {
+    const displayNameTimer = setTimeout(() => {
       setIsMarkLoaded(true);
-    }, markerLoadDoneTime);
+    }, markLoadDoneTime);
+
+    return clearTimeout(displayNameTimer);
   }, []);
 
   const marks = marksData.map(data => {

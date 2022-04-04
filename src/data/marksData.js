@@ -135,4 +135,4 @@ export const marksData = [
   },
 ];
 
-export const markerLoadDoneTime = delayStart + (delayInterval * (marksData.length - 1));
+export const markLoadDoneTime = delayStart + (delayInterval * (marksData.length - 1));
