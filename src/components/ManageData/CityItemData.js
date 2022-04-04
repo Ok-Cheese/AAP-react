@@ -4,7 +4,7 @@ import DescTable from './DescTable';
 import ItemTable from './ItemTable';
 import classes from './CityItemData.module.css';
 
-import { getData } from '../../modules/firebase';
+import { getData } from '../../modules/firebase_RealTimeDB';
 
 const CityItemData = (props) => {
   const [isTableOpened, setIsTableOpend] = useState(false);

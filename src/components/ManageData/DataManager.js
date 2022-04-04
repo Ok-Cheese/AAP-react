@@ -10,7 +10,7 @@ import RemoveDataModal from './DataModals/RemoveDataModal';
 import classes from './DataManager.module.css';
 
 const DataControl = () => {
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignIn, setIsSignIn] = useState(false);
   const [isAddModalOpened, setIsAddModalOpened] = useState(false);
   const [isEditModalOpened, setIsEditModalOpened] = useState(false);
   const [isRemoveModalOpened, setIsRemoveModalOpened] = useState(false);
@@ -24,15 +24,15 @@ const DataControl = () => {
       <Header></Header>
       {
         isSignIn ?
-        <DataList /> :
-        <SignIn setIsSignIn={setIsSignIn}></SignIn>
+        [
+          <DataList />,
+          <DataManagePanel
+            onAddClick={setIsAddModalOpened}
+            onEditClick={setIsEditModalOpened}
+            onRemoveClick={setIsRemoveModalOpened}
+          />
+        ] : <SignIn setIsSignIn={setIsSignIn}></SignIn>
       }
-      
-      <DataManagePanel
-        onAddClick={setIsAddModalOpened}
-        onEditClick={setIsEditModalOpened}
-        onRemoveClick={setIsRemoveModalOpened}
-      />
       { 
         isAddModalOpened ? 
           <AddDataModal

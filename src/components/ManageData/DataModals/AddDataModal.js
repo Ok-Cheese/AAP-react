@@ -4,7 +4,7 @@ import Modal from '../../UI/Modal';
 import DataModalInput from './DataModalInput';
 import classes from './AddDataModal.module.css';
 
-import { getData, writeData } from '../../../modules/firebase';
+import { getData, writeData } from '../../../modules/firebase_RealTimeDB';
 import warningContext from '../../../context/warningContext';
 import cityIdData from '../../../data/cityIdData';
 

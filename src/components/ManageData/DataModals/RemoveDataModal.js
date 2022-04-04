@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import Modal from "../../UI/Modal";
 import classes from './RemoveDataModal.module.css';
 
-import { getData, removeData } from "../../../modules/firebase";
+import { getData, removeData } from "../../../modules/firebase_RealTimeDB";
 import warningContext from "../../../context/warningContext";
 import cityIdData from "../../../data/cityIdData";
 

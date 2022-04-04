@@ -7,7 +7,7 @@ import ArchiveMapContainer from './Map/ArchiveMapContainer.js';
 import SideInformPage from './SideInformPage/SideInformPage.js';
 import classes from './Archive.module.css';
 
-import { getData } from '../../modules/firebase.js';
+import { getData } from '../../modules/firebase_RealTimeDB';
 import archiveContext from '../../context/archiveContext.js';
 import cityCoordsData from '../../data/cityCoordsData.js';
 
