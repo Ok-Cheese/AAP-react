@@ -43,10 +43,10 @@
   cursor: pointer;
 }
 
-.invertColor {
-  filter: invert(100%);
-  transition: 1.5s;
-}
+  .invertColor {
+    filter: invert(100%);
+    transition: 1.5s;
+  }
 
 .transparentStyle {
   opacity: 0;
