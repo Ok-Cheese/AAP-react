@@ -1,4 +1,7 @@
 .signInForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,6 +12,7 @@
   border-radius: 15px;
   background-color: #E0DDCF;
   padding: 1%;
+  transform: translate(-50%, -50%);
 }
 
 .guidePhrase {
@@ -19,20 +23,23 @@
 
 .container__inputs {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  margin-bottom: 2vh;
 }
 
 .container__input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 45%;
+  width: 80%;
   margin: 5px 0;
 }
 
 .container__input label {
+  width: 100%;
   font-size: 1.5rem;
   font-weight: bold;
   color: #474448;
@@ -40,23 +47,23 @@
 
 .container__input input {
   width: 100%;
-  height: 30px;
+  height: 1vh;
   font-size: 0.8rem;
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  padding: 10%;
-  margin-bottom: 5px;
+  padding: 5%;
 }
 
 .wrongSubmitMessage {
   font-weight: bold;
   color: red;
+  margin-bottom: 2vh;
 }
 
 .container__button {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }

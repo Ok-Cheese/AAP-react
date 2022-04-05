@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import classes from './SignIn.module.css';
 
@@ -11,15 +12,18 @@ const SignIn = (props) => {
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    if (inputId.current.value === process.env.REACT_APP_MANAGE_ID
-       && inputPassword.current.value === process.env.REACT_APP_MANAGE_PW) {
-      props.setIsSignIn(true);
-    } else {
-      inputId.current.value="";
-      inputPassword.current.value="";
-      inputId.current.focus();
-      setIsInputWrong(true);
-    }
+
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, inputId.current.value, inputPassword.current.value)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        props.setIsSignIn(true);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setIsInputWrong(true);
+      });
   }
 
   return (

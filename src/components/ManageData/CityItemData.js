@@ -46,6 +46,11 @@ const CityItemData = (props) => {
     setIsTableOpend(current => !current);
   }
 
+  async function reloadDataHandler() {
+    const loadedCityData = await getData(`/cityItems/${props.cityId}/items`);
+    setCityItemData(loadedCityData);
+  }
+
   return (
     <section className={classes.cityItemData}>
       <div className={classes.cityTitle}>
@@ -55,6 +60,7 @@ const CityItemData = (props) => {
             isTableOpened ? "🔼" : "🔽"
           }
         </button>
+        <button className={classes.reloadButton} onClick={reloadDataHandler}>🔄</button>
       </div>
       {
         isTableOpened ?
