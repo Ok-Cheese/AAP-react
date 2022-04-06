@@ -30,7 +30,10 @@ const Header = () => {
         isInArchivePage ?
           <Link to={'/'}>
             <img
-              className={classes.logo + (isHeaderOpened ? ` ${classes.invertColor}` : ` ${classes.transparentStyle}`)}
+              className={
+                classes.logo + 
+                (isHeaderOpened ? ` ${classes.invertColor}` : ` ${classes.transparent}`)
+              }
               src={logo_aap}
             ></img>
           </Link> :

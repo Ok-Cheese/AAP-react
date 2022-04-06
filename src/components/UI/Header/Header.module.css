@@ -7,6 +7,11 @@
   margin-top: 1vh;
   z-index: 10;
   transition: 0.5s;
+  animation: none;
+}
+
+a {
+  animation: none;
 }
 
 .container__menu__opened {
@@ -22,7 +27,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   padding: 1vw;
   z-index: 9;
-  transition: 1s;
+  transition: 0.5s;
 }
 .container__menu__closed {
   top: -100%;
@@ -43,12 +48,12 @@
   cursor: pointer;
 }
 
-  .invertColor {
-    filter: invert(100%);
-    transition: 1.5s;
-  }
+.invertColor {
+  filter: invert(100%);
+  transition: 1.5s;
+}
 
-.transparentStyle {
+.transparent {
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;

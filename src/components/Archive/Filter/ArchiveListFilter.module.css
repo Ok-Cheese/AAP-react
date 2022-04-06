@@ -47,7 +47,7 @@
   border: none;
   transform: translate(-100%, 0%);
   cursor: pointer;
-  z-index: 100;
+  z-index: 7;
 }
 .row__filter{
   display: flex;
