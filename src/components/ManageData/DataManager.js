@@ -9,7 +9,9 @@ const DataManager = () => {
 
   return (
     <Fragment>
-      <Header></Header>
+      {
+        isSignIn ? "" : <Header></Header>
+      }
       {
         isSignIn ?
         <DataList /> : <SignIn setIsSignIn={setIsSignIn}></SignIn>

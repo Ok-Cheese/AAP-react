@@ -11,7 +11,6 @@ const ItemImg = (props) => {
     window.onresize = () => {
       if (browserWidth < window.innerWidth) {
         setBrowserWidth(window.innerWidth);
-        console.log('1');
       }
     }
   }, []);

@@ -61,7 +61,7 @@ const RemoveDataModal = (props) => {
             onChange={(event) => {setItemId(event.target.value)}}
           ></input>
         </div>
-        <div className={classes.row__modal}>
+        <div className={classes.container__button}>
           <button className={classes.button} type="submit" onClick={onRemoveHandler}>삭제</button>
           <button className={classes.button} onClick={props.onClose}>취소</button>
         </div>

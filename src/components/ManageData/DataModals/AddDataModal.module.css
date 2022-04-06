@@ -22,15 +22,14 @@
 
 .container__button {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 30%;
-  height: 10%;
+  justify-content: center;
+  width: 100%;
 }
 
 .button {
-  width: 40%;
-  height: 50%;
+  width: 30%;
+  height: 100%;
   font-size: 1rem;
   font-weight: bold;
+  margin-right: 1vw;
 }

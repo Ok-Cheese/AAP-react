@@ -102,7 +102,7 @@ const EditDataModal = (props) => {
   return (
     <Modal 
       width={isIdReceived ? "80vw" : "40vw"}
-      height={isIdReceived ? "90vh" : ""}
+      height={isIdReceived ? "" : ""}
     >
       {
         isIdReceived ?
@@ -231,12 +231,12 @@ const EditDataModal = (props) => {
               />
             </section>
           </section>
-          <section className={classes.row__modal}>
+          <section className={classes.container__button}>
             <button className={classes.button} type="submit" onClick={onAddSubmitHandler}>추가</button>
             <button className={classes.button} onClick={props.onClose}>취소</button>
           </section>
         </form> :
-        <form className={classes.form__selectId}>
+        <form className={classes.form__editItem}>
           <div className={classes.row__modal}>
             <p className={classes.message}>수정할 아이템의 ID를 입력하세요.</p>
           </div>
@@ -256,7 +256,7 @@ const EditDataModal = (props) => {
             isEditable={true}
             dispatch={dispatchItemData}
           />
-          <div className={classes.row__modal}>
+          <div className={classes.container__button}>
             <button className={classes.button} type="submit" onClick={onIdSubmitHandler}>완료</button>
             <button className={classes.button} onClick={props.onClose}>취소</button>
           </div>

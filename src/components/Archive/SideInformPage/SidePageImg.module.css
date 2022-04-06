@@ -16,7 +16,7 @@
   border-radius: 15px;
   background-color: white;
   margin-bottom: 2%;
-  object-fit: cover;
+  object-fit: contain;
   transition: 1s;
 }
 

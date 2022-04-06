@@ -1,6 +1,6 @@
 .mapIndex {
   position: absolute;
-  top: 85%;
+  bottom: 0.5%;
   left: 30%;
   display: flex;
   flex-direction: column;

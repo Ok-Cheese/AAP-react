@@ -98,7 +98,7 @@ const AddDataModal = (props) => {
   }
 
   return (
-    <Modal onClose={props.onClose} width="80vw" height="90vh">
+    <Modal onClose={props.onClose} width="80vw">
       <form className={classes.addDataForm}>
         <section className={classes.section__input}>
           <section className={classes.container__input}>

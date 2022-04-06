@@ -12,7 +12,7 @@ import mark11 from '../imgs/Marks/신의주.png';
 import mark12 from '../imgs/Marks/함흥.png';
 import mark13 from '../imgs/Marks/원산.png';
 
-const delayStart = 1000;
+const delayStart = 800;
 const delayInterval = 100;
 
 export const marksData = [
