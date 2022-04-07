@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 
 import Header from '../UI/Header/Header';
 import SignIn from './SignIn';
-import DataList from './DataList';
+import DataList from './DataTable/DataList';
 
 const DataManager = () => {
   const [isSignIn, setIsSignIn] = useState(false);

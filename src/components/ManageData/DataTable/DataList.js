@@ -2,18 +2,22 @@ import { useState } from 'react';
 
 import DataManagePanel from './DataManagePanel';
 import CityItemData from './CityItemData';
-import AddDataModal from './DataModals/AddDataModal';
-import EditDataModal from './DataModals/EditDataModal';
-import RemoveDataModal from './DataModals/RemoveDataModal';
+import AddDataModal from '../DataModals/AddDataModal';
+import EditDataModal from '../DataModals/EditDataModal';
+import RemoveDataModal from '../DataModals/RemoveDataModal';
+import AddImageModal from '../DataModals/AddImageModal';
+import RemoveImageModal from '../DataModals/RemoveImageModal';
 import classes from './DataList.module.css';
 
-import cityIdData from '../../data/cityIdData';
-import cityNameData from '../../data/cityNameData';
+import cityIdData from '../../../data/cityIdData';
+import cityNameData from '../../../data/cityNameData';
 
 const DataList = () => {
   const [isAddModalOpened, setIsAddModalOpened] = useState(false);
   const [isEditModalOpened, setIsEditModalOpened] = useState(false);
   const [isRemoveModalOpened, setIsRemoveModalOpened] = useState(false);
+  const [isImgAddModalOpened, setIsImgAddModalOpened] = useState(false);
+  const [isImgRemoveModalOpened, setIsImgRemoveModalOpened] = useState(false);
 
   const cityList = [];
   for (let i = 0; i < cityIdData.length; i++) {
@@ -36,6 +40,8 @@ const DataList = () => {
           onAddClick={setIsAddModalOpened}
           onEditClick={setIsEditModalOpened}
           onRemoveClick={setIsRemoveModalOpened}
+          onImgAddClick={setIsImgAddModalOpened}
+          onImgRemoveClick={setIsImgRemoveModalOpened}
         />
       </div>
       { 
@@ -55,6 +61,18 @@ const DataList = () => {
             <RemoveDataModal
               onClose={() => { setIsRemoveModalOpened(false) }}
             ></RemoveDataModal> : "" 
+        }
+        { 
+          isImgAddModalOpened ? 
+            <AddImageModal
+              onClose={() => { setIsImgAddModalOpened(false) }}
+            ></AddImageModal> : "" 
+        }
+        { 
+          isImgRemoveModalOpened ? 
+            <RemoveImageModal
+              onClose={() => { setIsImgRemoveModalOpened(false) }}
+            ></RemoveImageModal> : "" 
         }
     </section>
   );

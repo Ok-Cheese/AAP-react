@@ -4,8 +4,8 @@ import Modal from '../../UI/Modal';
 import DataModalInput from './DataModalInput';
 import classes from './EditDataModal.module.css';
 
-import { getData, writeData } from '../../../modules/firebase_RealTimeDB';
-import warningContext from '../../../context/warningContext';
+import { getData, writeData } from '../../../modules/firebase';
+import noticeContext from '../../../context/noticeContext';
 import cityIdData from '../../../data/cityIdData';
 
 function itemDataReducer(state, action) {
@@ -45,7 +45,7 @@ const EditDataModal = (props) => {
     desc: "",
   });
 
-  const warningContextValue = useContext(warningContext);
+  const noticeContextValue = useContext(noticeContext);
 
   function onAddSubmitHandler(event) {
     event.preventDefault();
@@ -55,23 +55,23 @@ const EditDataModal = (props) => {
 
     // 1. 필수 입력값 확인
     if (itemData.name.trim() === "") {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 이름입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setNoticeMessage('잘못된 이름입니다.');
       return;
     } else if (itemData.latitude.trim() === "" || isNaN(latitude__number) || latitude__number < 33 || latitude__number > 43) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 위치(Latitude)입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setWarningText('잘못된 위치(Latitude)입니다.');
       return;
     } else if (itemData.longitude.trim() === "" || isNaN(longitude__number) || longitude__number < 124 || longitude__number > 132) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 위치(Longitude)입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setWarningText('잘못된 위치(Longitude)입니다.');
       return;
     }
 
     writeData(`/cityItems/${itemData.cityId}/items/${itemData.id}`, itemData);
 
-    warningContextValue.setIsWarningModalOn(true);
-    warningContextValue.setWarningText(`${itemData.name}(${itemData.cityId}:${itemData.id})\n수정이 완료되었습니다.`);
+    noticeContextValue.setIsNoticeModalOpen(true);
+    noticeContextValue.setWarningText(`${itemData.name}(${itemData.cityId}:${itemData.id})\n수정이 완료되었습니다.`);
 
     setIsIdReceived(false);
 
@@ -82,14 +82,14 @@ const EditDataModal = (props) => {
     event.preventDefault();
 
     if (!cityIdData.includes(itemData.cityId)) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 City ID입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setWarningText('잘못된 City ID입니다.');
       return;
     }
 
     if (!await getData(`/cityItems/${itemData.cityId}/items/${itemData.id}`)) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('존재하지 않는 ID입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setWarningText('존재하지 않는 ID입니다.');
       return;
     }
 

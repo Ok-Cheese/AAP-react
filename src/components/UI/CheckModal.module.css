@@ -1,4 +1,4 @@
-.warningMessage {
+.message {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 5vh;
@@ -7,9 +7,16 @@
   white-space: pre;
 }
 
-.closeButton {
+.container__button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.button {
   width: 100px;
   height: 40px;
   font-size: 1rem;
   font-weight: bold;
+  margin: 0 1vw;
 }

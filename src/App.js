@@ -6,20 +6,20 @@ import About from './components/About/About.js';
 import Marks from './components/Marks/Marks.js';
 import Archive from './components/Archive/Archive.js';
 import DataManager from './components/ManageData/DataManager.js';
-import WarningModal from './components/UI/WarningModal';
+import NoticeModal from './components/UI/NoticeModal';
 import './App.css';
 
-import warningContext from './context/warningContext';
+import noticeContext from './context/noticeContext';
 
 const App = () => {
-  const [isWarningModalOn, setIsWarningModalOn] = useState(false);
-  const [warningText, setWarningText] = useState("");
+  const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
+  const [noticeMessage, setNoticeMessage] = useState("wait");
 
-  const warningContextValue = {
-    isWarningModalOn,
-    warningText,
-    setIsWarningModalOn,
-    setWarningText
+  const noticeContextValue = {
+    isNoticeModalOpen,
+    noticeMessage,
+    setIsNoticeModalOpen,
+    setNoticeMessage,
   }
 
   return (
@@ -38,13 +38,13 @@ const App = () => {
           <Archive></Archive>
         } />
         <Route path="/dataControl" element={
-          <warningContext.Provider value={warningContextValue}>
-            {
-              isWarningModalOn ?
-                <WarningModal></WarningModal> : ""
-            }
+          <noticeContext.Provider value={noticeContextValue}>
             <DataManager></DataManager>
-          </warningContext.Provider>
+            {
+              isNoticeModalOpen ?
+              <NoticeModal></NoticeModal> : ""
+            }
+          </noticeContext.Provider>
         } />
       </Routes>
     </Router>

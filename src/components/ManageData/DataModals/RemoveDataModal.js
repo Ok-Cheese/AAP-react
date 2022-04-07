@@ -3,8 +3,8 @@ import { useContext, useState } from "react";
 import Modal from "../../UI/Modal";
 import classes from './RemoveDataModal.module.css';
 
-import { getData, removeData } from "../../../modules/firebase_RealTimeDB";
-import warningContext from "../../../context/warningContext";
+import { getData, removeData } from "../../../modules/firebase";
+import noticeContext from "../../../context/noticeContext";
 import cityIdData from "../../../data/cityIdData";
 
 
@@ -12,14 +12,15 @@ const RemoveDataModal = (props) => {
   const [itemId, setItemId] = useState("");
   const [itemCityId, setItemCityId] = useState("");
 
-  const warningContextValue = useContext(warningContext);
+  const noticeContextValue = useContext(noticeContext);
 
   async function onRemoveHandler(event) {
     event.preventDefault();
     
     if (!cityIdData.includes(itemCityId)) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 City ID입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setNoticeMessage('잘못된 City ID입니다.');
+      noticeContextValue.setNoticeType('notice');
       return;
     }
 
@@ -27,14 +28,16 @@ const RemoveDataModal = (props) => {
     const itemName = loadedCityData ? loadedCityData.name : "";
 
     if (!loadedCityData) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('존재하지 않는 ID입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setNoticeMessage('존재하지 않는 ID입니다.');
+      noticeContextValue.setNoticeType('notice');
       return;
     }
 
     removeData(`/cityItems/${itemCityId}/items/${itemId}`);
-    warningContextValue.setIsWarningModalOn(true);
-    warningContextValue.setWarningText(`${itemName}(${itemCityId}:${itemId})\n삭제되었습니다.`);
+    noticeContextValue.setIsNoticeModalOpen(true);
+    noticeContextValue.setNoticeMessage(`${itemName}(${itemCityId}:${itemId})\n삭제되었습니다.`);
+    noticeContextValue.setNoticeType('notice');
     props.onClose();
   }
   return (

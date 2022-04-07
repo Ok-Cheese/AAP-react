@@ -4,8 +4,8 @@ import Modal from '../../UI/Modal';
 import DataModalInput from './DataModalInput';
 import classes from './AddDataModal.module.css';
 
-import { getData, writeData } from '../../../modules/firebase_RealTimeDB';
-import warningContext from '../../../context/warningContext';
+import { getData, writeData } from '../../../modules/firebase';
+import noticeContext from '../../../context/noticeContext';
 import cityIdData from '../../../data/cityIdData';
 
 function itemDataReducer(state, action) {
@@ -39,7 +39,7 @@ const AddDataModal = (props) => {
     heritage: "",    
   });
 
-  const warningContextValue = useContext(warningContext);
+  const noticeContextValue = useContext(noticeContext);
 
   async function onAddSubmitHandler(event) {
     event.preventDefault();
@@ -55,8 +55,8 @@ const AddDataModal = (props) => {
   
         for (let key of currentCityItemData_keys) {
           if (key === itemData.id) {
-            warningContextValue.setIsWarningModalOn(true);
-            warningContextValue.setWarningText('이미 존재하는 ID입니다.');
+            noticeContextValue.setIsNoticeModalOpen(true);
+            noticeContextValue.setNoticeMessage('이미 존재하는 ID입니다.');
             return;
           }
         }
@@ -68,31 +68,31 @@ const AddDataModal = (props) => {
 
     // 2. 필수 입력값 확인
     if (itemData.id.trim() === "") {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 ID입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setNoticeMessage('잘못된 ID입니다.');
       return;
     } else if (!cityIdData.includes(itemData.cityId.trim())) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 City ID입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setNoticeMessage('잘못된 City ID입니다.');
       return;
     } else if (itemData.name.trim() === "") {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 이름입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setNoticeMessage('잘못된 이름입니다.');
       return;
     } else if (itemData.latitude.trim() === "" || isNaN(latitude__number) || latitude__number < 33 || latitude__number > 43) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 위치(Latitude)입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setNoticeMessage('잘못된 위치(Latitude)입니다.');
       return;
     } else if (itemData.longitude.trim() === "" || isNaN(longitude__number) || longitude__number < 124 || longitude__number > 132) {
-      warningContextValue.setIsWarningModalOn(true);
-      warningContextValue.setWarningText('잘못된 위치(Longitude)입니다.');
+      noticeContextValue.setIsNoticeModalOpen(true);
+      noticeContextValue.setNoticeMessage('잘못된 위치(Longitude)입니다.');
       return;
     }
 
     writeData(`/cityItems/${itemData.cityId}/items/${itemData.id}`, itemData);
 
-    warningContextValue.setIsWarningModalOn(true);
-    warningContextValue.setWarningText(`${itemData.name}(${itemData.cityId}:${itemData.id})\n등록이 완료되었습니다.`);
+    noticeContextValue.setIsNoticeModalOpen(true);
+    noticeContextValue.setNoticeMessage(`${itemData.name}(${itemData.cityId}:${itemData.id})\n등록이 완료되었습니다.`);
 
     props.onClose();
   }
