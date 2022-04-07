@@ -14,7 +14,9 @@ const Marks = () => {
       setIsMarkLoaded(true);
     }, markLoadDoneTime);
 
-    return clearTimeout(displayNameTimer);
+    return (() => {
+      clearTimeout(displayNameTimer);
+    });
   }, []);
 
   const marks = marksData.map(data => {
